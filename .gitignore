@@ -1,9 +1,16 @@
-__pycache__/
-*.pt
-*.log
-data/
-logs/
-output/
+# === 不能传的 ===
+configs/data_collection.yaml          # 含 API Key
+*.key
+*.env
 .env
-.DS_Store
 
+# === 不用的缓存 ===
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# === 大日志（可选）===
+logs/
+*.log

@@ -1,0 +1,89 @@
+scan_config:
+  rate_limit: 5  # 每秒请求数（免费版限制为5次/秒）
+  retry_attempts: 3
+  retry_delay: 2
+  
+
+  chains:
+    ethereum:
+      api_url: "https://api.etherscan.io/v2/api"
+      api_key: "key1,key2,key3"  # 从 https://etherscan.io/myapikey 获取
+      explorer_url: "https://etherscan.io"
+      note: "Free: 5 req/sec, 100k req/day"
+    
+    bsc:
+      api_url: "https://api.bscscan.com/api"
+      api_key: "key1,key2,key3" 
+      explorer_url: "https://bscscan.com"
+      note: "Free: 5 req/sec, 100k req/day | Same key as Etherscan"
+    
+    polygon:
+      api_url: "https://api.polygonscan.com/api"
+      api_key: "key1,key2,key3"  
+      explorer_url: "https://polygonscan.com"
+      note: "Free: 5 req/sec, 100k req/day | Same key as Etherscan"
+    
+    avalanche:
+      api_url: "https://api.snowtrace.io/api"
+      api_key: "key1,key2,key3"  
+      explorer_url: "https://snowtrace.io"
+      note: "Free: 5 req/sec | May need separate key"
+
+# GitHub 配置（用于 SPC 数据收集）
+github:
+  token: "key"  
+  rate_limit: 30  
+  
+  search_keywords:
+    - "fix reentrancy"
+    - "patch overflow"
+    - "fix vulnerability"
+    - "security patch"
+    - "fix integer overflow"
+    - "patch access control"
+  
+  target_repos:
+    - "OpenZeppelin/openzeppelin-contracts"
+    - "ConsenSys/mythril"
+    - "crytic/not-so-smart-contracts"
+    - "ethereum/dapp-bin"
+  
+  file_extensions:
+    - ".sol"
+  
+  # Commit 消息模式
+  commit_patterns:
+    - "(?i)fix.*vulnerability"
+    - "(?i)patch.*bug"
+    - "(?i)security.*fix"
+    - "(?i)CVE-\\d{4}-\\d+"
+
+# 数据收集配置
+collection:
+  # Etherscan 合约收集
+  etherscan:
+    target_count: 10000  # 目标收集数量
+    start_block: 0
+    end_block: "latest"
+    min_contract_size: 100  # 最小代码行数
+    max_contract_size: 5000  # 最大代码行数
+    
+  # SPC 样本收集
+  spc:
+    target_pairs: 500  # Bootstrap 阶段目标
+    min_similarity: 0.7  # 最小语义相似度
+    max_similarity: 0.95  # 最大语义相似度（太相似可能是重复）
+    
+# 输出路径
+output:
+  etherscan_raw: "data/etherscan/raw"
+  etherscan_processed: "data/etherscan/processed"
+  spc_raw: "data/spc_data/raw"
+  spc_annotated: "data/spc_data/annotated"
+  logs: "logs"
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/data_collection.log"

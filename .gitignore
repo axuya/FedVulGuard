@@ -13,4 +13,4 @@ venv/
 
 # === 大日志（可选）===
 logs/
-*.log
+*.log*.json

@@ -1,0 +1,388 @@
+{
+  "contract_id": "solidifi_etherstore",
+  "metadata": {
+    "sloc": 25,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "EtherStore",
+        "id": "solidifi_etherstore_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "depositFunds",
+        "visibility": "public",
+        "id": "solidifi_etherstore_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_etherstore_stmt_2"
+      },
+      {
+        "node_type": "function",
+        "name": "withdrawFunds",
+        "visibility": "public",
+        "id": "solidifi_etherstore_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] >= _weiToWithdraw);",
+        "id": "solidifi_etherstore_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the withdrawal",
+        "id": "solidifi_etherstore_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_weiToWithdraw <= withdrawalLimit);",
+        "id": "solidifi_etherstore_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the time allowed to withdraw",
+        "id": "solidifi_etherstore_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now >= lastWithdrawTime[msg.sender] + 1 weeks);",
+        "id": "solidifi_etherstore_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, bytes memory data) = msg.sender.call.value(_weiToWithdraw)(\"\");",
+        "id": "solidifi_etherstore_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "solidifi_etherstore_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _weiToWithdraw;",
+        "id": "solidifi_etherstore_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastWithdrawTime[msg.sender] = now;",
+        "id": "solidifi_etherstore_stmt_12"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_contract_0",
+        "target": "solidifi_etherstore_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_contract_0",
+        "target": "solidifi_etherstore_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_1",
+        "target": "solidifi_etherstore_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_etherstore_func_3",
+        "target": "solidifi_etherstore_stmt_12"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "depositFunds",
+        "id": "solidifi_etherstore_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_etherstore_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdrawFunds",
+        "id": "solidifi_etherstore_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] >= _weiToWithdraw);",
+        "id": "solidifi_etherstore_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the withdrawal",
+        "id": "solidifi_etherstore_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_weiToWithdraw <= withdrawalLimit);",
+        "id": "solidifi_etherstore_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the time allowed to withdraw",
+        "id": "solidifi_etherstore_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now >= lastWithdrawTime[msg.sender] + 1 we",
+        "id": "solidifi_etherstore_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, bytes memory data) = msg.sender.cal",
+        "id": "solidifi_etherstore_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "solidifi_etherstore_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _weiToWithdraw;",
+        "id": "solidifi_etherstore_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastWithdrawTime[msg.sender] = now;",
+        "id": "solidifi_etherstore_cfg_11"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_entry_0",
+        "target": "solidifi_etherstore_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_entry_2",
+        "target": "solidifi_etherstore_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_3",
+        "target": "solidifi_etherstore_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_4",
+        "target": "solidifi_etherstore_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_5",
+        "target": "solidifi_etherstore_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_6",
+        "target": "solidifi_etherstore_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_7",
+        "target": "solidifi_etherstore_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_8",
+        "target": "solidifi_etherstore_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_9",
+        "target": "solidifi_etherstore_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_10",
+        "target": "solidifi_etherstore_cfg_11"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "depositFunds",
+        "id": "solidifi_etherstore_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_etherstore_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdrawFunds",
+        "id": "solidifi_etherstore_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] >= _weiToWithdraw);",
+        "id": "solidifi_etherstore_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the withdrawal",
+        "id": "solidifi_etherstore_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_weiToWithdraw <= withdrawalLimit);",
+        "id": "solidifi_etherstore_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// limit the time allowed to withdraw",
+        "id": "solidifi_etherstore_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now >= lastWithdrawTime[msg.sender] + 1 we",
+        "id": "solidifi_etherstore_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, bytes memory data) = msg.sender.cal",
+        "id": "solidifi_etherstore_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "solidifi_etherstore_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _weiToWithdraw;",
+        "id": "solidifi_etherstore_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastWithdrawTime[msg.sender] = now;",
+        "id": "solidifi_etherstore_cfg_11"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_entry_0",
+        "target": "solidifi_etherstore_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_entry_2",
+        "target": "solidifi_etherstore_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_3",
+        "target": "solidifi_etherstore_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_4",
+        "target": "solidifi_etherstore_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_5",
+        "target": "solidifi_etherstore_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_6",
+        "target": "solidifi_etherstore_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_7",
+        "target": "solidifi_etherstore_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_8",
+        "target": "solidifi_etherstore_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_9",
+        "target": "solidifi_etherstore_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_etherstore_cfg_10",
+        "target": "solidifi_etherstore_cfg_11"
+      }
+    ]
+  }
+}

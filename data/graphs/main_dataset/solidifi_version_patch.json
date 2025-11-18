@@ -1,0 +1,194 @@
+{
+  "contract_id": "solidifi_version_patch",
+  "metadata": {
+    "sloc": 22,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "EtherWallet",
+        "id": "solidifi_version_patch_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "withdraw",
+        "visibility": "external",
+        "id": "solidifi_version_patch_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender == owner, \"caller is not owner\");",
+        "id": "solidifi_version_patch_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(_amount);",
+        "id": "solidifi_version_patch_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "getBalance",
+        "visibility": "external",
+        "id": "solidifi_version_patch_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "return address(this).balance;",
+        "id": "solidifi_version_patch_stmt_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_version_patch_contract_0",
+        "target": "solidifi_version_patch_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_version_patch_contract_0",
+        "target": "solidifi_version_patch_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_version_patch_func_1",
+        "target": "solidifi_version_patch_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_version_patch_func_1",
+        "target": "solidifi_version_patch_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_version_patch_func_4",
+        "target": "solidifi_version_patch_stmt_5"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_version_patch_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender == owner, \"caller is not owner\"",
+        "id": "solidifi_version_patch_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(_amount);",
+        "id": "solidifi_version_patch_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "solidifi_version_patch_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_version_patch_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_version_patch_cfg_exit_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_entry_0",
+        "target": "solidifi_version_patch_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_1",
+        "target": "solidifi_version_patch_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_entry_3",
+        "target": "solidifi_version_patch_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_4",
+        "target": "solidifi_version_patch_cfg_exit_5"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_version_patch_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender == owner, \"caller is not owner\"",
+        "id": "solidifi_version_patch_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(_amount);",
+        "id": "solidifi_version_patch_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "solidifi_version_patch_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_version_patch_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_version_patch_cfg_exit_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_entry_0",
+        "target": "solidifi_version_patch_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_1",
+        "target": "solidifi_version_patch_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_entry_3",
+        "target": "solidifi_version_patch_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_version_patch_cfg_4",
+        "target": "solidifi_version_patch_cfg_exit_5"
+      }
+    ]
+  }
+}

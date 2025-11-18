@@ -1,0 +1,294 @@
+{
+  "contract_id": "solidifi_overflow",
+  "metadata": {
+    "sloc": 24,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Over",
+        "id": "solidifi_overflow_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_overflow_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "sendeth",
+        "visibility": "public",
+        "id": "solidifi_overflow_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] - _value >= 0);",
+        "id": "solidifi_overflow_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _value;",
+        "id": "solidifi_overflow_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_to] += _value;",
+        "id": "solidifi_overflow_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "return true;",
+        "id": "solidifi_overflow_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "balanceOf",
+        "visibility": "public",
+        "id": "solidifi_overflow_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "return balances[_owner];",
+        "id": "solidifi_overflow_stmt_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_contract_0",
+        "target": "solidifi_overflow_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_contract_0",
+        "target": "solidifi_overflow_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_contract_0",
+        "target": "solidifi_overflow_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_func_2",
+        "target": "solidifi_overflow_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_func_2",
+        "target": "solidifi_overflow_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_func_2",
+        "target": "solidifi_overflow_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_func_2",
+        "target": "solidifi_overflow_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_overflow_func_7",
+        "target": "solidifi_overflow_stmt_8"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "sendeth",
+        "id": "solidifi_overflow_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] - _value >= 0);",
+        "id": "solidifi_overflow_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _value;",
+        "id": "solidifi_overflow_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_to] += _value;",
+        "id": "solidifi_overflow_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_overflow_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_overflow_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "solidifi_overflow_cfg_entry_6"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_overflow_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_overflow_cfg_exit_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_entry_0",
+        "target": "solidifi_overflow_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_1",
+        "target": "solidifi_overflow_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_2",
+        "target": "solidifi_overflow_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_3",
+        "target": "solidifi_overflow_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_4",
+        "target": "solidifi_overflow_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_entry_6",
+        "target": "solidifi_overflow_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_7",
+        "target": "solidifi_overflow_cfg_exit_8"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_overflow_dfg_var_0"
+      }
+    ],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "sendeth",
+        "id": "solidifi_overflow_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] - _value >= 0);",
+        "id": "solidifi_overflow_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= _value;",
+        "id": "solidifi_overflow_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_to] += _value;",
+        "id": "solidifi_overflow_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_overflow_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_overflow_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "solidifi_overflow_cfg_entry_6"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_overflow_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_overflow_cfg_exit_8"
+      },
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_overflow_dfg_var_0"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_entry_0",
+        "target": "solidifi_overflow_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_1",
+        "target": "solidifi_overflow_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_2",
+        "target": "solidifi_overflow_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_3",
+        "target": "solidifi_overflow_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_4",
+        "target": "solidifi_overflow_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_entry_6",
+        "target": "solidifi_overflow_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_overflow_cfg_7",
+        "target": "solidifi_overflow_cfg_exit_8"
+      }
+    ]
+  }
+}

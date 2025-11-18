@@ -1,0 +1,187 @@
+{
+  "contract_id": "solidifi_flag_array",
+  "metadata": {
+    "sloc": 17,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "BasicLiquidation",
+        "id": "solidifi_flag_array_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "extractMoney",
+        "visibility": "public",
+        "id": "solidifi_flag_array_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx >= 0);",
+        "id": "solidifi_flag_array_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx < 4096);",
+        "id": "solidifi_flag_array_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_flags[idx]);",
+        "id": "solidifi_flag_array_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(address(this).balance);",
+        "id": "solidifi_flag_array_stmt_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_flag_array_contract_0",
+        "target": "solidifi_flag_array_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_flag_array_func_1",
+        "target": "solidifi_flag_array_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_flag_array_func_1",
+        "target": "solidifi_flag_array_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_flag_array_func_1",
+        "target": "solidifi_flag_array_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_flag_array_func_1",
+        "target": "solidifi_flag_array_stmt_5"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "extractMoney",
+        "id": "solidifi_flag_array_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx >= 0);",
+        "id": "solidifi_flag_array_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx < 4096);",
+        "id": "solidifi_flag_array_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_flags[idx]);",
+        "id": "solidifi_flag_array_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(address(this).balance",
+        "id": "solidifi_flag_array_cfg_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_entry_0",
+        "target": "solidifi_flag_array_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_1",
+        "target": "solidifi_flag_array_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_2",
+        "target": "solidifi_flag_array_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_3",
+        "target": "solidifi_flag_array_cfg_4"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "extractMoney",
+        "id": "solidifi_flag_array_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx >= 0);",
+        "id": "solidifi_flag_array_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(idx < 4096);",
+        "id": "solidifi_flag_array_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_flags[idx]);",
+        "id": "solidifi_flag_array_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(address(this).balance",
+        "id": "solidifi_flag_array_cfg_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_entry_0",
+        "target": "solidifi_flag_array_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_1",
+        "target": "solidifi_flag_array_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_2",
+        "target": "solidifi_flag_array_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_flag_array_cfg_3",
+        "target": "solidifi_flag_array_cfg_4"
+      }
+    ]
+  }
+}

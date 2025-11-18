@@ -1,0 +1,212 @@
+{
+  "contract_id": "solidifi_multiple_example",
+  "metadata": {
+    "sloc": 26,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Example1",
+        "id": "solidifi_multiple_example_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "init",
+        "visibility": "public",
+        "id": "solidifi_multiple_example_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "initialized = 1;",
+        "id": "solidifi_multiple_example_stmt_2"
+      },
+      {
+        "node_type": "function",
+        "name": "run",
+        "visibility": "public",
+        "id": "solidifi_multiple_example_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (val == 3) {",
+        "id": "solidifi_multiple_example_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "count += input;",
+        "id": "solidifi_multiple_example_stmt_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_multiple_example_contract_0",
+        "target": "solidifi_multiple_example_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_multiple_example_contract_0",
+        "target": "solidifi_multiple_example_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_multiple_example_func_1",
+        "target": "solidifi_multiple_example_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_multiple_example_func_3",
+        "target": "solidifi_multiple_example_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_multiple_example_func_3",
+        "target": "solidifi_multiple_example_stmt_5"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "init",
+        "id": "solidifi_multiple_example_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "initialized = 1;",
+        "id": "solidifi_multiple_example_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "run",
+        "id": "solidifi_multiple_example_cfg_entry_2"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_multiple_example_cfg_3"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_multiple_example_cfg_4"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_multiple_example_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "count += input;",
+        "id": "solidifi_multiple_example_cfg_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_entry_0",
+        "target": "solidifi_multiple_example_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_entry_2",
+        "target": "solidifi_multiple_example_cfg_3"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_multiple_example_cfg_3",
+        "target": "solidifi_multiple_example_cfg_4"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_multiple_example_cfg_3",
+        "target": "solidifi_multiple_example_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_4",
+        "target": "solidifi_multiple_example_cfg_6"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "init",
+        "id": "solidifi_multiple_example_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "initialized = 1;",
+        "id": "solidifi_multiple_example_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "run",
+        "id": "solidifi_multiple_example_cfg_entry_2"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_multiple_example_cfg_3"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_multiple_example_cfg_4"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_multiple_example_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "count += input;",
+        "id": "solidifi_multiple_example_cfg_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_entry_0",
+        "target": "solidifi_multiple_example_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_entry_2",
+        "target": "solidifi_multiple_example_cfg_3"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_multiple_example_cfg_3",
+        "target": "solidifi_multiple_example_cfg_4"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_multiple_example_cfg_3",
+        "target": "solidifi_multiple_example_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_multiple_example_cfg_4",
+        "target": "solidifi_multiple_example_cfg_6"
+      }
+    ]
+  }
+}

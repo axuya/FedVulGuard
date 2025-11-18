@@ -1,0 +1,983 @@
+{
+  "contract_id": "solidifi_SecureVault",
+  "metadata": {
+    "sloc": 120,
+    "num_functions": 11
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Context",
+        "id": "solidifi_SecureVault_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "_owner",
+        "var_type": "address",
+        "id": "solidifi_SecureVault_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "_msgSender",
+        "visibility": "internal",
+        "id": "solidifi_SecureVault_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "return msg.sender;",
+        "id": "solidifi_SecureVault_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "_msgData",
+        "visibility": "internal",
+        "id": "solidifi_SecureVault_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "return msg.data;",
+        "id": "solidifi_SecureVault_stmt_5"
+      },
+      {
+        "node_type": "function",
+        "name": "owner",
+        "visibility": "public",
+        "id": "solidifi_SecureVault_func_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "return _owner;",
+        "id": "solidifi_SecureVault_stmt_7"
+      },
+      {
+        "node_type": "function",
+        "name": "_checkOwner",
+        "visibility": "internal",
+        "id": "solidifi_SecureVault_func_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (owner() != _msgSender()) {",
+        "id": "solidifi_SecureVault_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableUnauthorizedAccount(_msgSender());",
+        "id": "solidifi_SecureVault_stmt_10"
+      },
+      {
+        "node_type": "function",
+        "name": "renounceOwnership",
+        "visibility": "public",
+        "id": "solidifi_SecureVault_func_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "_transferOwnership(address(0));",
+        "id": "solidifi_SecureVault_stmt_12"
+      },
+      {
+        "node_type": "function",
+        "name": "transferOwnership",
+        "visibility": "public",
+        "id": "solidifi_SecureVault_func_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (newOwner == address(0)) {",
+        "id": "solidifi_SecureVault_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableInvalidOwner(address(0));",
+        "id": "solidifi_SecureVault_stmt_15"
+      },
+      {
+        "node_type": "function",
+        "name": "_transferOwnership",
+        "visibility": "internal",
+        "id": "solidifi_SecureVault_func_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "address oldOwner = _owner;",
+        "id": "solidifi_SecureVault_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "_owner = newOwner;",
+        "id": "solidifi_SecureVault_stmt_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit OwnershipTransferred(oldOwner, newOwner);",
+        "id": "solidifi_SecureVault_stmt_19"
+      },
+      {
+        "node_type": "function",
+        "name": "deposit",
+        "visibility": "external",
+        "id": "solidifi_SecureVault_func_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.value > 0, \"Cannot deposit 0 Ether\");",
+        "id": "solidifi_SecureVault_stmt_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Deposit(_msgSender(), msg.value);",
+        "id": "solidifi_SecureVault_stmt_22"
+      },
+      {
+        "node_type": "function",
+        "name": "withdraw",
+        "visibility": "external",
+        "id": "solidifi_SecureVault_func_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(address(this).balance >= amount, \"Insufficient balance to withdraw\");",
+        "id": "solidifi_SecureVault_stmt_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(owner()).transfer(amount);",
+        "id": "solidifi_SecureVault_stmt_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Withdrawal(owner(), amount);",
+        "id": "solidifi_SecureVault_stmt_26"
+      },
+      {
+        "node_type": "function",
+        "name": "getBalance",
+        "visibility": "external",
+        "id": "solidifi_SecureVault_func_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "return address(this).balance;",
+        "id": "solidifi_SecureVault_stmt_28"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_contract_0",
+        "target": "solidifi_SecureVault_func_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_2",
+        "target": "solidifi_SecureVault_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_4",
+        "target": "solidifi_SecureVault_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_6",
+        "target": "solidifi_SecureVault_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_8",
+        "target": "solidifi_SecureVault_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_8",
+        "target": "solidifi_SecureVault_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_11",
+        "target": "solidifi_SecureVault_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_13",
+        "target": "solidifi_SecureVault_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_13",
+        "target": "solidifi_SecureVault_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_16",
+        "target": "solidifi_SecureVault_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_16",
+        "target": "solidifi_SecureVault_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_16",
+        "target": "solidifi_SecureVault_stmt_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_20",
+        "target": "solidifi_SecureVault_stmt_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_20",
+        "target": "solidifi_SecureVault_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_23",
+        "target": "solidifi_SecureVault_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_23",
+        "target": "solidifi_SecureVault_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_23",
+        "target": "solidifi_SecureVault_stmt_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SecureVault_func_27",
+        "target": "solidifi_SecureVault_stmt_28"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "_msgSender",
+        "id": "solidifi_SecureVault_cfg_entry_0"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_1"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "_msgData",
+        "id": "solidifi_SecureVault_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "owner",
+        "id": "solidifi_SecureVault_cfg_entry_6"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "_checkOwner",
+        "id": "solidifi_SecureVault_cfg_entry_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_SecureVault_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_SecureVault_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_SecureVault_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableUnauthorizedAccount(_msgSender());",
+        "id": "solidifi_SecureVault_cfg_13"
+      },
+      {
+        "node_type": "entry",
+        "function": "renounceOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "_transferOwnership(address(0));",
+        "id": "solidifi_SecureVault_cfg_15"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_16"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_SecureVault_cfg_17"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_SecureVault_cfg_18"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_SecureVault_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableInvalidOwner(address(0));",
+        "id": "solidifi_SecureVault_cfg_20"
+      },
+      {
+        "node_type": "entry",
+        "function": "_transferOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "address oldOwner = _owner;",
+        "id": "solidifi_SecureVault_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "_owner = newOwner;",
+        "id": "solidifi_SecureVault_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit OwnershipTransferred(oldOwner, newOwner);",
+        "id": "solidifi_SecureVault_cfg_24"
+      },
+      {
+        "node_type": "entry",
+        "function": "deposit",
+        "id": "solidifi_SecureVault_cfg_entry_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.value > 0, \"Cannot deposit 0 Ether\");",
+        "id": "solidifi_SecureVault_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Deposit(_msgSender(), msg.value);",
+        "id": "solidifi_SecureVault_cfg_27"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_SecureVault_cfg_entry_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(address(this).balance >= amount, \"Insuffic",
+        "id": "solidifi_SecureVault_cfg_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(owner()).transfer(amount);",
+        "id": "solidifi_SecureVault_cfg_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Withdrawal(owner(), amount);",
+        "id": "solidifi_SecureVault_cfg_31"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "solidifi_SecureVault_cfg_entry_32"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_33"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_34"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_0",
+        "target": "solidifi_SecureVault_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_1",
+        "target": "solidifi_SecureVault_cfg_exit_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_3",
+        "target": "solidifi_SecureVault_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_4",
+        "target": "solidifi_SecureVault_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_6",
+        "target": "solidifi_SecureVault_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_7",
+        "target": "solidifi_SecureVault_cfg_exit_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_9",
+        "target": "solidifi_SecureVault_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_SecureVault_cfg_10",
+        "target": "solidifi_SecureVault_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_SecureVault_cfg_10",
+        "target": "solidifi_SecureVault_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_11",
+        "target": "solidifi_SecureVault_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_14",
+        "target": "solidifi_SecureVault_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_16",
+        "target": "solidifi_SecureVault_cfg_17"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_SecureVault_cfg_17",
+        "target": "solidifi_SecureVault_cfg_18"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_SecureVault_cfg_17",
+        "target": "solidifi_SecureVault_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_18",
+        "target": "solidifi_SecureVault_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_21",
+        "target": "solidifi_SecureVault_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_22",
+        "target": "solidifi_SecureVault_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_23",
+        "target": "solidifi_SecureVault_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_25",
+        "target": "solidifi_SecureVault_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_26",
+        "target": "solidifi_SecureVault_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_28",
+        "target": "solidifi_SecureVault_cfg_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_29",
+        "target": "solidifi_SecureVault_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_30",
+        "target": "solidifi_SecureVault_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_32",
+        "target": "solidifi_SecureVault_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_33",
+        "target": "solidifi_SecureVault_cfg_exit_34"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "_owner",
+        "var_type": "address",
+        "id": "solidifi_SecureVault_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_write_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_var_0",
+        "target": "solidifi_SecureVault_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_var_0",
+        "target": "solidifi_SecureVault_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_write_3",
+        "target": "solidifi_SecureVault_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "_msgSender",
+        "id": "solidifi_SecureVault_cfg_entry_0"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_1"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "_msgData",
+        "id": "solidifi_SecureVault_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "owner",
+        "id": "solidifi_SecureVault_cfg_entry_6"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "_checkOwner",
+        "id": "solidifi_SecureVault_cfg_entry_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_SecureVault_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_SecureVault_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_SecureVault_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableUnauthorizedAccount(_msgSender());",
+        "id": "solidifi_SecureVault_cfg_13"
+      },
+      {
+        "node_type": "entry",
+        "function": "renounceOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "_transferOwnership(address(0));",
+        "id": "solidifi_SecureVault_cfg_15"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_16"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_SecureVault_cfg_17"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_SecureVault_cfg_18"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_SecureVault_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "revert OwnableInvalidOwner(address(0));",
+        "id": "solidifi_SecureVault_cfg_20"
+      },
+      {
+        "node_type": "entry",
+        "function": "_transferOwnership",
+        "id": "solidifi_SecureVault_cfg_entry_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "address oldOwner = _owner;",
+        "id": "solidifi_SecureVault_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "_owner = newOwner;",
+        "id": "solidifi_SecureVault_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit OwnershipTransferred(oldOwner, newOwner);",
+        "id": "solidifi_SecureVault_cfg_24"
+      },
+      {
+        "node_type": "entry",
+        "function": "deposit",
+        "id": "solidifi_SecureVault_cfg_entry_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.value > 0, \"Cannot deposit 0 Ether\");",
+        "id": "solidifi_SecureVault_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Deposit(_msgSender(), msg.value);",
+        "id": "solidifi_SecureVault_cfg_27"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_SecureVault_cfg_entry_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(address(this).balance >= amount, \"Insuffic",
+        "id": "solidifi_SecureVault_cfg_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(owner()).transfer(amount);",
+        "id": "solidifi_SecureVault_cfg_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Withdrawal(owner(), amount);",
+        "id": "solidifi_SecureVault_cfg_31"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "solidifi_SecureVault_cfg_entry_32"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_SecureVault_cfg_33"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_SecureVault_cfg_exit_34"
+      },
+      {
+        "node_type": "variable",
+        "name": "_owner",
+        "var_type": "address",
+        "id": "solidifi_SecureVault_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "_owner",
+        "id": "solidifi_SecureVault_dfg_write_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_0",
+        "target": "solidifi_SecureVault_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_1",
+        "target": "solidifi_SecureVault_cfg_exit_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_3",
+        "target": "solidifi_SecureVault_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_4",
+        "target": "solidifi_SecureVault_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_6",
+        "target": "solidifi_SecureVault_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_7",
+        "target": "solidifi_SecureVault_cfg_exit_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_9",
+        "target": "solidifi_SecureVault_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_SecureVault_cfg_10",
+        "target": "solidifi_SecureVault_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_SecureVault_cfg_10",
+        "target": "solidifi_SecureVault_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_11",
+        "target": "solidifi_SecureVault_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_14",
+        "target": "solidifi_SecureVault_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_16",
+        "target": "solidifi_SecureVault_cfg_17"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_SecureVault_cfg_17",
+        "target": "solidifi_SecureVault_cfg_18"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_SecureVault_cfg_17",
+        "target": "solidifi_SecureVault_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_18",
+        "target": "solidifi_SecureVault_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_21",
+        "target": "solidifi_SecureVault_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_22",
+        "target": "solidifi_SecureVault_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_23",
+        "target": "solidifi_SecureVault_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_25",
+        "target": "solidifi_SecureVault_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_26",
+        "target": "solidifi_SecureVault_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_28",
+        "target": "solidifi_SecureVault_cfg_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_29",
+        "target": "solidifi_SecureVault_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_30",
+        "target": "solidifi_SecureVault_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_entry_32",
+        "target": "solidifi_SecureVault_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SecureVault_cfg_33",
+        "target": "solidifi_SecureVault_cfg_exit_34"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_var_0",
+        "target": "solidifi_SecureVault_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_var_0",
+        "target": "solidifi_SecureVault_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_SecureVault_dfg_write_3",
+        "target": "solidifi_SecureVault_dfg_var_0"
+      }
+    ]
+  }
+}

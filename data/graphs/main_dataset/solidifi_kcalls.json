@@ -1,0 +1,246 @@
+{
+  "contract_id": "solidifi_kcalls",
+  "metadata": {
+    "sloc": 20,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Kcalls",
+        "id": "solidifi_kcalls_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "n",
+        "var_type": "uint",
+        "id": "solidifi_kcalls_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "sender",
+        "var_type": "address",
+        "id": "solidifi_kcalls_var_2"
+      },
+      {
+        "node_type": "function",
+        "name": "callSetN",
+        "visibility": "public",
+        "id": "solidifi_kcalls_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.call(abi.encode(bytes4(keccak256(\"setN(uint256)\")), _n));",
+        "id": "solidifi_kcalls_stmt_4"
+      },
+      {
+        "node_type": "function",
+        "name": "callcodeSetN",
+        "visibility": "public",
+        "id": "solidifi_kcalls_func_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.staticcall(abi.encode(bytes4(keccak256(\"setN(uint256)\")), _n));",
+        "id": "solidifi_kcalls_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "delegatecallSetN",
+        "visibility": "public",
+        "id": "solidifi_kcalls_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.delegatecall(abi.encode(bytes4(keccak256(\"setN(uint256)\")), _n));",
+        "id": "solidifi_kcalls_stmt_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_contract_0",
+        "target": "solidifi_kcalls_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_contract_0",
+        "target": "solidifi_kcalls_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_contract_0",
+        "target": "solidifi_kcalls_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_contract_0",
+        "target": "solidifi_kcalls_func_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_contract_0",
+        "target": "solidifi_kcalls_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_func_3",
+        "target": "solidifi_kcalls_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_func_5",
+        "target": "solidifi_kcalls_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_kcalls_func_7",
+        "target": "solidifi_kcalls_stmt_8"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "callSetN",
+        "id": "solidifi_kcalls_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.call(abi.encode(bytes4(keccak256(\"setN(uint256)",
+        "id": "solidifi_kcalls_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "callcodeSetN",
+        "id": "solidifi_kcalls_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.staticcall(abi.encode(bytes4(keccak256(\"setN(ui",
+        "id": "solidifi_kcalls_cfg_3"
+      },
+      {
+        "node_type": "entry",
+        "function": "delegatecallSetN",
+        "id": "solidifi_kcalls_cfg_entry_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.delegatecall(abi.encode(bytes4(keccak256(\"setN(",
+        "id": "solidifi_kcalls_cfg_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_0",
+        "target": "solidifi_kcalls_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_2",
+        "target": "solidifi_kcalls_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_4",
+        "target": "solidifi_kcalls_cfg_5"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "n",
+        "var_type": "uint",
+        "id": "solidifi_kcalls_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "sender",
+        "var_type": "address",
+        "id": "solidifi_kcalls_dfg_var_1"
+      }
+    ],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "callSetN",
+        "id": "solidifi_kcalls_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.call(abi.encode(bytes4(keccak256(\"setN(uint256)",
+        "id": "solidifi_kcalls_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "callcodeSetN",
+        "id": "solidifi_kcalls_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.staticcall(abi.encode(bytes4(keccak256(\"setN(ui",
+        "id": "solidifi_kcalls_cfg_3"
+      },
+      {
+        "node_type": "entry",
+        "function": "delegatecallSetN",
+        "id": "solidifi_kcalls_cfg_entry_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "_e.delegatecall(abi.encode(bytes4(keccak256(\"setN(",
+        "id": "solidifi_kcalls_cfg_5"
+      },
+      {
+        "node_type": "variable",
+        "name": "n",
+        "var_type": "uint",
+        "id": "solidifi_kcalls_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "sender",
+        "var_type": "address",
+        "id": "solidifi_kcalls_dfg_var_1"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_0",
+        "target": "solidifi_kcalls_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_2",
+        "target": "solidifi_kcalls_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_kcalls_cfg_entry_4",
+        "target": "solidifi_kcalls_cfg_5"
+      }
+    ]
+  }
+}

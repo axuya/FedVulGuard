@@ -1,0 +1,242 @@
+{
+  "contract_id": "solidifi_hashforether",
+  "metadata": {
+    "sloc": 16,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "HashForEther",
+        "id": "solidifi_hashforether_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "withdrawWinnings",
+        "visibility": "public",
+        "id": "solidifi_hashforether_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Winner if the last 8 hex characters of the address are 0.",
+        "id": "solidifi_hashforether_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (uint32(msg.sender) == 0)",
+        "id": "solidifi_hashforether_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "_sendWinnings();",
+        "id": "solidifi_hashforether_stmt_4"
+      },
+      {
+        "node_type": "function",
+        "name": "_sendWinnings",
+        "visibility": "public",
+        "id": "solidifi_hashforether_func_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(address(this).balance);",
+        "id": "solidifi_hashforether_stmt_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_contract_0",
+        "target": "solidifi_hashforether_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_contract_0",
+        "target": "solidifi_hashforether_func_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_func_1",
+        "target": "solidifi_hashforether_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_func_1",
+        "target": "solidifi_hashforether_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_func_1",
+        "target": "solidifi_hashforether_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hashforether_func_5",
+        "target": "solidifi_hashforether_stmt_6"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdrawWinnings",
+        "id": "solidifi_hashforether_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Winner if the last 8 hex characters of the addr",
+        "id": "solidifi_hashforether_cfg_1"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_hashforether_cfg_2"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_hashforether_cfg_3"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_hashforether_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "_sendWinnings();",
+        "id": "solidifi_hashforether_cfg_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "_sendWinnings",
+        "id": "solidifi_hashforether_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(address(this).balance);",
+        "id": "solidifi_hashforether_cfg_7"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_entry_0",
+        "target": "solidifi_hashforether_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_1",
+        "target": "solidifi_hashforether_cfg_2"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_hashforether_cfg_2",
+        "target": "solidifi_hashforether_cfg_3"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_hashforether_cfg_2",
+        "target": "solidifi_hashforether_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_3",
+        "target": "solidifi_hashforether_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_entry_6",
+        "target": "solidifi_hashforether_cfg_7"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdrawWinnings",
+        "id": "solidifi_hashforether_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Winner if the last 8 hex characters of the addr",
+        "id": "solidifi_hashforether_cfg_1"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_hashforether_cfg_2"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_hashforether_cfg_3"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_hashforether_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "_sendWinnings();",
+        "id": "solidifi_hashforether_cfg_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "_sendWinnings",
+        "id": "solidifi_hashforether_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(address(this).balance);",
+        "id": "solidifi_hashforether_cfg_7"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_entry_0",
+        "target": "solidifi_hashforether_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_1",
+        "target": "solidifi_hashforether_cfg_2"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_hashforether_cfg_2",
+        "target": "solidifi_hashforether_cfg_3"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_hashforether_cfg_2",
+        "target": "solidifi_hashforether_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_3",
+        "target": "solidifi_hashforether_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hashforether_cfg_entry_6",
+        "target": "solidifi_hashforether_cfg_7"
+      }
+    ]
+  }
+}

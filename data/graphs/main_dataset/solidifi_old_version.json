@@ -1,0 +1,41 @@
+{
+  "contract_id": "solidifi_old_version",
+  "metadata": {
+    "sloc": 3,
+    "num_functions": 0
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "test",
+        "id": "solidifi_old_version_contract_0"
+      }
+    ],
+    "links": []
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  }
+}

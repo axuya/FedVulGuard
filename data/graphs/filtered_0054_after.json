@@ -1,0 +1,1424 @@
+{
+  "contract_id": "filtered_0054_after",
+  "metadata": {
+    "sloc": 108,
+    "num_functions": 6
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "doesn",
+        "id": "filtered_0054_after_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "component1",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "component2",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_2"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "component3",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_3"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "component4",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_4"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "filtered_0054_after_var_5"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "secretSeed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_6"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "lastReseed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_var_7"
+      },
+      {
+        "node_type": "function",
+        "name": "participate",
+        "visibility": "public",
+        "id": "filtered_0054_after_func_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "if(msg.value<0.1 ether)",
+        "id": "filtered_0054_after_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "return; //verify ticket price",
+        "id": "filtered_0054_after_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "// make sure he hasn't won already",
+        "id": "filtered_0054_after_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(winner[msg.sender] == false);",
+        "id": "filtered_0054_after_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "if(luckyNumberOfAddress(msg.sender) == LuckyNumber){ //check if it equals 7",
+        "id": "filtered_0054_after_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "winner[msg.sender] = true; // every address can only win once",
+        "id": "filtered_0054_after_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint win=msg.value*7; //win = 7 times the ticket price",
+        "id": "filtered_0054_after_stmt_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "if(win>address(this).balance) //if the balance isnt sufficient...",
+        "id": "filtered_0054_after_stmt_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "win=address(this).balance; //...send everything we've got",
+        "id": "filtered_0054_after_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(win);",
+        "id": "filtered_0054_after_stmt_18"
+      },
+      {
+        "node_type": "function",
+        "name": "luckyNumberOfAddress",
+        "visibility": "public",
+        "id": "filtered_0054_after_func_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "// calculate the number of current address - 1 in 8 chance",
+        "id": "filtered_0054_after_stmt_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "n = uint(uint8(keccak256(abi.encodePacked(uint(uint160(addr)), secretSeed))[0])) % 8;",
+        "id": "filtered_0054_after_stmt_21"
+      },
+      {
+        "node_type": "function",
+        "name": "reseed",
+        "visibility": "internal",
+        "id": "filtered_0054_after_func_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "secretSeed = uint256(keccak256(abi.encodePacked(",
+        "id": "filtered_0054_after_stmt_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component1,",
+        "id": "filtered_0054_after_stmt_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component2,",
+        "id": "filtered_0054_after_stmt_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component3,",
+        "id": "filtered_0054_after_stmt_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component4",
+        "id": "filtered_0054_after_stmt_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "))); //hash the incoming parameters and use the hash to (re)initialize the seed",
+        "id": "filtered_0054_after_stmt_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastReseed = block.number;",
+        "id": "filtered_0054_after_stmt_29"
+      },
+      {
+        "node_type": "function",
+        "name": "kill",
+        "visibility": "public",
+        "id": "filtered_0054_after_func_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_stmt_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(payable(msg.sender));",
+        "id": "filtered_0054_after_stmt_32"
+      },
+      {
+        "node_type": "function",
+        "name": "forceReseed",
+        "visibility": "public",
+        "id": "filtered_0054_after_func_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "//reseed initiated by the owner - for testing purposes",
+        "id": "filtered_0054_after_stmt_34"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_stmt_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> OTHER - uninitialized storage",
+        "id": "filtered_0054_after_stmt_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "SeedComponents memory s;",
+        "id": "filtered_0054_after_stmt_37"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component1 = uint(uint160(msg.sender));",
+        "id": "filtered_0054_after_stmt_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component2 = uint256(blockhash(block.number - 1));",
+        "id": "filtered_0054_after_stmt_39"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component3 = block.prevrandao*uint(uint160(address(block.coinbase)));",
+        "id": "filtered_0054_after_stmt_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component4 = tx.gasprice * 7;",
+        "id": "filtered_0054_after_stmt_41"
+      },
+      {
+        "node_type": "statement",
+        "content": "reseed(s); //reseed",
+        "id": "filtered_0054_after_stmt_42"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_var_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_func_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_func_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_func_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_func_30"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_contract_0",
+        "target": "filtered_0054_after_func_33"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_8",
+        "target": "filtered_0054_after_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_19",
+        "target": "filtered_0054_after_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_19",
+        "target": "filtered_0054_after_stmt_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_28"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_22",
+        "target": "filtered_0054_after_stmt_29"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_30",
+        "target": "filtered_0054_after_stmt_31"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_30",
+        "target": "filtered_0054_after_stmt_32"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_34"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_35"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_36"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_37"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_38"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_39"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_40"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_41"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0054_after_func_33",
+        "target": "filtered_0054_after_stmt_42"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "participate",
+        "id": "filtered_0054_after_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0054_after_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0054_after_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0054_after_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0054_after_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0054_after_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "luckyNumberOfAddress",
+        "id": "filtered_0054_after_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// calculate the number of current address - 1 in ",
+        "id": "filtered_0054_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "n = uint(uint8(keccak256(abi.encodePacked(uint(uin",
+        "id": "filtered_0054_after_cfg_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "reseed",
+        "id": "filtered_0054_after_cfg_entry_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "secretSeed = uint256(keccak256(abi.encodePacked(",
+        "id": "filtered_0054_after_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component1,",
+        "id": "filtered_0054_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component2,",
+        "id": "filtered_0054_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component3,",
+        "id": "filtered_0054_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component4",
+        "id": "filtered_0054_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "))); //hash the incoming parameters and use the ha",
+        "id": "filtered_0054_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastReseed = block.number;",
+        "id": "filtered_0054_after_cfg_16"
+      },
+      {
+        "node_type": "entry",
+        "function": "kill",
+        "id": "filtered_0054_after_cfg_entry_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(payable(msg.sender));",
+        "id": "filtered_0054_after_cfg_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "forceReseed",
+        "id": "filtered_0054_after_cfg_entry_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "//reseed initiated by the owner - for testing purp",
+        "id": "filtered_0054_after_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> OTHER - uninitialized storage",
+        "id": "filtered_0054_after_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "SeedComponents memory s;",
+        "id": "filtered_0054_after_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component1 = uint(uint160(msg.sender));",
+        "id": "filtered_0054_after_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component2 = uint256(blockhash(block.number - 1)",
+        "id": "filtered_0054_after_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component3 = block.prevrandao*uint(uint160(addre",
+        "id": "filtered_0054_after_cfg_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component4 = tx.gasprice * 7;",
+        "id": "filtered_0054_after_cfg_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "reseed(s); //reseed",
+        "id": "filtered_0054_after_cfg_29"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_0",
+        "target": "filtered_0054_after_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0054_after_cfg_1",
+        "target": "filtered_0054_after_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0054_after_cfg_1",
+        "target": "filtered_0054_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_2",
+        "target": "filtered_0054_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_4",
+        "target": "filtered_0054_after_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_6",
+        "target": "filtered_0054_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_7",
+        "target": "filtered_0054_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_9",
+        "target": "filtered_0054_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_10",
+        "target": "filtered_0054_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_11",
+        "target": "filtered_0054_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_12",
+        "target": "filtered_0054_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_13",
+        "target": "filtered_0054_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_14",
+        "target": "filtered_0054_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_15",
+        "target": "filtered_0054_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_17",
+        "target": "filtered_0054_after_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_18",
+        "target": "filtered_0054_after_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_20",
+        "target": "filtered_0054_after_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_21",
+        "target": "filtered_0054_after_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_22",
+        "target": "filtered_0054_after_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_23",
+        "target": "filtered_0054_after_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_24",
+        "target": "filtered_0054_after_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_25",
+        "target": "filtered_0054_after_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_26",
+        "target": "filtered_0054_after_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_27",
+        "target": "filtered_0054_after_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_28",
+        "target": "filtered_0054_after_cfg_29"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "component1",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "component2",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "component3",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "component4",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "filtered_0054_after_dfg_var_4"
+      },
+      {
+        "node_type": "variable",
+        "name": "secretSeed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_5"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastReseed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_6"
+      },
+      {
+        "node_type": "read",
+        "var": "secretSeed",
+        "id": "filtered_0054_after_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "secretSeed",
+        "id": "filtered_0054_after_dfg_write_8"
+      },
+      {
+        "node_type": "read",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_read_9"
+      },
+      {
+        "node_type": "read",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_read_10"
+      },
+      {
+        "node_type": "read",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_read_11"
+      },
+      {
+        "node_type": "read",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "lastReseed",
+        "id": "filtered_0054_after_dfg_read_13"
+      },
+      {
+        "node_type": "write",
+        "var": "lastReseed",
+        "id": "filtered_0054_after_dfg_write_14"
+      },
+      {
+        "node_type": "read",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_read_15"
+      },
+      {
+        "node_type": "write",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_write_16"
+      },
+      {
+        "node_type": "read",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_read_17"
+      },
+      {
+        "node_type": "write",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_write_18"
+      },
+      {
+        "node_type": "read",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_read_19"
+      },
+      {
+        "node_type": "write",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_write_20"
+      },
+      {
+        "node_type": "read",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_read_21"
+      },
+      {
+        "node_type": "write",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_write_22"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_0",
+        "target": "filtered_0054_after_dfg_read_9"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_0",
+        "target": "filtered_0054_after_dfg_read_15"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_1",
+        "target": "filtered_0054_after_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_1",
+        "target": "filtered_0054_after_dfg_read_17"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_2",
+        "target": "filtered_0054_after_dfg_read_11"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_2",
+        "target": "filtered_0054_after_dfg_read_19"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_3",
+        "target": "filtered_0054_after_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_3",
+        "target": "filtered_0054_after_dfg_read_21"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_5",
+        "target": "filtered_0054_after_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_6",
+        "target": "filtered_0054_after_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_8",
+        "target": "filtered_0054_after_dfg_var_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_14",
+        "target": "filtered_0054_after_dfg_var_6"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_16",
+        "target": "filtered_0054_after_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_18",
+        "target": "filtered_0054_after_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_20",
+        "target": "filtered_0054_after_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_22",
+        "target": "filtered_0054_after_dfg_var_3"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "participate",
+        "id": "filtered_0054_after_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0054_after_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0054_after_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0054_after_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0054_after_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0054_after_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "luckyNumberOfAddress",
+        "id": "filtered_0054_after_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// calculate the number of current address - 1 in ",
+        "id": "filtered_0054_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "n = uint(uint8(keccak256(abi.encodePacked(uint(uin",
+        "id": "filtered_0054_after_cfg_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "reseed",
+        "id": "filtered_0054_after_cfg_entry_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "secretSeed = uint256(keccak256(abi.encodePacked(",
+        "id": "filtered_0054_after_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component1,",
+        "id": "filtered_0054_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component2,",
+        "id": "filtered_0054_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component3,",
+        "id": "filtered_0054_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "components.component4",
+        "id": "filtered_0054_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "))); //hash the incoming parameters and use the ha",
+        "id": "filtered_0054_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastReseed = block.number;",
+        "id": "filtered_0054_after_cfg_16"
+      },
+      {
+        "node_type": "entry",
+        "function": "kill",
+        "id": "filtered_0054_after_cfg_entry_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(payable(msg.sender));",
+        "id": "filtered_0054_after_cfg_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "forceReseed",
+        "id": "filtered_0054_after_cfg_entry_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "//reseed initiated by the owner - for testing purp",
+        "id": "filtered_0054_after_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(msg.sender==owner);",
+        "id": "filtered_0054_after_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> OTHER - uninitialized storage",
+        "id": "filtered_0054_after_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "SeedComponents memory s;",
+        "id": "filtered_0054_after_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component1 = uint(uint160(msg.sender));",
+        "id": "filtered_0054_after_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component2 = uint256(blockhash(block.number - 1)",
+        "id": "filtered_0054_after_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component3 = block.prevrandao*uint(uint160(addre",
+        "id": "filtered_0054_after_cfg_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "s.component4 = tx.gasprice * 7;",
+        "id": "filtered_0054_after_cfg_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "reseed(s); //reseed",
+        "id": "filtered_0054_after_cfg_29"
+      },
+      {
+        "node_type": "variable",
+        "name": "component1",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "component2",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "component3",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "component4",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "filtered_0054_after_dfg_var_4"
+      },
+      {
+        "node_type": "variable",
+        "name": "secretSeed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_5"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastReseed",
+        "var_type": "uint",
+        "id": "filtered_0054_after_dfg_var_6"
+      },
+      {
+        "node_type": "read",
+        "var": "secretSeed",
+        "id": "filtered_0054_after_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "secretSeed",
+        "id": "filtered_0054_after_dfg_write_8"
+      },
+      {
+        "node_type": "read",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_read_9"
+      },
+      {
+        "node_type": "read",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_read_10"
+      },
+      {
+        "node_type": "read",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_read_11"
+      },
+      {
+        "node_type": "read",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "lastReseed",
+        "id": "filtered_0054_after_dfg_read_13"
+      },
+      {
+        "node_type": "write",
+        "var": "lastReseed",
+        "id": "filtered_0054_after_dfg_write_14"
+      },
+      {
+        "node_type": "read",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_read_15"
+      },
+      {
+        "node_type": "write",
+        "var": "component1",
+        "id": "filtered_0054_after_dfg_write_16"
+      },
+      {
+        "node_type": "read",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_read_17"
+      },
+      {
+        "node_type": "write",
+        "var": "component2",
+        "id": "filtered_0054_after_dfg_write_18"
+      },
+      {
+        "node_type": "read",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_read_19"
+      },
+      {
+        "node_type": "write",
+        "var": "component3",
+        "id": "filtered_0054_after_dfg_write_20"
+      },
+      {
+        "node_type": "read",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_read_21"
+      },
+      {
+        "node_type": "write",
+        "var": "component4",
+        "id": "filtered_0054_after_dfg_write_22"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_0",
+        "target": "filtered_0054_after_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0054_after_cfg_1",
+        "target": "filtered_0054_after_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0054_after_cfg_1",
+        "target": "filtered_0054_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_2",
+        "target": "filtered_0054_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_4",
+        "target": "filtered_0054_after_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_6",
+        "target": "filtered_0054_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_7",
+        "target": "filtered_0054_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_9",
+        "target": "filtered_0054_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_10",
+        "target": "filtered_0054_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_11",
+        "target": "filtered_0054_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_12",
+        "target": "filtered_0054_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_13",
+        "target": "filtered_0054_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_14",
+        "target": "filtered_0054_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_15",
+        "target": "filtered_0054_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_17",
+        "target": "filtered_0054_after_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_18",
+        "target": "filtered_0054_after_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_entry_20",
+        "target": "filtered_0054_after_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_21",
+        "target": "filtered_0054_after_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_22",
+        "target": "filtered_0054_after_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_23",
+        "target": "filtered_0054_after_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_24",
+        "target": "filtered_0054_after_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_25",
+        "target": "filtered_0054_after_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_26",
+        "target": "filtered_0054_after_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_27",
+        "target": "filtered_0054_after_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0054_after_cfg_28",
+        "target": "filtered_0054_after_cfg_29"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_0",
+        "target": "filtered_0054_after_dfg_read_9"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_0",
+        "target": "filtered_0054_after_dfg_read_15"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_1",
+        "target": "filtered_0054_after_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_1",
+        "target": "filtered_0054_after_dfg_read_17"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_2",
+        "target": "filtered_0054_after_dfg_read_11"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_2",
+        "target": "filtered_0054_after_dfg_read_19"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_3",
+        "target": "filtered_0054_after_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_3",
+        "target": "filtered_0054_after_dfg_read_21"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_5",
+        "target": "filtered_0054_after_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_var_6",
+        "target": "filtered_0054_after_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_8",
+        "target": "filtered_0054_after_dfg_var_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_14",
+        "target": "filtered_0054_after_dfg_var_6"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_16",
+        "target": "filtered_0054_after_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_18",
+        "target": "filtered_0054_after_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_20",
+        "target": "filtered_0054_after_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0054_after_dfg_write_22",
+        "target": "filtered_0054_after_dfg_var_3"
+      }
+    ]
+  }
+}

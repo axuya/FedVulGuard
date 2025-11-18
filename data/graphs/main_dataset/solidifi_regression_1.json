@@ -1,0 +1,728 @@
+{
+  "contract_id": "solidifi_regression_1",
+  "metadata": {
+    "sloc": 53,
+    "num_functions": 5
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Regression_1",
+        "id": "solidifi_regression_1_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_regression_1_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "buy",
+        "visibility": "external",
+        "id": "solidifi_regression_1_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(",
+        "id": "solidifi_regression_1_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.value == _amount * TOKEN_PRICE,",
+        "id": "solidifi_regression_1_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "\"Ether submitted and Token amount to buy mismatch\"",
+        "id": "solidifi_regression_1_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": ");",
+        "id": "solidifi_regression_1_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] += _amount;",
+        "id": "solidifi_regression_1_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply += _amount;",
+        "id": "solidifi_regression_1_stmt_8"
+      },
+      {
+        "node_type": "function",
+        "name": "sell",
+        "visibility": "external",
+        "id": "solidifi_regression_1_func_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insufficient balance\");",
+        "id": "solidifi_regression_1_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply -= _amount;",
+        "id": "solidifi_regression_1_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, ) = msg.sender.call{value: _amount * TOKEN_PRICE",
+        "id": "solidifi_regression_1_stmt_13"
+      },
+      {
+        "node_type": "function",
+        "name": "transfer",
+        "visibility": "external",
+        "id": "solidifi_regression_1_func_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0), \"_to address is not valid\");",
+        "id": "solidifi_regression_1_stmt_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insufficient balance\");",
+        "id": "solidifi_regression_1_stmt_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[_to] += _amount;",
+        "id": "solidifi_regression_1_stmt_18"
+      },
+      {
+        "node_type": "function",
+        "name": "getEtherBalance",
+        "visibility": "public",
+        "id": "solidifi_regression_1_func_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "return address(this).balance;",
+        "id": "solidifi_regression_1_stmt_20"
+      },
+      {
+        "node_type": "function",
+        "name": "getUserBalance",
+        "visibility": "external",
+        "id": "solidifi_regression_1_func_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "return userBalances[_user];",
+        "id": "solidifi_regression_1_stmt_22"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_func_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_func_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_func_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_contract_0",
+        "target": "solidifi_regression_1_func_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_2",
+        "target": "solidifi_regression_1_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_9",
+        "target": "solidifi_regression_1_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_9",
+        "target": "solidifi_regression_1_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_9",
+        "target": "solidifi_regression_1_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_9",
+        "target": "solidifi_regression_1_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_14",
+        "target": "solidifi_regression_1_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_14",
+        "target": "solidifi_regression_1_stmt_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_14",
+        "target": "solidifi_regression_1_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_14",
+        "target": "solidifi_regression_1_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_19",
+        "target": "solidifi_regression_1_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_regression_1_func_21",
+        "target": "solidifi_regression_1_stmt_22"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "buy",
+        "id": "solidifi_regression_1_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(",
+        "id": "solidifi_regression_1_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.value == _amount * TOKEN_PRICE,",
+        "id": "solidifi_regression_1_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "\"Ether submitted and Token amount to buy mismatch\"",
+        "id": "solidifi_regression_1_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": ");",
+        "id": "solidifi_regression_1_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] += _amount;",
+        "id": "solidifi_regression_1_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply += _amount;",
+        "id": "solidifi_regression_1_cfg_6"
+      },
+      {
+        "node_type": "entry",
+        "function": "sell",
+        "id": "solidifi_regression_1_cfg_entry_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insu",
+        "id": "solidifi_regression_1_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply -= _amount;",
+        "id": "solidifi_regression_1_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, ) = msg.sender.call{value: _amount ",
+        "id": "solidifi_regression_1_cfg_11"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "solidifi_regression_1_cfg_entry_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0), \"_to address is not val",
+        "id": "solidifi_regression_1_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insu",
+        "id": "solidifi_regression_1_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[_to] += _amount;",
+        "id": "solidifi_regression_1_cfg_16"
+      },
+      {
+        "node_type": "entry",
+        "function": "getEtherBalance",
+        "id": "solidifi_regression_1_cfg_entry_17"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_regression_1_cfg_18"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_regression_1_cfg_exit_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "getUserBalance",
+        "id": "solidifi_regression_1_cfg_entry_20"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_regression_1_cfg_21"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_regression_1_cfg_exit_22"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_0",
+        "target": "solidifi_regression_1_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_1",
+        "target": "solidifi_regression_1_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_2",
+        "target": "solidifi_regression_1_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_3",
+        "target": "solidifi_regression_1_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_4",
+        "target": "solidifi_regression_1_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_5",
+        "target": "solidifi_regression_1_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_7",
+        "target": "solidifi_regression_1_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_8",
+        "target": "solidifi_regression_1_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_9",
+        "target": "solidifi_regression_1_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_10",
+        "target": "solidifi_regression_1_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_12",
+        "target": "solidifi_regression_1_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_13",
+        "target": "solidifi_regression_1_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_14",
+        "target": "solidifi_regression_1_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_15",
+        "target": "solidifi_regression_1_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_17",
+        "target": "solidifi_regression_1_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_18",
+        "target": "solidifi_regression_1_cfg_exit_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_20",
+        "target": "solidifi_regression_1_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_21",
+        "target": "solidifi_regression_1_cfg_exit_22"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_regression_1_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "solidifi_regression_1_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "solidifi_regression_1_dfg_read_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_regression_1_dfg_var_0",
+        "target": "solidifi_regression_1_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_regression_1_dfg_var_0",
+        "target": "solidifi_regression_1_dfg_read_2"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "buy",
+        "id": "solidifi_regression_1_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(",
+        "id": "solidifi_regression_1_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.value == _amount * TOKEN_PRICE,",
+        "id": "solidifi_regression_1_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "\"Ether submitted and Token amount to buy mismatch\"",
+        "id": "solidifi_regression_1_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": ");",
+        "id": "solidifi_regression_1_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] += _amount;",
+        "id": "solidifi_regression_1_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply += _amount;",
+        "id": "solidifi_regression_1_cfg_6"
+      },
+      {
+        "node_type": "entry",
+        "function": "sell",
+        "id": "solidifi_regression_1_cfg_entry_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insu",
+        "id": "solidifi_regression_1_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply -= _amount;",
+        "id": "solidifi_regression_1_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success, ) = msg.sender.call{value: _amount ",
+        "id": "solidifi_regression_1_cfg_11"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "solidifi_regression_1_cfg_entry_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0), \"_to address is not val",
+        "id": "solidifi_regression_1_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(userBalances[msg.sender] >= _amount, \"Insu",
+        "id": "solidifi_regression_1_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[msg.sender] -= _amount;",
+        "id": "solidifi_regression_1_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "userBalances[_to] += _amount;",
+        "id": "solidifi_regression_1_cfg_16"
+      },
+      {
+        "node_type": "entry",
+        "function": "getEtherBalance",
+        "id": "solidifi_regression_1_cfg_entry_17"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_regression_1_cfg_18"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_regression_1_cfg_exit_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "getUserBalance",
+        "id": "solidifi_regression_1_cfg_entry_20"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_regression_1_cfg_21"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_regression_1_cfg_exit_22"
+      },
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "solidifi_regression_1_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "solidifi_regression_1_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "solidifi_regression_1_dfg_read_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_0",
+        "target": "solidifi_regression_1_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_1",
+        "target": "solidifi_regression_1_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_2",
+        "target": "solidifi_regression_1_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_3",
+        "target": "solidifi_regression_1_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_4",
+        "target": "solidifi_regression_1_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_5",
+        "target": "solidifi_regression_1_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_7",
+        "target": "solidifi_regression_1_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_8",
+        "target": "solidifi_regression_1_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_9",
+        "target": "solidifi_regression_1_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_10",
+        "target": "solidifi_regression_1_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_12",
+        "target": "solidifi_regression_1_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_13",
+        "target": "solidifi_regression_1_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_14",
+        "target": "solidifi_regression_1_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_15",
+        "target": "solidifi_regression_1_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_17",
+        "target": "solidifi_regression_1_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_18",
+        "target": "solidifi_regression_1_cfg_exit_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_entry_20",
+        "target": "solidifi_regression_1_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_regression_1_cfg_21",
+        "target": "solidifi_regression_1_cfg_exit_22"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_regression_1_dfg_var_0",
+        "target": "solidifi_regression_1_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_regression_1_dfg_var_0",
+        "target": "solidifi_regression_1_dfg_read_2"
+      }
+    ]
+  }
+}

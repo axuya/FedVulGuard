@@ -1,0 +1,926 @@
+[
+  {
+    "pair_id": "bootstrap_0000",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938749194068343,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0001",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938749194068343,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0002",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938749194068343,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0003",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.9354180829367778,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0004",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.9345047923322684,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * @author: -\n * @vulnerable_at_lines: 19\n */\n\npragma solidity ^0.4.2;\n\ncontract SimpleDAO {\n  mapping (addres...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * @author: -\n * @vulnerable_at_lines: 19\n */\n\npragma solidity ^0.4.2;\nimport \"@openzeppelin/contracts/securit...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0005",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.965,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0006",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.908,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0007",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.974,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0008",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.969,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0009",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.967,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0010",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0011",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.979,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0012",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.918,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0013",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.965,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0014",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.907,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0015",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.974,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0016",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.98,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0017",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.968,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0018",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.967,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0019",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0020",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.979,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0021",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.917,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0022",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.965,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0023",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.907,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0024",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.974,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0025",
+    "vulnerability_type": "overflow",
+    "similarity": 0.9214659685863874,
+    "code_before_preview": "pragma solidity ^0.5.0;\n\n\ncontract Over {\n\n  mapping(address => uint) balances;\n  uint public totalSupply;\n\n  constructor(uint _initialSupply) public {\n    balances[msg.sender] = totalSupply = _initia...",
+    "code_after_preview": "pragma solidity ^0.5.0;\nimport \"@openzeppelin/contracts/utils/math/SafeMath.sol\";\n\n\ncontract Over {\n    using SafeMath for uint256;\n\n  mapping(address => uint) balances;\n  uint public totalSupply;\n\n  ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0026",
+    "vulnerability_type": "overflow",
+    "similarity": 0.945,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0027",
+    "vulnerability_type": "overflow",
+    "similarity": 0.945,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0028",
+    "vulnerability_type": "overflow",
+    "similarity": 0.945,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0029",
+    "vulnerability_type": "overflow",
+    "similarity": 0.941,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0030",
+    "vulnerability_type": "access_control",
+    "similarity": 0.973,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0031",
+    "vulnerability_type": "access_control",
+    "similarity": 0.966,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0032",
+    "vulnerability_type": "access_control",
+    "similarity": 0.961,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0033",
+    "vulnerability_type": "access_control",
+    "similarity": 0.973,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0034",
+    "vulnerability_type": "access_control",
+    "similarity": 0.966,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0035",
+    "vulnerability_type": "access_control",
+    "similarity": 0.961,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0036",
+    "vulnerability_type": "access_control",
+    "similarity": 0.973,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0037",
+    "vulnerability_type": "access_control",
+    "similarity": 0.966,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0038",
+    "vulnerability_type": "access_control",
+    "similarity": 0.961,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 20\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0039",
+    "vulnerability_type": "access_control",
+    "similarity": 0.972,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0040",
+    "vulnerability_type": "access_control",
+    "similarity": 0.965,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0041",
+    "vulnerability_type": "access_control",
+    "similarity": 0.959,
+    "code_before_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "code_after_preview": "/*\n * @source: https://ericrafaloff.com/analyzing-the-erc20-short-address-attack/\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines: 19\n */\n...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0042",
+    "vulnerability_type": "unknown",
+    "similarity": 0.9285309132161089,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0043",
+    "vulnerability_type": "unknown",
+    "similarity": 0.9555345316934721,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0044",
+    "vulnerability_type": "unknown",
+    "similarity": 0.7936842105263158,
+    "code_before_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * @author: -\n * @vulnerable_at_lines: 17\n */\n\npragma solidity 0.4.25;\n\ncontract ReturnValue ...",
+    "code_after_preview": "/*\n * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-104#unchecked-return-valuesol\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @author: -\n * @vul...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0045",
+    "vulnerability_type": "unknown",
+    "similarity": 0.9666628215480447,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.6, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0046",
+    "vulnerability_type": "unknown",
+    "similarity": 0.967444008312168,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0047",
+    "vulnerability_type": "unknown",
+    "similarity": 0.9704553354188391,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @vulnerable_at_lines: 92\n */\n\npra...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0048",
+    "vulnerability_type": "unknown",
+    "similarity": 0.927710843373494,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * @vulnerable_at_lines: 91\n */\n\npragma solidity ^0.4.19;\n/*\n * This is a distributed lottery that chooses r...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.8, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0049",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.98,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0050",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.968,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @vulnerable_at_lines: 93\n */\n\n// ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0051",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.967,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0052",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.938,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0053",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.979,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0054",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.917,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.7, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0055",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.965,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0056",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.902,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer ...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer ...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0057",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.974,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0058",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.98,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @vulnerable_at_lines: 92\n */\n\npra...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @vulnerable_at_lines: 92\n */\n\npra...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0059",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.968,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @vulnerable_at_lines: 92\n */\n\npra...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0x741f1923974464efd0aa70e77800ba5d9ed18902#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @vulnerable_at_lines: 92\n */\n\npra...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0060",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.958,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0061",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.935,
+    "code_before_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "code_after_preview": "/*\n * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_lines:...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0062",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.979,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0063",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.917,
+    "code_before_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "code_after_preview": "/*\n * @source: https://etherscan.io/address/0xf45717552f12ef7cb65e95476f217ea008167ae3#code\n * Upgraded from Solidity 0.4 to 0.5, vulnerability may no longer exist\n * @author: -\n * @vulnerable_at_line...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0064",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.898,
+    "code_before_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * @author: -\n* @vulnerable_at_lines: 23,24\n */\n\n // 0xe82719202e5...",
+    "code_after_preview": "/*\n * @source: https://github.com/trailofbits/not-so-smart-contracts/blob/master/wrong_constructor_name/Rubixi_source_code/Rubixi.sol\n * @author: -\n* @vulnerable_at_lines: 23,24\n */\n\n // 0xe82719202e5...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  },
+  {
+    "pair_id": "bootstrap_0065",
+    "vulnerability_type": "reentrancy",
+    "similarity": 0.972,
+    "code_before_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "code_after_preview": "/*\n * @article: https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620\n * @source: https://etherscan.io/address/0xa11e4ed59dc94e69612f3111942626ed513cb172#code\n *...",
+    "annotation": {
+      "is_valid_spc": null,
+      "confirmed_vulnerability_type": null,
+      "severity": null,
+      "quality_rating": null,
+      "notes": ""
+    }
+  }
+]

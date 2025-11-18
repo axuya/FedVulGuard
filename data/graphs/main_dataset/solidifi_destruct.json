@@ -1,0 +1,1071 @@
+{
+  "contract_id": "solidifi_destruct",
+  "metadata": {
+    "sloc": 89,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "WalletLibrary",
+        "id": "solidifi_destruct_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "yetNeeded",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "ownersDone",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_2"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "index",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_3"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "to",
+        "var_type": "address",
+        "id": "solidifi_destruct_var_4"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "value",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_5"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "data",
+        "var_type": "bytes",
+        "id": "solidifi_destruct_var_6"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "m_required",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_7"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "m_numOwners",
+        "var_type": "uint",
+        "id": "solidifi_destruct_var_8"
+      },
+      {
+        "node_type": "function",
+        "name": "initMultiowned",
+        "visibility": "public",
+        "id": "solidifi_destruct_func_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_numOwners = _owners.length + 1;",
+        "id": "solidifi_destruct_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[1] = uint(msg.sender);",
+        "id": "solidifi_destruct_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(msg.sender)] = 1;",
+        "id": "solidifi_destruct_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "for (uint i = 0; i < _owners.length; ++i)",
+        "id": "solidifi_destruct_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "{",
+        "id": "solidifi_destruct_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[2 + i] = uint(_owners[i]);",
+        "id": "solidifi_destruct_stmt_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(_owners[i])] = 2 + i;",
+        "id": "solidifi_destruct_stmt_16"
+      },
+      {
+        "node_type": "function",
+        "name": "kill",
+        "visibility": "public",
+        "id": "solidifi_destruct_func_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(_to);",
+        "id": "solidifi_destruct_stmt_18"
+      },
+      {
+        "node_type": "function",
+        "name": "confirmAndCheck",
+        "visibility": "internal",
+        "id": "solidifi_destruct_func_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint ownerIndex = m_ownerIndex[uint(msg.sender)];",
+        "id": "solidifi_destruct_stmt_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (ownerIndex == 0) return false;",
+        "id": "solidifi_destruct_stmt_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "PendingState memory pending = m_pending[_operation];",
+        "id": "solidifi_destruct_stmt_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (pending.yetNeeded == 0) {",
+        "id": "solidifi_destruct_stmt_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.yetNeeded = m_required;",
+        "id": "solidifi_destruct_stmt_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.ownersDone = 0;",
+        "id": "solidifi_destruct_stmt_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.index = m_pendingIndex.length++;",
+        "id": "solidifi_destruct_stmt_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_pendingIndex[pending.index] = _operation;",
+        "id": "solidifi_destruct_stmt_27"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_var_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_func_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_func_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_contract_0",
+        "target": "solidifi_destruct_func_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_9",
+        "target": "solidifi_destruct_stmt_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_17",
+        "target": "solidifi_destruct_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_destruct_func_19",
+        "target": "solidifi_destruct_stmt_27"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "initMultiowned",
+        "id": "solidifi_destruct_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_numOwners = _owners.length + 1;",
+        "id": "solidifi_destruct_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[1] = uint(msg.sender);",
+        "id": "solidifi_destruct_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(msg.sender)] = 1;",
+        "id": "solidifi_destruct_cfg_3"
+      },
+      {
+        "node_type": "loop",
+        "id": "solidifi_destruct_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "{",
+        "id": "solidifi_destruct_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[2 + i] = uint(_owners[i]);",
+        "id": "solidifi_destruct_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(_owners[i])] = 2 + i;",
+        "id": "solidifi_destruct_cfg_7"
+      },
+      {
+        "node_type": "entry",
+        "function": "kill",
+        "id": "solidifi_destruct_cfg_entry_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(_to);",
+        "id": "solidifi_destruct_cfg_9"
+      },
+      {
+        "node_type": "entry",
+        "function": "confirmAndCheck",
+        "id": "solidifi_destruct_cfg_entry_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint ownerIndex = m_ownerIndex[uint(msg.sender)];",
+        "id": "solidifi_destruct_cfg_11"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_destruct_cfg_12"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_destruct_cfg_13"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_destruct_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "PendingState memory pending = m_pending[_operation",
+        "id": "solidifi_destruct_cfg_15"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_destruct_cfg_16"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_destruct_cfg_17"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_destruct_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.yetNeeded = m_required;",
+        "id": "solidifi_destruct_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.ownersDone = 0;",
+        "id": "solidifi_destruct_cfg_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.index = m_pendingIndex.length++;",
+        "id": "solidifi_destruct_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_pendingIndex[pending.index] = _operation;",
+        "id": "solidifi_destruct_cfg_22"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_0",
+        "target": "solidifi_destruct_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_1",
+        "target": "solidifi_destruct_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_2",
+        "target": "solidifi_destruct_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_3",
+        "target": "solidifi_destruct_cfg_4"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "solidifi_destruct_cfg_4",
+        "target": "solidifi_destruct_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_4",
+        "target": "solidifi_destruct_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_5",
+        "target": "solidifi_destruct_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_6",
+        "target": "solidifi_destruct_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_8",
+        "target": "solidifi_destruct_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_10",
+        "target": "solidifi_destruct_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_11",
+        "target": "solidifi_destruct_cfg_12"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_destruct_cfg_12",
+        "target": "solidifi_destruct_cfg_13"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_destruct_cfg_12",
+        "target": "solidifi_destruct_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_13",
+        "target": "solidifi_destruct_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_15",
+        "target": "solidifi_destruct_cfg_16"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_destruct_cfg_16",
+        "target": "solidifi_destruct_cfg_17"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_destruct_cfg_16",
+        "target": "solidifi_destruct_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_17",
+        "target": "solidifi_destruct_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_19",
+        "target": "solidifi_destruct_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_20",
+        "target": "solidifi_destruct_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_21",
+        "target": "solidifi_destruct_cfg_22"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "yetNeeded",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "ownersDone",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "index",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "to",
+        "var_type": "address",
+        "id": "solidifi_destruct_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "value",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_4"
+      },
+      {
+        "node_type": "variable",
+        "name": "data",
+        "var_type": "bytes",
+        "id": "solidifi_destruct_dfg_var_5"
+      },
+      {
+        "node_type": "variable",
+        "name": "m_required",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_6"
+      },
+      {
+        "node_type": "variable",
+        "name": "m_numOwners",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_7"
+      },
+      {
+        "node_type": "read",
+        "var": "m_numOwners",
+        "id": "solidifi_destruct_dfg_read_8"
+      },
+      {
+        "node_type": "write",
+        "var": "m_numOwners",
+        "id": "solidifi_destruct_dfg_write_9"
+      },
+      {
+        "node_type": "read",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_read_10"
+      },
+      {
+        "node_type": "write",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_write_11"
+      },
+      {
+        "node_type": "read",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_read_12"
+      },
+      {
+        "node_type": "write",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_write_13"
+      },
+      {
+        "node_type": "read",
+        "var": "ownersDone",
+        "id": "solidifi_destruct_dfg_read_14"
+      },
+      {
+        "node_type": "write",
+        "var": "ownersDone",
+        "id": "solidifi_destruct_dfg_write_15"
+      },
+      {
+        "node_type": "read",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_read_16"
+      },
+      {
+        "node_type": "write",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_write_17"
+      },
+      {
+        "node_type": "read",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_read_18"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_0",
+        "target": "solidifi_destruct_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_0",
+        "target": "solidifi_destruct_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_1",
+        "target": "solidifi_destruct_dfg_read_14"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_2",
+        "target": "solidifi_destruct_dfg_read_16"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_2",
+        "target": "solidifi_destruct_dfg_read_18"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_7",
+        "target": "solidifi_destruct_dfg_read_8"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_9",
+        "target": "solidifi_destruct_dfg_var_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_11",
+        "target": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_13",
+        "target": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_15",
+        "target": "solidifi_destruct_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_17",
+        "target": "solidifi_destruct_dfg_var_2"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "initMultiowned",
+        "id": "solidifi_destruct_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_numOwners = _owners.length + 1;",
+        "id": "solidifi_destruct_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[1] = uint(msg.sender);",
+        "id": "solidifi_destruct_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(msg.sender)] = 1;",
+        "id": "solidifi_destruct_cfg_3"
+      },
+      {
+        "node_type": "loop",
+        "id": "solidifi_destruct_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "{",
+        "id": "solidifi_destruct_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_owners[2 + i] = uint(_owners[i]);",
+        "id": "solidifi_destruct_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_ownerIndex[uint(_owners[i])] = 2 + i;",
+        "id": "solidifi_destruct_cfg_7"
+      },
+      {
+        "node_type": "entry",
+        "function": "kill",
+        "id": "solidifi_destruct_cfg_entry_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(_to);",
+        "id": "solidifi_destruct_cfg_9"
+      },
+      {
+        "node_type": "entry",
+        "function": "confirmAndCheck",
+        "id": "solidifi_destruct_cfg_entry_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint ownerIndex = m_ownerIndex[uint(msg.sender)];",
+        "id": "solidifi_destruct_cfg_11"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_destruct_cfg_12"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_destruct_cfg_13"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_destruct_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "PendingState memory pending = m_pending[_operation",
+        "id": "solidifi_destruct_cfg_15"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_destruct_cfg_16"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_destruct_cfg_17"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_destruct_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.yetNeeded = m_required;",
+        "id": "solidifi_destruct_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.ownersDone = 0;",
+        "id": "solidifi_destruct_cfg_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "pending.index = m_pendingIndex.length++;",
+        "id": "solidifi_destruct_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "m_pendingIndex[pending.index] = _operation;",
+        "id": "solidifi_destruct_cfg_22"
+      },
+      {
+        "node_type": "variable",
+        "name": "yetNeeded",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "ownersDone",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "index",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "to",
+        "var_type": "address",
+        "id": "solidifi_destruct_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "value",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_4"
+      },
+      {
+        "node_type": "variable",
+        "name": "data",
+        "var_type": "bytes",
+        "id": "solidifi_destruct_dfg_var_5"
+      },
+      {
+        "node_type": "variable",
+        "name": "m_required",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_6"
+      },
+      {
+        "node_type": "variable",
+        "name": "m_numOwners",
+        "var_type": "uint",
+        "id": "solidifi_destruct_dfg_var_7"
+      },
+      {
+        "node_type": "read",
+        "var": "m_numOwners",
+        "id": "solidifi_destruct_dfg_read_8"
+      },
+      {
+        "node_type": "write",
+        "var": "m_numOwners",
+        "id": "solidifi_destruct_dfg_write_9"
+      },
+      {
+        "node_type": "read",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_read_10"
+      },
+      {
+        "node_type": "write",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_write_11"
+      },
+      {
+        "node_type": "read",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_read_12"
+      },
+      {
+        "node_type": "write",
+        "var": "yetNeeded",
+        "id": "solidifi_destruct_dfg_write_13"
+      },
+      {
+        "node_type": "read",
+        "var": "ownersDone",
+        "id": "solidifi_destruct_dfg_read_14"
+      },
+      {
+        "node_type": "write",
+        "var": "ownersDone",
+        "id": "solidifi_destruct_dfg_write_15"
+      },
+      {
+        "node_type": "read",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_read_16"
+      },
+      {
+        "node_type": "write",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_write_17"
+      },
+      {
+        "node_type": "read",
+        "var": "index",
+        "id": "solidifi_destruct_dfg_read_18"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_0",
+        "target": "solidifi_destruct_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_1",
+        "target": "solidifi_destruct_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_2",
+        "target": "solidifi_destruct_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_3",
+        "target": "solidifi_destruct_cfg_4"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "solidifi_destruct_cfg_4",
+        "target": "solidifi_destruct_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_4",
+        "target": "solidifi_destruct_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_5",
+        "target": "solidifi_destruct_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_6",
+        "target": "solidifi_destruct_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_8",
+        "target": "solidifi_destruct_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_entry_10",
+        "target": "solidifi_destruct_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_11",
+        "target": "solidifi_destruct_cfg_12"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_destruct_cfg_12",
+        "target": "solidifi_destruct_cfg_13"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_destruct_cfg_12",
+        "target": "solidifi_destruct_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_13",
+        "target": "solidifi_destruct_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_15",
+        "target": "solidifi_destruct_cfg_16"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_destruct_cfg_16",
+        "target": "solidifi_destruct_cfg_17"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_destruct_cfg_16",
+        "target": "solidifi_destruct_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_17",
+        "target": "solidifi_destruct_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_19",
+        "target": "solidifi_destruct_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_20",
+        "target": "solidifi_destruct_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_destruct_cfg_21",
+        "target": "solidifi_destruct_cfg_22"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_0",
+        "target": "solidifi_destruct_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_0",
+        "target": "solidifi_destruct_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_1",
+        "target": "solidifi_destruct_dfg_read_14"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_2",
+        "target": "solidifi_destruct_dfg_read_16"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_2",
+        "target": "solidifi_destruct_dfg_read_18"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_var_7",
+        "target": "solidifi_destruct_dfg_read_8"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_9",
+        "target": "solidifi_destruct_dfg_var_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_11",
+        "target": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_13",
+        "target": "solidifi_destruct_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_15",
+        "target": "solidifi_destruct_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_destruct_dfg_write_17",
+        "target": "solidifi_destruct_dfg_var_2"
+      }
+    ]
+  }
+}

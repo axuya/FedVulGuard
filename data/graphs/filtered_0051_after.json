@@ -1,0 +1,606 @@
+{
+  "contract_id": "filtered_0051_after",
+  "metadata": {
+    "sloc": 62,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "EtherLotto",
+        "id": "filtered_0051_after_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "pot",
+        "var_type": "uint",
+        "id": "filtered_0051_after_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "play",
+        "visibility": "public",
+        "id": "filtered_0051_after_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Participants must spend some fixed ether before playing lottery.",
+        "id": "filtered_0051_after_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(msg.value == TICKET_AMOUNT);",
+        "id": "filtered_0051_after_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Increase pot for each participant.",
+        "id": "filtered_0051_after_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "pot += msg.value;",
+        "id": "filtered_0051_after_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Compute some *almost random* value for selecting winner from current transaction.",
+        "id": "filtered_0051_after_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> TIME_MANIPULATION",
+        "id": "filtered_0051_after_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint random = uint(keccak256(abi.encodePacked(block.timestamp))) % 2;",
+        "id": "filtered_0051_after_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Distribution: 50% of participants will be winners.",
+        "id": "filtered_0051_after_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (random == 0) {",
+        "id": "filtered_0051_after_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Send fee to bank account.",
+        "id": "filtered_0051_after_stmt_12"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_contract_0",
+        "target": "filtered_0051_after_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_contract_0",
+        "target": "filtered_0051_after_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0051_after_func_2",
+        "target": "filtered_0051_after_stmt_12"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "play",
+        "id": "filtered_0051_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Participants must spend some fixed ether before",
+        "id": "filtered_0051_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(msg.value == TICKET_AMOUNT);",
+        "id": "filtered_0051_after_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Increase pot for each participant.",
+        "id": "filtered_0051_after_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "pot += msg.value;",
+        "id": "filtered_0051_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Compute some *almost random* value for selectin",
+        "id": "filtered_0051_after_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> TIME_MANIPULATION",
+        "id": "filtered_0051_after_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint random = uint(keccak256(abi.encodePacked(bloc",
+        "id": "filtered_0051_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Distribution: 50% of participants will be winne",
+        "id": "filtered_0051_after_cfg_8"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0051_after_cfg_9"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0051_after_cfg_10"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0051_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Send fee to bank account.",
+        "id": "filtered_0051_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "bank.transfer(FEE_AMOUNT);",
+        "id": "filtered_0051_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Send jackpot to winner.",
+        "id": "filtered_0051_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(pot - FEE_AMOUNT);",
+        "id": "filtered_0051_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Restart jackpot.",
+        "id": "filtered_0051_after_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "pot = 0;",
+        "id": "filtered_0051_after_cfg_17"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_entry_0",
+        "target": "filtered_0051_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_1",
+        "target": "filtered_0051_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_2",
+        "target": "filtered_0051_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_3",
+        "target": "filtered_0051_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_4",
+        "target": "filtered_0051_after_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_5",
+        "target": "filtered_0051_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_6",
+        "target": "filtered_0051_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_7",
+        "target": "filtered_0051_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_8",
+        "target": "filtered_0051_after_cfg_9"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0051_after_cfg_9",
+        "target": "filtered_0051_after_cfg_10"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0051_after_cfg_9",
+        "target": "filtered_0051_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_10",
+        "target": "filtered_0051_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_12",
+        "target": "filtered_0051_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_13",
+        "target": "filtered_0051_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_14",
+        "target": "filtered_0051_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_15",
+        "target": "filtered_0051_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_16",
+        "target": "filtered_0051_after_cfg_17"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "pot",
+        "var_type": "uint",
+        "id": "filtered_0051_after_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_2"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_3"
+      },
+      {
+        "node_type": "write",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_write_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_write_4",
+        "target": "filtered_0051_after_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "play",
+        "id": "filtered_0051_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Participants must spend some fixed ether before",
+        "id": "filtered_0051_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(msg.value == TICKET_AMOUNT);",
+        "id": "filtered_0051_after_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Increase pot for each participant.",
+        "id": "filtered_0051_after_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "pot += msg.value;",
+        "id": "filtered_0051_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Compute some *almost random* value for selectin",
+        "id": "filtered_0051_after_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> TIME_MANIPULATION",
+        "id": "filtered_0051_after_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint random = uint(keccak256(abi.encodePacked(bloc",
+        "id": "filtered_0051_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Distribution: 50% of participants will be winne",
+        "id": "filtered_0051_after_cfg_8"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0051_after_cfg_9"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0051_after_cfg_10"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0051_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Send fee to bank account.",
+        "id": "filtered_0051_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "bank.transfer(FEE_AMOUNT);",
+        "id": "filtered_0051_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Send jackpot to winner.",
+        "id": "filtered_0051_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "payable(msg.sender).transfer(pot - FEE_AMOUNT);",
+        "id": "filtered_0051_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Restart jackpot.",
+        "id": "filtered_0051_after_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "pot = 0;",
+        "id": "filtered_0051_after_cfg_17"
+      },
+      {
+        "node_type": "variable",
+        "name": "pot",
+        "var_type": "uint",
+        "id": "filtered_0051_after_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_2"
+      },
+      {
+        "node_type": "read",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_read_3"
+      },
+      {
+        "node_type": "write",
+        "var": "pot",
+        "id": "filtered_0051_after_dfg_write_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_entry_0",
+        "target": "filtered_0051_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_1",
+        "target": "filtered_0051_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_2",
+        "target": "filtered_0051_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_3",
+        "target": "filtered_0051_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_4",
+        "target": "filtered_0051_after_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_5",
+        "target": "filtered_0051_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_6",
+        "target": "filtered_0051_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_7",
+        "target": "filtered_0051_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_8",
+        "target": "filtered_0051_after_cfg_9"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0051_after_cfg_9",
+        "target": "filtered_0051_after_cfg_10"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0051_after_cfg_9",
+        "target": "filtered_0051_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_10",
+        "target": "filtered_0051_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_12",
+        "target": "filtered_0051_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_13",
+        "target": "filtered_0051_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_14",
+        "target": "filtered_0051_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_15",
+        "target": "filtered_0051_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0051_after_cfg_16",
+        "target": "filtered_0051_after_cfg_17"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_var_0",
+        "target": "filtered_0051_after_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0051_after_dfg_write_4",
+        "target": "filtered_0051_after_dfg_var_0"
+      }
+    ]
+  }
+}

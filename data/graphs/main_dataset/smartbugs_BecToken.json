@@ -1,0 +1,5307 @@
+{
+  "contract_id": "smartbugs_BecToken",
+  "metadata": {
+    "sloc": 307,
+    "num_functions": 25
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "ERC20Basic",
+        "id": "smartbugs_BecToken_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "smartbugs_BecToken_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "smartbugs_BecToken_var_2"
+      },
+      {
+        "node_type": "function",
+        "name": "mul",
+        "visibility": "internal",
+        "id": "smartbugs_BecToken_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a * b;",
+        "id": "smartbugs_BecToken_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(a == 0 || c / a == b);",
+        "id": "smartbugs_BecToken_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "return c;",
+        "id": "smartbugs_BecToken_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "div",
+        "visibility": "internal",
+        "id": "smartbugs_BecToken_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(b > 0); // Solidity automatically throws when dividing by 0",
+        "id": "smartbugs_BecToken_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a / b;",
+        "id": "smartbugs_BecToken_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(a == b * c + a % b); // There is no case in which this doesn't hold",
+        "id": "smartbugs_BecToken_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "return c;",
+        "id": "smartbugs_BecToken_stmt_11"
+      },
+      {
+        "node_type": "function",
+        "name": "sub",
+        "visibility": "internal",
+        "id": "smartbugs_BecToken_func_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(b <= a);",
+        "id": "smartbugs_BecToken_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "return a - b;",
+        "id": "smartbugs_BecToken_stmt_14"
+      },
+      {
+        "node_type": "function",
+        "name": "add",
+        "visibility": "internal",
+        "id": "smartbugs_BecToken_func_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a + b;",
+        "id": "smartbugs_BecToken_stmt_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(c >= a);",
+        "id": "smartbugs_BecToken_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "return c;",
+        "id": "smartbugs_BecToken_stmt_18"
+      },
+      {
+        "node_type": "function",
+        "name": "balanceOf",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_stmt_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_stmt_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_stmt_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_stmt_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_stmt_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transfer(address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[msg.sender]);",
+        "id": "smartbugs_BecToken_stmt_29"
+      },
+      {
+        "node_type": "function",
+        "name": "transfer",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_stmt_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_stmt_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_stmt_34"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_stmt_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_stmt_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_37"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transfer(address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_39"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[msg.sender]);",
+        "id": "smartbugs_BecToken_stmt_40"
+      },
+      {
+        "node_type": "function",
+        "name": "transfer",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_41"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_stmt_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_stmt_43"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_stmt_45"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_stmt_46"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_stmt_47"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_48"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transfer(address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_49"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[msg.sender]);",
+        "id": "smartbugs_BecToken_stmt_51"
+      },
+      {
+        "node_type": "function",
+        "name": "balanceOf",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_stmt_53"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_stmt_54"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_55"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_stmt_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_stmt_57"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_stmt_58"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_59"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transfer(address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[msg.sender]);",
+        "id": "smartbugs_BecToken_stmt_62"
+      },
+      {
+        "node_type": "function",
+        "name": "allowance",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_64"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_65"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_66"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_67"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_68"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_69"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_70"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_71"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_72"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_73"
+      },
+      {
+        "node_type": "function",
+        "name": "transferFrom",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_74"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_75"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_76"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_77"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_78"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_79"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_80"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_81"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_82"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_83"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_84"
+      },
+      {
+        "node_type": "function",
+        "name": "approve",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_85"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_86"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_87"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_88"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_89"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_90"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_91"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_92"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_93"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_94"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_95"
+      },
+      {
+        "node_type": "function",
+        "name": "transferFrom",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_96"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_97"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_98"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_99"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_100"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_101"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_102"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_103"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_104"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_105"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_106"
+      },
+      {
+        "node_type": "function",
+        "name": "approve",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_107"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_108"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_109"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_110"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_111"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_112"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_113"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_114"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_115"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_116"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_117"
+      },
+      {
+        "node_type": "function",
+        "name": "allowance",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_118"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_119"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_120"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_121"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_122"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_123"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_124"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_125"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_126"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_127"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_128"
+      },
+      {
+        "node_type": "function",
+        "name": "Ownable",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_129"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = msg.sender;",
+        "id": "smartbugs_BecToken_stmt_130"
+      },
+      {
+        "node_type": "function",
+        "name": "transferOwnership",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_131"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(newOwner != address(0));",
+        "id": "smartbugs_BecToken_stmt_132"
+      },
+      {
+        "node_type": "statement",
+        "content": "OwnershipTransferred(owner, newOwner);",
+        "id": "smartbugs_BecToken_stmt_133"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "smartbugs_BecToken_stmt_134"
+      },
+      {
+        "node_type": "function",
+        "name": "pause",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_135"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = true;",
+        "id": "smartbugs_BecToken_stmt_136"
+      },
+      {
+        "node_type": "statement",
+        "content": "Pause();",
+        "id": "smartbugs_BecToken_stmt_137"
+      },
+      {
+        "node_type": "function",
+        "name": "unpause",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_138"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = false;",
+        "id": "smartbugs_BecToken_stmt_139"
+      },
+      {
+        "node_type": "statement",
+        "content": "Unpause();",
+        "id": "smartbugs_BecToken_stmt_140"
+      },
+      {
+        "node_type": "function",
+        "name": "transfer",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_141"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_stmt_142"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_stmt_143"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_144"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_stmt_145"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_stmt_146"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_stmt_147"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_148"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transfer(address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_149"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_150"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[msg.sender]);",
+        "id": "smartbugs_BecToken_stmt_151"
+      },
+      {
+        "node_type": "function",
+        "name": "transferFrom",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_152"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_153"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_154"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_155"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_156"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_157"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_158"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_159"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_160"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_161"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_162"
+      },
+      {
+        "node_type": "function",
+        "name": "approve",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_163"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) internal allowed;",
+        "id": "smartbugs_BecToken_stmt_164"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_stmt_165"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_stmt_166"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want to send tokens from",
+        "id": "smartbugs_BecToken_stmt_167"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to transfer to",
+        "id": "smartbugs_BecToken_stmt_168"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be transferred",
+        "id": "smartbugs_BecToken_stmt_169"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_stmt_170"
+      },
+      {
+        "node_type": "statement",
+        "content": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {",
+        "id": "smartbugs_BecToken_stmt_171"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_to != address(0));",
+        "id": "smartbugs_BecToken_stmt_172"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && _value <= balances[_from]);",
+        "id": "smartbugs_BecToken_stmt_173"
+      },
+      {
+        "node_type": "function",
+        "name": "batchTransfer",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_174"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "smartbugs_BecToken_stmt_175"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> ARITHMETIC",
+        "id": "smartbugs_BecToken_stmt_176"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "smartbugs_BecToken_stmt_177"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "smartbugs_BecToken_stmt_178"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && balances[msg.sender] >= amount);",
+        "id": "smartbugs_BecToken_stmt_179"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = balances[msg.sender].sub(amount);",
+        "id": "smartbugs_BecToken_stmt_180"
+      },
+      {
+        "node_type": "statement",
+        "content": "for (uint i = 0; i < cnt; i++) {",
+        "id": "smartbugs_BecToken_stmt_181"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_receivers[i]] = balances[_receivers[i]].add(_value);",
+        "id": "smartbugs_BecToken_stmt_182"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, _receivers[i], _value);",
+        "id": "smartbugs_BecToken_stmt_183"
+      },
+      {
+        "node_type": "function",
+        "name": "BecToken",
+        "visibility": "public",
+        "id": "smartbugs_BecToken_func_184"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply = 7000000000 * (10**(uint256(decimals)));",
+        "id": "smartbugs_BecToken_stmt_185"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = totalSupply;    // Give the creator all initial tokens",
+        "id": "smartbugs_BecToken_stmt_186"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_30"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_41"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_52"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_63"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_74"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_85"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_96"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_107"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_118"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_129"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_131"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_135"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_138"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_141"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_152"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_163"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_174"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_contract_0",
+        "target": "smartbugs_BecToken_func_184"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_3",
+        "target": "smartbugs_BecToken_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_3",
+        "target": "smartbugs_BecToken_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_3",
+        "target": "smartbugs_BecToken_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_7",
+        "target": "smartbugs_BecToken_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_7",
+        "target": "smartbugs_BecToken_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_7",
+        "target": "smartbugs_BecToken_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_7",
+        "target": "smartbugs_BecToken_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_12",
+        "target": "smartbugs_BecToken_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_12",
+        "target": "smartbugs_BecToken_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_15",
+        "target": "smartbugs_BecToken_stmt_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_15",
+        "target": "smartbugs_BecToken_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_15",
+        "target": "smartbugs_BecToken_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_28"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_19",
+        "target": "smartbugs_BecToken_stmt_29"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_31"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_32"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_33"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_34"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_35"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_36"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_37"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_38"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_39"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_30",
+        "target": "smartbugs_BecToken_stmt_40"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_42"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_43"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_44"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_45"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_46"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_47"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_48"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_49"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_50"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_41",
+        "target": "smartbugs_BecToken_stmt_51"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_53"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_54"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_55"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_56"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_57"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_58"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_59"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_60"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_61"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_52",
+        "target": "smartbugs_BecToken_stmt_62"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_64"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_65"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_66"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_67"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_68"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_69"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_70"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_71"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_72"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_63",
+        "target": "smartbugs_BecToken_stmt_73"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_75"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_76"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_77"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_78"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_79"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_80"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_81"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_82"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_83"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_74",
+        "target": "smartbugs_BecToken_stmt_84"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_86"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_87"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_88"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_89"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_90"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_91"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_92"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_93"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_94"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_85",
+        "target": "smartbugs_BecToken_stmt_95"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_97"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_98"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_99"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_100"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_101"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_102"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_103"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_104"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_105"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_96",
+        "target": "smartbugs_BecToken_stmt_106"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_108"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_109"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_110"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_111"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_112"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_113"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_114"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_115"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_116"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_107",
+        "target": "smartbugs_BecToken_stmt_117"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_119"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_120"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_121"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_122"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_123"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_124"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_125"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_126"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_127"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_118",
+        "target": "smartbugs_BecToken_stmt_128"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_129",
+        "target": "smartbugs_BecToken_stmt_130"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_131",
+        "target": "smartbugs_BecToken_stmt_132"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_131",
+        "target": "smartbugs_BecToken_stmt_133"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_131",
+        "target": "smartbugs_BecToken_stmt_134"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_135",
+        "target": "smartbugs_BecToken_stmt_136"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_135",
+        "target": "smartbugs_BecToken_stmt_137"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_138",
+        "target": "smartbugs_BecToken_stmt_139"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_138",
+        "target": "smartbugs_BecToken_stmt_140"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_142"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_143"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_144"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_145"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_146"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_147"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_148"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_149"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_150"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_141",
+        "target": "smartbugs_BecToken_stmt_151"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_153"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_154"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_155"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_156"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_157"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_158"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_159"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_160"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_161"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_152",
+        "target": "smartbugs_BecToken_stmt_162"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_164"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_165"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_166"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_167"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_168"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_169"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_170"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_171"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_172"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_163",
+        "target": "smartbugs_BecToken_stmt_173"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_175"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_176"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_177"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_178"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_179"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_180"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_181"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_182"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_174",
+        "target": "smartbugs_BecToken_stmt_183"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_184",
+        "target": "smartbugs_BecToken_stmt_185"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_BecToken_func_184",
+        "target": "smartbugs_BecToken_stmt_186"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "mul",
+        "id": "smartbugs_BecToken_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a * b;",
+        "id": "smartbugs_BecToken_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(a == 0 || c / a == b);",
+        "id": "smartbugs_BecToken_cfg_2"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_3"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "div",
+        "id": "smartbugs_BecToken_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(b > 0); // Solidity automatically throw",
+        "id": "smartbugs_BecToken_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a / b;",
+        "id": "smartbugs_BecToken_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(a == b * c + a % b); // There is no cas",
+        "id": "smartbugs_BecToken_cfg_8"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_9"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_10"
+      },
+      {
+        "node_type": "entry",
+        "function": "sub",
+        "id": "smartbugs_BecToken_cfg_entry_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(b <= a);",
+        "id": "smartbugs_BecToken_cfg_12"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_13"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_14"
+      },
+      {
+        "node_type": "entry",
+        "function": "add",
+        "id": "smartbugs_BecToken_cfg_entry_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a + b;",
+        "id": "smartbugs_BecToken_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(c >= a);",
+        "id": "smartbugs_BecToken_cfg_17"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_18"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "smartbugs_BecToken_cfg_entry_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_27"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_28"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_29"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_34"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_37"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_38"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_39"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_41"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_43"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_45"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_46"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_47"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_48"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_49"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "smartbugs_BecToken_cfg_entry_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_51"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_53"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_54"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_55"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_57"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_58"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_59"
+      },
+      {
+        "node_type": "entry",
+        "function": "allowance",
+        "id": "smartbugs_BecToken_cfg_entry_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_62"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_64"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_65"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_66"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_67"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_68"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_69"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_70"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_71"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_72"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_73"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_74"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_75"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_76"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_77"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_78"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_79"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_80"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_81"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_82"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_83"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_84"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_85"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_86"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_87"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_88"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_89"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_90"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_91"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_92"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_93"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_94"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_95"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_96"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_97"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_98"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_99"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_100"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_101"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_102"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_103"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_104"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_105"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_106"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_107"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_108"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_109"
+      },
+      {
+        "node_type": "entry",
+        "function": "allowance",
+        "id": "smartbugs_BecToken_cfg_entry_110"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_111"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_112"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_113"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_114"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_115"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_116"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_117"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_118"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_119"
+      },
+      {
+        "node_type": "entry",
+        "function": "Ownable",
+        "id": "smartbugs_BecToken_cfg_entry_120"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = msg.sender;",
+        "id": "smartbugs_BecToken_cfg_121"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "smartbugs_BecToken_cfg_entry_122"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(newOwner != address(0));",
+        "id": "smartbugs_BecToken_cfg_123"
+      },
+      {
+        "node_type": "statement",
+        "content": "OwnershipTransferred(owner, newOwner);",
+        "id": "smartbugs_BecToken_cfg_124"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "smartbugs_BecToken_cfg_125"
+      },
+      {
+        "node_type": "entry",
+        "function": "pause",
+        "id": "smartbugs_BecToken_cfg_entry_126"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = true;",
+        "id": "smartbugs_BecToken_cfg_127"
+      },
+      {
+        "node_type": "statement",
+        "content": "Pause();",
+        "id": "smartbugs_BecToken_cfg_128"
+      },
+      {
+        "node_type": "entry",
+        "function": "unpause",
+        "id": "smartbugs_BecToken_cfg_entry_129"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = false;",
+        "id": "smartbugs_BecToken_cfg_130"
+      },
+      {
+        "node_type": "statement",
+        "content": "Unpause();",
+        "id": "smartbugs_BecToken_cfg_131"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_132"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_133"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_134"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_135"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_136"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_137"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_138"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_139"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_140"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_141"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_142"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_143"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_144"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_145"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_146"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_147"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_148"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_149"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_150"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_151"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_152"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_153"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_154"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_155"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_156"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_157"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_158"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_159"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_160"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_161"
+      },
+      {
+        "node_type": "entry",
+        "function": "batchTransfer",
+        "id": "smartbugs_BecToken_cfg_entry_162"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "smartbugs_BecToken_cfg_163"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> ARITHMETIC",
+        "id": "smartbugs_BecToken_cfg_164"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "smartbugs_BecToken_cfg_165"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "smartbugs_BecToken_cfg_166"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && balances[msg.sender] >= amou",
+        "id": "smartbugs_BecToken_cfg_167"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = balances[msg.sender].sub(am",
+        "id": "smartbugs_BecToken_cfg_168"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_receivers[i]] = balances[_receivers[i]].",
+        "id": "smartbugs_BecToken_cfg_170"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, _receivers[i], _value);",
+        "id": "smartbugs_BecToken_cfg_171"
+      },
+      {
+        "node_type": "entry",
+        "function": "BecToken",
+        "id": "smartbugs_BecToken_cfg_entry_172"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply = 7000000000 * (10**(uint256(decimals)",
+        "id": "smartbugs_BecToken_cfg_173"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = totalSupply;    // Give the",
+        "id": "smartbugs_BecToken_cfg_174"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_0",
+        "target": "smartbugs_BecToken_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_1",
+        "target": "smartbugs_BecToken_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_2",
+        "target": "smartbugs_BecToken_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_3",
+        "target": "smartbugs_BecToken_cfg_exit_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_5",
+        "target": "smartbugs_BecToken_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_6",
+        "target": "smartbugs_BecToken_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_7",
+        "target": "smartbugs_BecToken_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_8",
+        "target": "smartbugs_BecToken_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_9",
+        "target": "smartbugs_BecToken_cfg_exit_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_11",
+        "target": "smartbugs_BecToken_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_12",
+        "target": "smartbugs_BecToken_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_13",
+        "target": "smartbugs_BecToken_cfg_exit_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_15",
+        "target": "smartbugs_BecToken_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_16",
+        "target": "smartbugs_BecToken_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_17",
+        "target": "smartbugs_BecToken_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_18",
+        "target": "smartbugs_BecToken_cfg_exit_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_20",
+        "target": "smartbugs_BecToken_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_21",
+        "target": "smartbugs_BecToken_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_22",
+        "target": "smartbugs_BecToken_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_23",
+        "target": "smartbugs_BecToken_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_24",
+        "target": "smartbugs_BecToken_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_25",
+        "target": "smartbugs_BecToken_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_26",
+        "target": "smartbugs_BecToken_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_27",
+        "target": "smartbugs_BecToken_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_28",
+        "target": "smartbugs_BecToken_cfg_exit_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_30",
+        "target": "smartbugs_BecToken_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_31",
+        "target": "smartbugs_BecToken_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_32",
+        "target": "smartbugs_BecToken_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_33",
+        "target": "smartbugs_BecToken_cfg_34"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_34",
+        "target": "smartbugs_BecToken_cfg_35"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_35",
+        "target": "smartbugs_BecToken_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_36",
+        "target": "smartbugs_BecToken_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_37",
+        "target": "smartbugs_BecToken_cfg_38"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_38",
+        "target": "smartbugs_BecToken_cfg_exit_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_40",
+        "target": "smartbugs_BecToken_cfg_41"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_41",
+        "target": "smartbugs_BecToken_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_42",
+        "target": "smartbugs_BecToken_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_43",
+        "target": "smartbugs_BecToken_cfg_44"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_44",
+        "target": "smartbugs_BecToken_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_45",
+        "target": "smartbugs_BecToken_cfg_46"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_46",
+        "target": "smartbugs_BecToken_cfg_47"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_47",
+        "target": "smartbugs_BecToken_cfg_48"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_48",
+        "target": "smartbugs_BecToken_cfg_exit_49"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_50",
+        "target": "smartbugs_BecToken_cfg_51"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_51",
+        "target": "smartbugs_BecToken_cfg_52"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_52",
+        "target": "smartbugs_BecToken_cfg_53"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_53",
+        "target": "smartbugs_BecToken_cfg_54"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_54",
+        "target": "smartbugs_BecToken_cfg_55"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_55",
+        "target": "smartbugs_BecToken_cfg_56"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_56",
+        "target": "smartbugs_BecToken_cfg_57"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_57",
+        "target": "smartbugs_BecToken_cfg_58"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_58",
+        "target": "smartbugs_BecToken_cfg_exit_59"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_60",
+        "target": "smartbugs_BecToken_cfg_61"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_61",
+        "target": "smartbugs_BecToken_cfg_62"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_62",
+        "target": "smartbugs_BecToken_cfg_63"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_63",
+        "target": "smartbugs_BecToken_cfg_64"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_64",
+        "target": "smartbugs_BecToken_cfg_65"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_65",
+        "target": "smartbugs_BecToken_cfg_66"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_66",
+        "target": "smartbugs_BecToken_cfg_67"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_67",
+        "target": "smartbugs_BecToken_cfg_68"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_68",
+        "target": "smartbugs_BecToken_cfg_exit_69"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_70",
+        "target": "smartbugs_BecToken_cfg_71"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_71",
+        "target": "smartbugs_BecToken_cfg_72"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_72",
+        "target": "smartbugs_BecToken_cfg_73"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_73",
+        "target": "smartbugs_BecToken_cfg_74"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_74",
+        "target": "smartbugs_BecToken_cfg_75"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_75",
+        "target": "smartbugs_BecToken_cfg_76"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_76",
+        "target": "smartbugs_BecToken_cfg_77"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_77",
+        "target": "smartbugs_BecToken_cfg_78"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_78",
+        "target": "smartbugs_BecToken_cfg_exit_79"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_80",
+        "target": "smartbugs_BecToken_cfg_81"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_81",
+        "target": "smartbugs_BecToken_cfg_82"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_82",
+        "target": "smartbugs_BecToken_cfg_83"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_83",
+        "target": "smartbugs_BecToken_cfg_84"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_84",
+        "target": "smartbugs_BecToken_cfg_85"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_85",
+        "target": "smartbugs_BecToken_cfg_86"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_86",
+        "target": "smartbugs_BecToken_cfg_87"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_87",
+        "target": "smartbugs_BecToken_cfg_88"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_88",
+        "target": "smartbugs_BecToken_cfg_exit_89"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_90",
+        "target": "smartbugs_BecToken_cfg_91"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_91",
+        "target": "smartbugs_BecToken_cfg_92"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_92",
+        "target": "smartbugs_BecToken_cfg_93"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_93",
+        "target": "smartbugs_BecToken_cfg_94"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_94",
+        "target": "smartbugs_BecToken_cfg_95"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_95",
+        "target": "smartbugs_BecToken_cfg_96"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_96",
+        "target": "smartbugs_BecToken_cfg_97"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_97",
+        "target": "smartbugs_BecToken_cfg_98"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_98",
+        "target": "smartbugs_BecToken_cfg_exit_99"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_100",
+        "target": "smartbugs_BecToken_cfg_101"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_101",
+        "target": "smartbugs_BecToken_cfg_102"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_102",
+        "target": "smartbugs_BecToken_cfg_103"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_103",
+        "target": "smartbugs_BecToken_cfg_104"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_104",
+        "target": "smartbugs_BecToken_cfg_105"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_105",
+        "target": "smartbugs_BecToken_cfg_106"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_106",
+        "target": "smartbugs_BecToken_cfg_107"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_107",
+        "target": "smartbugs_BecToken_cfg_108"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_108",
+        "target": "smartbugs_BecToken_cfg_exit_109"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_110",
+        "target": "smartbugs_BecToken_cfg_111"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_111",
+        "target": "smartbugs_BecToken_cfg_112"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_112",
+        "target": "smartbugs_BecToken_cfg_113"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_113",
+        "target": "smartbugs_BecToken_cfg_114"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_114",
+        "target": "smartbugs_BecToken_cfg_115"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_115",
+        "target": "smartbugs_BecToken_cfg_116"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_116",
+        "target": "smartbugs_BecToken_cfg_117"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_117",
+        "target": "smartbugs_BecToken_cfg_118"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_118",
+        "target": "smartbugs_BecToken_cfg_exit_119"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_120",
+        "target": "smartbugs_BecToken_cfg_121"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_122",
+        "target": "smartbugs_BecToken_cfg_123"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_123",
+        "target": "smartbugs_BecToken_cfg_124"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_124",
+        "target": "smartbugs_BecToken_cfg_125"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_126",
+        "target": "smartbugs_BecToken_cfg_127"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_127",
+        "target": "smartbugs_BecToken_cfg_128"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_129",
+        "target": "smartbugs_BecToken_cfg_130"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_130",
+        "target": "smartbugs_BecToken_cfg_131"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_132",
+        "target": "smartbugs_BecToken_cfg_133"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_133",
+        "target": "smartbugs_BecToken_cfg_134"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_134",
+        "target": "smartbugs_BecToken_cfg_135"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_135",
+        "target": "smartbugs_BecToken_cfg_136"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_136",
+        "target": "smartbugs_BecToken_cfg_137"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_137",
+        "target": "smartbugs_BecToken_cfg_138"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_138",
+        "target": "smartbugs_BecToken_cfg_139"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_139",
+        "target": "smartbugs_BecToken_cfg_140"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_140",
+        "target": "smartbugs_BecToken_cfg_exit_141"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_142",
+        "target": "smartbugs_BecToken_cfg_143"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_143",
+        "target": "smartbugs_BecToken_cfg_144"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_144",
+        "target": "smartbugs_BecToken_cfg_145"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_145",
+        "target": "smartbugs_BecToken_cfg_146"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_146",
+        "target": "smartbugs_BecToken_cfg_147"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_147",
+        "target": "smartbugs_BecToken_cfg_148"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_148",
+        "target": "smartbugs_BecToken_cfg_149"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_149",
+        "target": "smartbugs_BecToken_cfg_150"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_150",
+        "target": "smartbugs_BecToken_cfg_exit_151"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_152",
+        "target": "smartbugs_BecToken_cfg_153"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_153",
+        "target": "smartbugs_BecToken_cfg_154"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_154",
+        "target": "smartbugs_BecToken_cfg_155"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_155",
+        "target": "smartbugs_BecToken_cfg_156"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_156",
+        "target": "smartbugs_BecToken_cfg_157"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_157",
+        "target": "smartbugs_BecToken_cfg_158"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_158",
+        "target": "smartbugs_BecToken_cfg_159"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_159",
+        "target": "smartbugs_BecToken_cfg_160"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_160",
+        "target": "smartbugs_BecToken_cfg_exit_161"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_162",
+        "target": "smartbugs_BecToken_cfg_163"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_163",
+        "target": "smartbugs_BecToken_cfg_164"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_164",
+        "target": "smartbugs_BecToken_cfg_165"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_165",
+        "target": "smartbugs_BecToken_cfg_166"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_166",
+        "target": "smartbugs_BecToken_cfg_167"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_167",
+        "target": "smartbugs_BecToken_cfg_168"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_168",
+        "target": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_BecToken_cfg_169",
+        "target": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_169",
+        "target": "smartbugs_BecToken_cfg_170"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_170",
+        "target": "smartbugs_BecToken_cfg_171"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_172",
+        "target": "smartbugs_BecToken_cfg_173"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_173",
+        "target": "smartbugs_BecToken_cfg_174"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "smartbugs_BecToken_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_write_3"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_4"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_5"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_write_6"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "smartbugs_BecToken_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "totalSupply",
+        "id": "smartbugs_BecToken_dfg_write_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_0",
+        "target": "smartbugs_BecToken_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_3",
+        "target": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_6",
+        "target": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_8",
+        "target": "smartbugs_BecToken_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "mul",
+        "id": "smartbugs_BecToken_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a * b;",
+        "id": "smartbugs_BecToken_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(a == 0 || c / a == b);",
+        "id": "smartbugs_BecToken_cfg_2"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_3"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "div",
+        "id": "smartbugs_BecToken_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(b > 0); // Solidity automatically throw",
+        "id": "smartbugs_BecToken_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a / b;",
+        "id": "smartbugs_BecToken_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// require(a == b * c + a % b); // There is no cas",
+        "id": "smartbugs_BecToken_cfg_8"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_9"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_10"
+      },
+      {
+        "node_type": "entry",
+        "function": "sub",
+        "id": "smartbugs_BecToken_cfg_entry_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(b <= a);",
+        "id": "smartbugs_BecToken_cfg_12"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_13"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_14"
+      },
+      {
+        "node_type": "entry",
+        "function": "add",
+        "id": "smartbugs_BecToken_cfg_entry_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 c = a + b;",
+        "id": "smartbugs_BecToken_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(c >= a);",
+        "id": "smartbugs_BecToken_cfg_17"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_18"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_19"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "smartbugs_BecToken_cfg_entry_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_27"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_28"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_29"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_34"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_37"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_38"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_39"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_41"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_43"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_45"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_46"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_47"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_48"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_49"
+      },
+      {
+        "node_type": "entry",
+        "function": "balanceOf",
+        "id": "smartbugs_BecToken_cfg_entry_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_51"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_53"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_54"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_55"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_57"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_58"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_59"
+      },
+      {
+        "node_type": "entry",
+        "function": "allowance",
+        "id": "smartbugs_BecToken_cfg_entry_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_62"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_64"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_65"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_66"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_67"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_68"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_69"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_70"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_71"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_72"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_73"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_74"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_75"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_76"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_77"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_78"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_79"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_80"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_81"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_82"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_83"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_84"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_85"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_86"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_87"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_88"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_89"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_90"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_91"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_92"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_93"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_94"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_95"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_96"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_97"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_98"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_99"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_100"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_101"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_102"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_103"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_104"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_105"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_106"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_107"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_108"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_109"
+      },
+      {
+        "node_type": "entry",
+        "function": "allowance",
+        "id": "smartbugs_BecToken_cfg_entry_110"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_111"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_112"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_113"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_114"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_115"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_116"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_117"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_118"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_119"
+      },
+      {
+        "node_type": "entry",
+        "function": "Ownable",
+        "id": "smartbugs_BecToken_cfg_entry_120"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = msg.sender;",
+        "id": "smartbugs_BecToken_cfg_121"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "smartbugs_BecToken_cfg_entry_122"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(newOwner != address(0));",
+        "id": "smartbugs_BecToken_cfg_123"
+      },
+      {
+        "node_type": "statement",
+        "content": "OwnershipTransferred(owner, newOwner);",
+        "id": "smartbugs_BecToken_cfg_124"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "smartbugs_BecToken_cfg_125"
+      },
+      {
+        "node_type": "entry",
+        "function": "pause",
+        "id": "smartbugs_BecToken_cfg_entry_126"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = true;",
+        "id": "smartbugs_BecToken_cfg_127"
+      },
+      {
+        "node_type": "statement",
+        "content": "Pause();",
+        "id": "smartbugs_BecToken_cfg_128"
+      },
+      {
+        "node_type": "entry",
+        "function": "unpause",
+        "id": "smartbugs_BecToken_cfg_entry_129"
+      },
+      {
+        "node_type": "statement",
+        "content": "paused = false;",
+        "id": "smartbugs_BecToken_cfg_130"
+      },
+      {
+        "node_type": "statement",
+        "content": "Unpause();",
+        "id": "smartbugs_BecToken_cfg_131"
+      },
+      {
+        "node_type": "entry",
+        "function": "transfer",
+        "id": "smartbugs_BecToken_cfg_entry_132"
+      },
+      {
+        "node_type": "statement",
+        "content": "using SafeMath for uint256;",
+        "id": "smartbugs_BecToken_cfg_133"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping(address => uint256) balances;",
+        "id": "smartbugs_BecToken_cfg_134"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_135"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev transfer token for a specified address",
+        "id": "smartbugs_BecToken_cfg_136"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to The address to transfer to.",
+        "id": "smartbugs_BecToken_cfg_137"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value The amount to be transferred.",
+        "id": "smartbugs_BecToken_cfg_138"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_139"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_140"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_141"
+      },
+      {
+        "node_type": "entry",
+        "function": "transferFrom",
+        "id": "smartbugs_BecToken_cfg_entry_142"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_143"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_144"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_145"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_146"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_147"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_148"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_149"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_150"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_151"
+      },
+      {
+        "node_type": "entry",
+        "function": "approve",
+        "id": "smartbugs_BecToken_cfg_entry_152"
+      },
+      {
+        "node_type": "statement",
+        "content": "mapping (address => mapping (address => uint256)) ",
+        "id": "smartbugs_BecToken_cfg_153"
+      },
+      {
+        "node_type": "statement",
+        "content": "/**",
+        "id": "smartbugs_BecToken_cfg_154"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @dev Transfer tokens from one address to another",
+        "id": "smartbugs_BecToken_cfg_155"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _from address The address which you want ",
+        "id": "smartbugs_BecToken_cfg_156"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _to address The address which you want to",
+        "id": "smartbugs_BecToken_cfg_157"
+      },
+      {
+        "node_type": "statement",
+        "content": "* @param _value uint256 the amount of tokens to be",
+        "id": "smartbugs_BecToken_cfg_158"
+      },
+      {
+        "node_type": "statement",
+        "content": "*/",
+        "id": "smartbugs_BecToken_cfg_159"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_BecToken_cfg_160"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_BecToken_cfg_exit_161"
+      },
+      {
+        "node_type": "entry",
+        "function": "batchTransfer",
+        "id": "smartbugs_BecToken_cfg_entry_162"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "smartbugs_BecToken_cfg_163"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> ARITHMETIC",
+        "id": "smartbugs_BecToken_cfg_164"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "smartbugs_BecToken_cfg_165"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "smartbugs_BecToken_cfg_166"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_value > 0 && balances[msg.sender] >= amou",
+        "id": "smartbugs_BecToken_cfg_167"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = balances[msg.sender].sub(am",
+        "id": "smartbugs_BecToken_cfg_168"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[_receivers[i]] = balances[_receivers[i]].",
+        "id": "smartbugs_BecToken_cfg_170"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, _receivers[i], _value);",
+        "id": "smartbugs_BecToken_cfg_171"
+      },
+      {
+        "node_type": "entry",
+        "function": "BecToken",
+        "id": "smartbugs_BecToken_cfg_entry_172"
+      },
+      {
+        "node_type": "statement",
+        "content": "totalSupply = 7000000000 * (10**(uint256(decimals)",
+        "id": "smartbugs_BecToken_cfg_173"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = totalSupply;    // Give the",
+        "id": "smartbugs_BecToken_cfg_174"
+      },
+      {
+        "node_type": "variable",
+        "name": "totalSupply",
+        "var_type": "uint",
+        "id": "smartbugs_BecToken_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_write_3"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_4"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_read_5"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "smartbugs_BecToken_dfg_write_6"
+      },
+      {
+        "node_type": "read",
+        "var": "totalSupply",
+        "id": "smartbugs_BecToken_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "totalSupply",
+        "id": "smartbugs_BecToken_dfg_write_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_0",
+        "target": "smartbugs_BecToken_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_1",
+        "target": "smartbugs_BecToken_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_2",
+        "target": "smartbugs_BecToken_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_3",
+        "target": "smartbugs_BecToken_cfg_exit_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_5",
+        "target": "smartbugs_BecToken_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_6",
+        "target": "smartbugs_BecToken_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_7",
+        "target": "smartbugs_BecToken_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_8",
+        "target": "smartbugs_BecToken_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_9",
+        "target": "smartbugs_BecToken_cfg_exit_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_11",
+        "target": "smartbugs_BecToken_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_12",
+        "target": "smartbugs_BecToken_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_13",
+        "target": "smartbugs_BecToken_cfg_exit_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_15",
+        "target": "smartbugs_BecToken_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_16",
+        "target": "smartbugs_BecToken_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_17",
+        "target": "smartbugs_BecToken_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_18",
+        "target": "smartbugs_BecToken_cfg_exit_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_20",
+        "target": "smartbugs_BecToken_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_21",
+        "target": "smartbugs_BecToken_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_22",
+        "target": "smartbugs_BecToken_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_23",
+        "target": "smartbugs_BecToken_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_24",
+        "target": "smartbugs_BecToken_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_25",
+        "target": "smartbugs_BecToken_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_26",
+        "target": "smartbugs_BecToken_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_27",
+        "target": "smartbugs_BecToken_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_28",
+        "target": "smartbugs_BecToken_cfg_exit_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_30",
+        "target": "smartbugs_BecToken_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_31",
+        "target": "smartbugs_BecToken_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_32",
+        "target": "smartbugs_BecToken_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_33",
+        "target": "smartbugs_BecToken_cfg_34"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_34",
+        "target": "smartbugs_BecToken_cfg_35"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_35",
+        "target": "smartbugs_BecToken_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_36",
+        "target": "smartbugs_BecToken_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_37",
+        "target": "smartbugs_BecToken_cfg_38"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_38",
+        "target": "smartbugs_BecToken_cfg_exit_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_40",
+        "target": "smartbugs_BecToken_cfg_41"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_41",
+        "target": "smartbugs_BecToken_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_42",
+        "target": "smartbugs_BecToken_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_43",
+        "target": "smartbugs_BecToken_cfg_44"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_44",
+        "target": "smartbugs_BecToken_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_45",
+        "target": "smartbugs_BecToken_cfg_46"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_46",
+        "target": "smartbugs_BecToken_cfg_47"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_47",
+        "target": "smartbugs_BecToken_cfg_48"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_48",
+        "target": "smartbugs_BecToken_cfg_exit_49"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_50",
+        "target": "smartbugs_BecToken_cfg_51"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_51",
+        "target": "smartbugs_BecToken_cfg_52"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_52",
+        "target": "smartbugs_BecToken_cfg_53"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_53",
+        "target": "smartbugs_BecToken_cfg_54"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_54",
+        "target": "smartbugs_BecToken_cfg_55"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_55",
+        "target": "smartbugs_BecToken_cfg_56"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_56",
+        "target": "smartbugs_BecToken_cfg_57"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_57",
+        "target": "smartbugs_BecToken_cfg_58"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_58",
+        "target": "smartbugs_BecToken_cfg_exit_59"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_60",
+        "target": "smartbugs_BecToken_cfg_61"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_61",
+        "target": "smartbugs_BecToken_cfg_62"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_62",
+        "target": "smartbugs_BecToken_cfg_63"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_63",
+        "target": "smartbugs_BecToken_cfg_64"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_64",
+        "target": "smartbugs_BecToken_cfg_65"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_65",
+        "target": "smartbugs_BecToken_cfg_66"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_66",
+        "target": "smartbugs_BecToken_cfg_67"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_67",
+        "target": "smartbugs_BecToken_cfg_68"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_68",
+        "target": "smartbugs_BecToken_cfg_exit_69"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_70",
+        "target": "smartbugs_BecToken_cfg_71"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_71",
+        "target": "smartbugs_BecToken_cfg_72"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_72",
+        "target": "smartbugs_BecToken_cfg_73"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_73",
+        "target": "smartbugs_BecToken_cfg_74"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_74",
+        "target": "smartbugs_BecToken_cfg_75"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_75",
+        "target": "smartbugs_BecToken_cfg_76"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_76",
+        "target": "smartbugs_BecToken_cfg_77"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_77",
+        "target": "smartbugs_BecToken_cfg_78"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_78",
+        "target": "smartbugs_BecToken_cfg_exit_79"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_80",
+        "target": "smartbugs_BecToken_cfg_81"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_81",
+        "target": "smartbugs_BecToken_cfg_82"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_82",
+        "target": "smartbugs_BecToken_cfg_83"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_83",
+        "target": "smartbugs_BecToken_cfg_84"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_84",
+        "target": "smartbugs_BecToken_cfg_85"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_85",
+        "target": "smartbugs_BecToken_cfg_86"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_86",
+        "target": "smartbugs_BecToken_cfg_87"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_87",
+        "target": "smartbugs_BecToken_cfg_88"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_88",
+        "target": "smartbugs_BecToken_cfg_exit_89"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_90",
+        "target": "smartbugs_BecToken_cfg_91"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_91",
+        "target": "smartbugs_BecToken_cfg_92"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_92",
+        "target": "smartbugs_BecToken_cfg_93"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_93",
+        "target": "smartbugs_BecToken_cfg_94"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_94",
+        "target": "smartbugs_BecToken_cfg_95"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_95",
+        "target": "smartbugs_BecToken_cfg_96"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_96",
+        "target": "smartbugs_BecToken_cfg_97"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_97",
+        "target": "smartbugs_BecToken_cfg_98"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_98",
+        "target": "smartbugs_BecToken_cfg_exit_99"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_100",
+        "target": "smartbugs_BecToken_cfg_101"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_101",
+        "target": "smartbugs_BecToken_cfg_102"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_102",
+        "target": "smartbugs_BecToken_cfg_103"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_103",
+        "target": "smartbugs_BecToken_cfg_104"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_104",
+        "target": "smartbugs_BecToken_cfg_105"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_105",
+        "target": "smartbugs_BecToken_cfg_106"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_106",
+        "target": "smartbugs_BecToken_cfg_107"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_107",
+        "target": "smartbugs_BecToken_cfg_108"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_108",
+        "target": "smartbugs_BecToken_cfg_exit_109"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_110",
+        "target": "smartbugs_BecToken_cfg_111"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_111",
+        "target": "smartbugs_BecToken_cfg_112"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_112",
+        "target": "smartbugs_BecToken_cfg_113"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_113",
+        "target": "smartbugs_BecToken_cfg_114"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_114",
+        "target": "smartbugs_BecToken_cfg_115"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_115",
+        "target": "smartbugs_BecToken_cfg_116"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_116",
+        "target": "smartbugs_BecToken_cfg_117"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_117",
+        "target": "smartbugs_BecToken_cfg_118"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_118",
+        "target": "smartbugs_BecToken_cfg_exit_119"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_120",
+        "target": "smartbugs_BecToken_cfg_121"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_122",
+        "target": "smartbugs_BecToken_cfg_123"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_123",
+        "target": "smartbugs_BecToken_cfg_124"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_124",
+        "target": "smartbugs_BecToken_cfg_125"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_126",
+        "target": "smartbugs_BecToken_cfg_127"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_127",
+        "target": "smartbugs_BecToken_cfg_128"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_129",
+        "target": "smartbugs_BecToken_cfg_130"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_130",
+        "target": "smartbugs_BecToken_cfg_131"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_132",
+        "target": "smartbugs_BecToken_cfg_133"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_133",
+        "target": "smartbugs_BecToken_cfg_134"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_134",
+        "target": "smartbugs_BecToken_cfg_135"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_135",
+        "target": "smartbugs_BecToken_cfg_136"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_136",
+        "target": "smartbugs_BecToken_cfg_137"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_137",
+        "target": "smartbugs_BecToken_cfg_138"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_138",
+        "target": "smartbugs_BecToken_cfg_139"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_139",
+        "target": "smartbugs_BecToken_cfg_140"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_140",
+        "target": "smartbugs_BecToken_cfg_exit_141"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_142",
+        "target": "smartbugs_BecToken_cfg_143"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_143",
+        "target": "smartbugs_BecToken_cfg_144"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_144",
+        "target": "smartbugs_BecToken_cfg_145"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_145",
+        "target": "smartbugs_BecToken_cfg_146"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_146",
+        "target": "smartbugs_BecToken_cfg_147"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_147",
+        "target": "smartbugs_BecToken_cfg_148"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_148",
+        "target": "smartbugs_BecToken_cfg_149"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_149",
+        "target": "smartbugs_BecToken_cfg_150"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_150",
+        "target": "smartbugs_BecToken_cfg_exit_151"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_152",
+        "target": "smartbugs_BecToken_cfg_153"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_153",
+        "target": "smartbugs_BecToken_cfg_154"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_154",
+        "target": "smartbugs_BecToken_cfg_155"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_155",
+        "target": "smartbugs_BecToken_cfg_156"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_156",
+        "target": "smartbugs_BecToken_cfg_157"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_157",
+        "target": "smartbugs_BecToken_cfg_158"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_158",
+        "target": "smartbugs_BecToken_cfg_159"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_159",
+        "target": "smartbugs_BecToken_cfg_160"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_160",
+        "target": "smartbugs_BecToken_cfg_exit_161"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_162",
+        "target": "smartbugs_BecToken_cfg_163"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_163",
+        "target": "smartbugs_BecToken_cfg_164"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_164",
+        "target": "smartbugs_BecToken_cfg_165"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_165",
+        "target": "smartbugs_BecToken_cfg_166"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_166",
+        "target": "smartbugs_BecToken_cfg_167"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_167",
+        "target": "smartbugs_BecToken_cfg_168"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_168",
+        "target": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_BecToken_cfg_169",
+        "target": "smartbugs_BecToken_cfg_169"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_169",
+        "target": "smartbugs_BecToken_cfg_170"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_170",
+        "target": "smartbugs_BecToken_cfg_171"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_entry_172",
+        "target": "smartbugs_BecToken_cfg_173"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_BecToken_cfg_173",
+        "target": "smartbugs_BecToken_cfg_174"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_0",
+        "target": "smartbugs_BecToken_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_var_1",
+        "target": "smartbugs_BecToken_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_3",
+        "target": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_6",
+        "target": "smartbugs_BecToken_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_BecToken_dfg_write_8",
+        "target": "smartbugs_BecToken_dfg_var_0"
+      }
+    ]
+  }
+}

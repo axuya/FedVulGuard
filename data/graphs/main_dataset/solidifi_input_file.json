@@ -1,0 +1,982 @@
+{
+  "contract_id": "solidifi_input_file",
+  "metadata": {
+    "sloc": 61,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Nothing",
+        "id": "solidifi_input_file_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "stringCompare",
+        "visibility": "internal",
+        "id": "solidifi_input_file_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "if(bytes(a).length != bytes(b).length) {",
+        "id": "solidifi_input_file_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "return false;",
+        "id": "solidifi_input_file_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "nothing",
+        "visibility": "public",
+        "id": "solidifi_input_file_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (!stringCompare(g_0, x_0)) return false;",
+        "id": "solidifi_input_file_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_1 != x_1) return false;",
+        "id": "solidifi_input_file_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_2 != x_2) return false;",
+        "id": "solidifi_input_file_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_3 != x_3) return false;",
+        "id": "solidifi_input_file_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_4 != x_4) return false;",
+        "id": "solidifi_input_file_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_5 != x_5) return false;",
+        "id": "solidifi_input_file_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_6 != x_6) return false;",
+        "id": "solidifi_input_file_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_7 != x_7) return false;",
+        "id": "solidifi_input_file_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_8 != x_8) return false;",
+        "id": "solidifi_input_file_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (g_9 != x_9) return false;",
+        "id": "solidifi_input_file_stmt_14"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_contract_0",
+        "target": "solidifi_input_file_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_contract_0",
+        "target": "solidifi_input_file_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_1",
+        "target": "solidifi_input_file_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_1",
+        "target": "solidifi_input_file_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_input_file_func_4",
+        "target": "solidifi_input_file_stmt_14"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "stringCompare",
+        "id": "solidifi_input_file_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_input_file_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_input_file_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "nothing",
+        "id": "solidifi_input_file_cfg_entry_6"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_7"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_8"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_12"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_13"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_14"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_15"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_16"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_17"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_18"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_19"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_20"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_21"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_22"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_23"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_24"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_25"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_26"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_27"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_28"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_29"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_30"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_31"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_32"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_33"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_34"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_35"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_36"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_37"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_38"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_39"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_40"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_41"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_42"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_input_file_cfg_43"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_input_file_cfg_exit_44"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_entry_0",
+        "target": "solidifi_input_file_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_1",
+        "target": "solidifi_input_file_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_1",
+        "target": "solidifi_input_file_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_2",
+        "target": "solidifi_input_file_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_4",
+        "target": "solidifi_input_file_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_entry_6",
+        "target": "solidifi_input_file_cfg_7"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_7",
+        "target": "solidifi_input_file_cfg_8"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_7",
+        "target": "solidifi_input_file_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_8",
+        "target": "solidifi_input_file_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_10",
+        "target": "solidifi_input_file_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_10",
+        "target": "solidifi_input_file_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_11",
+        "target": "solidifi_input_file_cfg_13"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_13",
+        "target": "solidifi_input_file_cfg_14"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_13",
+        "target": "solidifi_input_file_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_14",
+        "target": "solidifi_input_file_cfg_16"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_16",
+        "target": "solidifi_input_file_cfg_17"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_16",
+        "target": "solidifi_input_file_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_17",
+        "target": "solidifi_input_file_cfg_19"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_19",
+        "target": "solidifi_input_file_cfg_20"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_19",
+        "target": "solidifi_input_file_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_20",
+        "target": "solidifi_input_file_cfg_22"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_22",
+        "target": "solidifi_input_file_cfg_23"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_22",
+        "target": "solidifi_input_file_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_23",
+        "target": "solidifi_input_file_cfg_25"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_25",
+        "target": "solidifi_input_file_cfg_26"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_25",
+        "target": "solidifi_input_file_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_26",
+        "target": "solidifi_input_file_cfg_28"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_28",
+        "target": "solidifi_input_file_cfg_29"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_28",
+        "target": "solidifi_input_file_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_29",
+        "target": "solidifi_input_file_cfg_31"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_31",
+        "target": "solidifi_input_file_cfg_32"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_31",
+        "target": "solidifi_input_file_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_32",
+        "target": "solidifi_input_file_cfg_34"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_34",
+        "target": "solidifi_input_file_cfg_35"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_34",
+        "target": "solidifi_input_file_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_35",
+        "target": "solidifi_input_file_cfg_37"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_37",
+        "target": "solidifi_input_file_cfg_38"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_37",
+        "target": "solidifi_input_file_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_38",
+        "target": "solidifi_input_file_cfg_40"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_40",
+        "target": "solidifi_input_file_cfg_41"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_40",
+        "target": "solidifi_input_file_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_41",
+        "target": "solidifi_input_file_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_43",
+        "target": "solidifi_input_file_cfg_exit_44"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "stringCompare",
+        "id": "solidifi_input_file_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_input_file_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_input_file_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "nothing",
+        "id": "solidifi_input_file_cfg_entry_6"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_7"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_8"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_12"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_13"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_14"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_15"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_16"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_17"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_18"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_19"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_20"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_21"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_22"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_23"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_24"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_25"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_26"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_27"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_28"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_29"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_30"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_31"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_32"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_33"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_34"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_35"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_36"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_37"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_38"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_39"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_input_file_cfg_40"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_input_file_cfg_41"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_input_file_cfg_42"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_input_file_cfg_43"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_input_file_cfg_exit_44"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_entry_0",
+        "target": "solidifi_input_file_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_1",
+        "target": "solidifi_input_file_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_1",
+        "target": "solidifi_input_file_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_2",
+        "target": "solidifi_input_file_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_4",
+        "target": "solidifi_input_file_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_entry_6",
+        "target": "solidifi_input_file_cfg_7"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_7",
+        "target": "solidifi_input_file_cfg_8"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_7",
+        "target": "solidifi_input_file_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_8",
+        "target": "solidifi_input_file_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_10",
+        "target": "solidifi_input_file_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_10",
+        "target": "solidifi_input_file_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_11",
+        "target": "solidifi_input_file_cfg_13"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_13",
+        "target": "solidifi_input_file_cfg_14"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_13",
+        "target": "solidifi_input_file_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_14",
+        "target": "solidifi_input_file_cfg_16"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_16",
+        "target": "solidifi_input_file_cfg_17"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_16",
+        "target": "solidifi_input_file_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_17",
+        "target": "solidifi_input_file_cfg_19"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_19",
+        "target": "solidifi_input_file_cfg_20"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_19",
+        "target": "solidifi_input_file_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_20",
+        "target": "solidifi_input_file_cfg_22"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_22",
+        "target": "solidifi_input_file_cfg_23"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_22",
+        "target": "solidifi_input_file_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_23",
+        "target": "solidifi_input_file_cfg_25"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_25",
+        "target": "solidifi_input_file_cfg_26"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_25",
+        "target": "solidifi_input_file_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_26",
+        "target": "solidifi_input_file_cfg_28"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_28",
+        "target": "solidifi_input_file_cfg_29"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_28",
+        "target": "solidifi_input_file_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_29",
+        "target": "solidifi_input_file_cfg_31"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_31",
+        "target": "solidifi_input_file_cfg_32"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_31",
+        "target": "solidifi_input_file_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_32",
+        "target": "solidifi_input_file_cfg_34"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_34",
+        "target": "solidifi_input_file_cfg_35"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_34",
+        "target": "solidifi_input_file_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_35",
+        "target": "solidifi_input_file_cfg_37"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_37",
+        "target": "solidifi_input_file_cfg_38"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_37",
+        "target": "solidifi_input_file_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_38",
+        "target": "solidifi_input_file_cfg_40"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_input_file_cfg_40",
+        "target": "solidifi_input_file_cfg_41"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_input_file_cfg_40",
+        "target": "solidifi_input_file_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_41",
+        "target": "solidifi_input_file_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_input_file_cfg_43",
+        "target": "solidifi_input_file_cfg_exit_44"
+      }
+    ]
+  }
+}

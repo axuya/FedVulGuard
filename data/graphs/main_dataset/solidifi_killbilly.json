@@ -1,0 +1,344 @@
+{
+  "contract_id": "solidifi_killbilly",
+  "metadata": {
+    "sloc": 24,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "KillBilly",
+        "id": "solidifi_killbilly_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "is_killable",
+        "var_type": "bool",
+        "id": "solidifi_killbilly_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "killerize",
+        "visibility": "public",
+        "id": "solidifi_killbilly_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "approved_killers[addr] = true;",
+        "id": "solidifi_killbilly_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "activatekillability",
+        "visibility": "public",
+        "id": "solidifi_killbilly_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(approved_killers[msg.sender] == true);",
+        "id": "solidifi_killbilly_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "is_killable = true;",
+        "id": "solidifi_killbilly_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "commencekilling",
+        "visibility": "public",
+        "id": "solidifi_killbilly_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(is_killable);",
+        "id": "solidifi_killbilly_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(msg.sender);",
+        "id": "solidifi_killbilly_stmt_9"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_contract_0",
+        "target": "solidifi_killbilly_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_contract_0",
+        "target": "solidifi_killbilly_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_contract_0",
+        "target": "solidifi_killbilly_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_contract_0",
+        "target": "solidifi_killbilly_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_func_2",
+        "target": "solidifi_killbilly_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_func_4",
+        "target": "solidifi_killbilly_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_func_4",
+        "target": "solidifi_killbilly_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_func_7",
+        "target": "solidifi_killbilly_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_killbilly_func_7",
+        "target": "solidifi_killbilly_stmt_9"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "killerize",
+        "id": "solidifi_killbilly_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "approved_killers[addr] = true;",
+        "id": "solidifi_killbilly_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "activatekillability",
+        "id": "solidifi_killbilly_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(approved_killers[msg.sender] == true);",
+        "id": "solidifi_killbilly_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "is_killable = true;",
+        "id": "solidifi_killbilly_cfg_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "commencekilling",
+        "id": "solidifi_killbilly_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(is_killable);",
+        "id": "solidifi_killbilly_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(msg.sender);",
+        "id": "solidifi_killbilly_cfg_7"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_0",
+        "target": "solidifi_killbilly_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_2",
+        "target": "solidifi_killbilly_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_3",
+        "target": "solidifi_killbilly_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_5",
+        "target": "solidifi_killbilly_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_6",
+        "target": "solidifi_killbilly_cfg_7"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "is_killable",
+        "var_type": "bool",
+        "id": "solidifi_killbilly_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_read_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_var_0",
+        "target": "solidifi_killbilly_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_var_0",
+        "target": "solidifi_killbilly_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_write_2",
+        "target": "solidifi_killbilly_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "killerize",
+        "id": "solidifi_killbilly_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "approved_killers[addr] = true;",
+        "id": "solidifi_killbilly_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "activatekillability",
+        "id": "solidifi_killbilly_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(approved_killers[msg.sender] == true);",
+        "id": "solidifi_killbilly_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "is_killable = true;",
+        "id": "solidifi_killbilly_cfg_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "commencekilling",
+        "id": "solidifi_killbilly_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(is_killable);",
+        "id": "solidifi_killbilly_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(msg.sender);",
+        "id": "solidifi_killbilly_cfg_7"
+      },
+      {
+        "node_type": "variable",
+        "name": "is_killable",
+        "var_type": "bool",
+        "id": "solidifi_killbilly_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "is_killable",
+        "id": "solidifi_killbilly_dfg_read_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_0",
+        "target": "solidifi_killbilly_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_2",
+        "target": "solidifi_killbilly_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_3",
+        "target": "solidifi_killbilly_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_entry_5",
+        "target": "solidifi_killbilly_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_killbilly_cfg_6",
+        "target": "solidifi_killbilly_cfg_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_var_0",
+        "target": "solidifi_killbilly_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_var_0",
+        "target": "solidifi_killbilly_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_killbilly_dfg_write_2",
+        "target": "solidifi_killbilly_dfg_var_0"
+      }
+    ]
+  }
+}

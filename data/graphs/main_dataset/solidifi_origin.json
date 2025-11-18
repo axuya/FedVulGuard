@@ -1,0 +1,226 @@
+{
+  "contract_id": "solidifi_origin",
+  "metadata": {
+    "sloc": 37,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Origin",
+        "id": "solidifi_origin_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "solidifi_origin_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "transferOwnership",
+        "visibility": "public",
+        "id": "solidifi_origin_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (newOwner != address(0)) {",
+        "id": "solidifi_origin_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "solidifi_origin_stmt_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_origin_contract_0",
+        "target": "solidifi_origin_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_origin_contract_0",
+        "target": "solidifi_origin_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_origin_func_2",
+        "target": "solidifi_origin_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_origin_func_2",
+        "target": "solidifi_origin_stmt_4"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "solidifi_origin_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_origin_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_origin_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_origin_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "solidifi_origin_cfg_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_origin_cfg_entry_0",
+        "target": "solidifi_origin_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_origin_cfg_1",
+        "target": "solidifi_origin_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_origin_cfg_1",
+        "target": "solidifi_origin_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_origin_cfg_2",
+        "target": "solidifi_origin_cfg_4"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "solidifi_origin_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "solidifi_origin_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "solidifi_origin_dfg_write_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_origin_dfg_var_0",
+        "target": "solidifi_origin_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_origin_dfg_write_2",
+        "target": "solidifi_origin_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "transferOwnership",
+        "id": "solidifi_origin_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_origin_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_origin_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_origin_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner = newOwner;",
+        "id": "solidifi_origin_cfg_4"
+      },
+      {
+        "node_type": "variable",
+        "name": "owner",
+        "var_type": "address",
+        "id": "solidifi_origin_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "owner",
+        "id": "solidifi_origin_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "owner",
+        "id": "solidifi_origin_dfg_write_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_origin_cfg_entry_0",
+        "target": "solidifi_origin_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_origin_cfg_1",
+        "target": "solidifi_origin_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_origin_cfg_1",
+        "target": "solidifi_origin_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_origin_cfg_2",
+        "target": "solidifi_origin_cfg_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_origin_dfg_var_0",
+        "target": "solidifi_origin_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_origin_dfg_write_2",
+        "target": "solidifi_origin_dfg_var_0"
+      }
+    ]
+  }
+}

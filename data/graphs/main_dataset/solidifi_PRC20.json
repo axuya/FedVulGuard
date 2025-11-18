@@ -1,0 +1,113 @@
+{
+  "contract_id": "solidifi_PRC20",
+  "metadata": {
+    "sloc": 9,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "PRC20",
+        "id": "solidifi_PRC20_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "nothing1",
+        "visibility": "public",
+        "id": "solidifi_PRC20_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "return a+b;",
+        "id": "solidifi_PRC20_stmt_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_PRC20_contract_0",
+        "target": "solidifi_PRC20_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_PRC20_func_1",
+        "target": "solidifi_PRC20_stmt_2"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "nothing1",
+        "id": "solidifi_PRC20_cfg_entry_0"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_PRC20_cfg_1"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_PRC20_cfg_exit_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_PRC20_cfg_entry_0",
+        "target": "solidifi_PRC20_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_PRC20_cfg_1",
+        "target": "solidifi_PRC20_cfg_exit_2"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "nothing1",
+        "id": "solidifi_PRC20_cfg_entry_0"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_PRC20_cfg_1"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_PRC20_cfg_exit_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_PRC20_cfg_entry_0",
+        "target": "solidifi_PRC20_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_PRC20_cfg_1",
+        "target": "solidifi_PRC20_cfg_exit_2"
+      }
+    ]
+  }
+}

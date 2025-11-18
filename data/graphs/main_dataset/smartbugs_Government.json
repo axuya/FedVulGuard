@@ -1,0 +1,1794 @@
+{
+  "contract_id": "smartbugs_Government",
+  "metadata": {
+    "sloc": 125,
+    "num_functions": 9
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Government",
+        "id": "smartbugs_Government_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "smartbugs_Government_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "smartbugs_Government_var_2"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "smartbugs_Government_var_3"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "corruptElite",
+        "var_type": "address",
+        "id": "smartbugs_Government_var_4"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "smartbugs_Government_var_5"
+      },
+      {
+        "node_type": "function",
+        "name": "Government",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// The corrupt elite establishes a new government",
+        "id": "smartbugs_Government_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// this is the commitment of the corrupt Elite - everything that can not be saved from a crash",
+        "id": "smartbugs_Government_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = msg.value;",
+        "id": "smartbugs_Government_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = msg.sender;",
+        "id": "smartbugs_Government_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "smartbugs_Government_stmt_11"
+      },
+      {
+        "node_type": "function",
+        "name": "lendGovernmentMoney",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "smartbugs_Government_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for 12h no new creditor gives new credit to the system",
+        "id": "smartbugs_Government_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "smartbugs_Government_stmt_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp) {",
+        "id": "smartbugs_Government_stmt_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "smartbugs_Government_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "smartbugs_Government_stmt_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "smartbugs_Government_stmt_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash);",
+        "id": "smartbugs_Government_stmt_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(this.balance);",
+        "id": "smartbugs_Government_stmt_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "smartbugs_Government_stmt_22"
+      },
+      {
+        "node_type": "function",
+        "name": "function",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(0);",
+        "id": "smartbugs_Government_stmt_24"
+      },
+      {
+        "node_type": "function",
+        "name": "totalDebt",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "for(uint i=lastCreditorPayedOut; i<creditorAmounts.length; i++){",
+        "id": "smartbugs_Government_stmt_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "smartbugs_Government_stmt_27"
+      },
+      {
+        "node_type": "function",
+        "name": "totalPayedOut",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_28"
+      },
+      {
+        "node_type": "statement",
+        "content": "for(uint i=0; i<lastCreditorPayedOut; i++){",
+        "id": "smartbugs_Government_stmt_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "smartbugs_Government_stmt_30"
+      },
+      {
+        "node_type": "function",
+        "name": "investInTheSystem",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "smartbugs_Government_stmt_32"
+      },
+      {
+        "node_type": "function",
+        "name": "inheritToNextGeneration",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (msg.sender == corruptElite) {",
+        "id": "smartbugs_Government_stmt_34"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "smartbugs_Government_stmt_35"
+      },
+      {
+        "node_type": "function",
+        "name": "getCreditorAddresses",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "return creditorAddresses;",
+        "id": "smartbugs_Government_stmt_37"
+      },
+      {
+        "node_type": "function",
+        "name": "getCreditorAmounts",
+        "visibility": "public",
+        "id": "smartbugs_Government_func_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "return creditorAmounts;",
+        "id": "smartbugs_Government_stmt_39"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_var_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_var_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_var_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_28"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_31"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_33"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_36"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_contract_0",
+        "target": "smartbugs_Government_func_38"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_6",
+        "target": "smartbugs_Government_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_6",
+        "target": "smartbugs_Government_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_6",
+        "target": "smartbugs_Government_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_6",
+        "target": "smartbugs_Government_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_6",
+        "target": "smartbugs_Government_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_12",
+        "target": "smartbugs_Government_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_23",
+        "target": "smartbugs_Government_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_25",
+        "target": "smartbugs_Government_stmt_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_25",
+        "target": "smartbugs_Government_stmt_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_28",
+        "target": "smartbugs_Government_stmt_29"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_28",
+        "target": "smartbugs_Government_stmt_30"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_31",
+        "target": "smartbugs_Government_stmt_32"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_33",
+        "target": "smartbugs_Government_stmt_34"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_33",
+        "target": "smartbugs_Government_stmt_35"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_36",
+        "target": "smartbugs_Government_stmt_37"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_Government_func_38",
+        "target": "smartbugs_Government_stmt_39"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "Government",
+        "id": "smartbugs_Government_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// The corrupt elite establishes a new government",
+        "id": "smartbugs_Government_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "// this is the commitment of the corrupt Elite - e",
+        "id": "smartbugs_Government_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = msg.value;",
+        "id": "smartbugs_Government_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = msg.sender;",
+        "id": "smartbugs_Government_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "smartbugs_Government_cfg_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "lendGovernmentMoney",
+        "id": "smartbugs_Government_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "smartbugs_Government_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for ",
+        "id": "smartbugs_Government_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "smartbugs_Government_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_Government_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_Government_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_Government_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "smartbugs_Government_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "smartbugs_Government_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "smartbugs_Government_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].se",
+        "id": "smartbugs_Government_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(this.balance);",
+        "id": "smartbugs_Government_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "smartbugs_Government_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastCreditorPayedOut = 0;",
+        "id": "smartbugs_Government_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "smartbugs_Government_cfg_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = 0;",
+        "id": "smartbugs_Government_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "smartbugs_Government_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses = new address[](0);",
+        "id": "smartbugs_Government_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "smartbugs_Government_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAmounts = new uint[](0);",
+        "id": "smartbugs_Government_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "round += 1;",
+        "id": "smartbugs_Government_cfg_26"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_27"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_28"
+      },
+      {
+        "node_type": "entry",
+        "function": "function",
+        "id": "smartbugs_Government_cfg_entry_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(0);",
+        "id": "smartbugs_Government_cfg_30"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalDebt",
+        "id": "smartbugs_Government_cfg_entry_31"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_Government_cfg_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "smartbugs_Government_cfg_33"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalPayedOut",
+        "id": "smartbugs_Government_cfg_entry_34"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_Government_cfg_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "smartbugs_Government_cfg_36"
+      },
+      {
+        "node_type": "entry",
+        "function": "investInTheSystem",
+        "id": "smartbugs_Government_cfg_entry_37"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "smartbugs_Government_cfg_38"
+      },
+      {
+        "node_type": "entry",
+        "function": "inheritToNextGeneration",
+        "id": "smartbugs_Government_cfg_entry_39"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_Government_cfg_40"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_Government_cfg_41"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_Government_cfg_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "smartbugs_Government_cfg_43"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAddresses",
+        "id": "smartbugs_Government_cfg_entry_44"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_45"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_46"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAmounts",
+        "id": "smartbugs_Government_cfg_entry_47"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_48"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_49"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_0",
+        "target": "smartbugs_Government_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_1",
+        "target": "smartbugs_Government_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_2",
+        "target": "smartbugs_Government_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_3",
+        "target": "smartbugs_Government_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_4",
+        "target": "smartbugs_Government_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_6",
+        "target": "smartbugs_Government_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_7",
+        "target": "smartbugs_Government_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_8",
+        "target": "smartbugs_Government_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_9",
+        "target": "smartbugs_Government_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_Government_cfg_10",
+        "target": "smartbugs_Government_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_Government_cfg_10",
+        "target": "smartbugs_Government_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_11",
+        "target": "smartbugs_Government_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_13",
+        "target": "smartbugs_Government_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_14",
+        "target": "smartbugs_Government_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_15",
+        "target": "smartbugs_Government_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_16",
+        "target": "smartbugs_Government_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_17",
+        "target": "smartbugs_Government_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_18",
+        "target": "smartbugs_Government_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_19",
+        "target": "smartbugs_Government_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_20",
+        "target": "smartbugs_Government_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_21",
+        "target": "smartbugs_Government_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_22",
+        "target": "smartbugs_Government_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_23",
+        "target": "smartbugs_Government_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_24",
+        "target": "smartbugs_Government_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_25",
+        "target": "smartbugs_Government_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_26",
+        "target": "smartbugs_Government_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_27",
+        "target": "smartbugs_Government_cfg_exit_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_29",
+        "target": "smartbugs_Government_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_31",
+        "target": "smartbugs_Government_cfg_32"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_Government_cfg_32",
+        "target": "smartbugs_Government_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_32",
+        "target": "smartbugs_Government_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_34",
+        "target": "smartbugs_Government_cfg_35"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_Government_cfg_35",
+        "target": "smartbugs_Government_cfg_35"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_35",
+        "target": "smartbugs_Government_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_37",
+        "target": "smartbugs_Government_cfg_38"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_39",
+        "target": "smartbugs_Government_cfg_40"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_Government_cfg_40",
+        "target": "smartbugs_Government_cfg_41"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_Government_cfg_40",
+        "target": "smartbugs_Government_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_41",
+        "target": "smartbugs_Government_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_44",
+        "target": "smartbugs_Government_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_45",
+        "target": "smartbugs_Government_cfg_exit_46"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_47",
+        "target": "smartbugs_Government_cfg_48"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_48",
+        "target": "smartbugs_Government_cfg_exit_49"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "corruptElite",
+        "var_type": "address",
+        "id": "smartbugs_Government_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_4"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_5"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_write_6"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_write_8"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_9"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_write_10"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_11"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_13"
+      },
+      {
+        "node_type": "read",
+        "var": "lastCreditorPayedOut",
+        "id": "smartbugs_Government_dfg_read_14"
+      },
+      {
+        "node_type": "write",
+        "var": "lastCreditorPayedOut",
+        "id": "smartbugs_Government_dfg_write_15"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_16"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_write_17"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_18"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_write_19"
+      },
+      {
+        "node_type": "read",
+        "var": "round",
+        "id": "smartbugs_Government_dfg_read_20"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_21"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_22"
+      },
+      {
+        "node_type": "write",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_write_23"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_0",
+        "target": "smartbugs_Government_dfg_read_14"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_9"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_11"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_16"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_18"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_21"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_22"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_4",
+        "target": "smartbugs_Government_dfg_read_20"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_6",
+        "target": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_8",
+        "target": "smartbugs_Government_dfg_var_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_10",
+        "target": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_15",
+        "target": "smartbugs_Government_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_17",
+        "target": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_19",
+        "target": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_23",
+        "target": "smartbugs_Government_dfg_var_3"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "Government",
+        "id": "smartbugs_Government_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "// The corrupt elite establishes a new government",
+        "id": "smartbugs_Government_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "// this is the commitment of the corrupt Elite - e",
+        "id": "smartbugs_Government_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = msg.value;",
+        "id": "smartbugs_Government_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = msg.sender;",
+        "id": "smartbugs_Government_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "smartbugs_Government_cfg_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "lendGovernmentMoney",
+        "id": "smartbugs_Government_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "smartbugs_Government_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for ",
+        "id": "smartbugs_Government_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "smartbugs_Government_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_Government_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_Government_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_Government_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "smartbugs_Government_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "smartbugs_Government_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "smartbugs_Government_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].se",
+        "id": "smartbugs_Government_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(this.balance);",
+        "id": "smartbugs_Government_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "smartbugs_Government_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastCreditorPayedOut = 0;",
+        "id": "smartbugs_Government_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "smartbugs_Government_cfg_20"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = 0;",
+        "id": "smartbugs_Government_cfg_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "smartbugs_Government_cfg_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses = new address[](0);",
+        "id": "smartbugs_Government_cfg_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "smartbugs_Government_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAmounts = new uint[](0);",
+        "id": "smartbugs_Government_cfg_25"
+      },
+      {
+        "node_type": "statement",
+        "content": "round += 1;",
+        "id": "smartbugs_Government_cfg_26"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_27"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_28"
+      },
+      {
+        "node_type": "entry",
+        "function": "function",
+        "id": "smartbugs_Government_cfg_entry_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(0);",
+        "id": "smartbugs_Government_cfg_30"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalDebt",
+        "id": "smartbugs_Government_cfg_entry_31"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_Government_cfg_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "smartbugs_Government_cfg_33"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalPayedOut",
+        "id": "smartbugs_Government_cfg_entry_34"
+      },
+      {
+        "node_type": "loop",
+        "id": "smartbugs_Government_cfg_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "smartbugs_Government_cfg_36"
+      },
+      {
+        "node_type": "entry",
+        "function": "investInTheSystem",
+        "id": "smartbugs_Government_cfg_entry_37"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "smartbugs_Government_cfg_38"
+      },
+      {
+        "node_type": "entry",
+        "function": "inheritToNextGeneration",
+        "id": "smartbugs_Government_cfg_entry_39"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_Government_cfg_40"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_Government_cfg_41"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_Government_cfg_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "smartbugs_Government_cfg_43"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAddresses",
+        "id": "smartbugs_Government_cfg_entry_44"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_45"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_46"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAmounts",
+        "id": "smartbugs_Government_cfg_entry_47"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_Government_cfg_48"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_Government_cfg_exit_49"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "corruptElite",
+        "var_type": "address",
+        "id": "smartbugs_Government_dfg_var_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "smartbugs_Government_dfg_var_4"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_5"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_write_6"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_7"
+      },
+      {
+        "node_type": "write",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_write_8"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_9"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_write_10"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_11"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_13"
+      },
+      {
+        "node_type": "read",
+        "var": "lastCreditorPayedOut",
+        "id": "smartbugs_Government_dfg_read_14"
+      },
+      {
+        "node_type": "write",
+        "var": "lastCreditorPayedOut",
+        "id": "smartbugs_Government_dfg_write_15"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_read_16"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "smartbugs_Government_dfg_write_17"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_18"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_write_19"
+      },
+      {
+        "node_type": "read",
+        "var": "round",
+        "id": "smartbugs_Government_dfg_read_20"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "smartbugs_Government_dfg_read_21"
+      },
+      {
+        "node_type": "read",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_read_22"
+      },
+      {
+        "node_type": "write",
+        "var": "corruptElite",
+        "id": "smartbugs_Government_dfg_write_23"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_0",
+        "target": "smartbugs_Government_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_1",
+        "target": "smartbugs_Government_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_2",
+        "target": "smartbugs_Government_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_3",
+        "target": "smartbugs_Government_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_4",
+        "target": "smartbugs_Government_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_6",
+        "target": "smartbugs_Government_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_7",
+        "target": "smartbugs_Government_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_8",
+        "target": "smartbugs_Government_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_9",
+        "target": "smartbugs_Government_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_Government_cfg_10",
+        "target": "smartbugs_Government_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_Government_cfg_10",
+        "target": "smartbugs_Government_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_11",
+        "target": "smartbugs_Government_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_13",
+        "target": "smartbugs_Government_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_14",
+        "target": "smartbugs_Government_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_15",
+        "target": "smartbugs_Government_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_16",
+        "target": "smartbugs_Government_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_17",
+        "target": "smartbugs_Government_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_18",
+        "target": "smartbugs_Government_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_19",
+        "target": "smartbugs_Government_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_20",
+        "target": "smartbugs_Government_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_21",
+        "target": "smartbugs_Government_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_22",
+        "target": "smartbugs_Government_cfg_23"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_23",
+        "target": "smartbugs_Government_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_24",
+        "target": "smartbugs_Government_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_25",
+        "target": "smartbugs_Government_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_26",
+        "target": "smartbugs_Government_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_27",
+        "target": "smartbugs_Government_cfg_exit_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_29",
+        "target": "smartbugs_Government_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_31",
+        "target": "smartbugs_Government_cfg_32"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_Government_cfg_32",
+        "target": "smartbugs_Government_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_32",
+        "target": "smartbugs_Government_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_34",
+        "target": "smartbugs_Government_cfg_35"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "smartbugs_Government_cfg_35",
+        "target": "smartbugs_Government_cfg_35"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_35",
+        "target": "smartbugs_Government_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_37",
+        "target": "smartbugs_Government_cfg_38"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_39",
+        "target": "smartbugs_Government_cfg_40"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_Government_cfg_40",
+        "target": "smartbugs_Government_cfg_41"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_Government_cfg_40",
+        "target": "smartbugs_Government_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_41",
+        "target": "smartbugs_Government_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_44",
+        "target": "smartbugs_Government_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_45",
+        "target": "smartbugs_Government_cfg_exit_46"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_entry_47",
+        "target": "smartbugs_Government_cfg_48"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_Government_cfg_48",
+        "target": "smartbugs_Government_cfg_exit_49"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_0",
+        "target": "smartbugs_Government_dfg_read_14"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_9"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_11"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_1",
+        "target": "smartbugs_Government_dfg_read_16"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_18"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_2",
+        "target": "smartbugs_Government_dfg_read_21"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_7"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_3",
+        "target": "smartbugs_Government_dfg_read_22"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_var_4",
+        "target": "smartbugs_Government_dfg_read_20"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_6",
+        "target": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_8",
+        "target": "smartbugs_Government_dfg_var_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_10",
+        "target": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_15",
+        "target": "smartbugs_Government_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_17",
+        "target": "smartbugs_Government_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_19",
+        "target": "smartbugs_Government_dfg_var_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "smartbugs_Government_dfg_write_23",
+        "target": "smartbugs_Government_dfg_var_3"
+      }
+    ]
+  }
+}

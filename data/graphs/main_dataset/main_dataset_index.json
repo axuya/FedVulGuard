@@ -1,0 +1,1377 @@
+[
+  {
+    "contract_id": "smartbugs_Rubixi",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Rubixi.json",
+    "metadata": {
+      "sloc": 165,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "smartbugs_SmartBillions",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SmartBillions.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SmartBillions.json",
+    "metadata": {
+      "sloc": 773,
+      "num_functions": 48
+    }
+  },
+  {
+    "contract_id": "smartbugs_EtherLotto",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "EtherLotto.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_EtherLotto.json",
+    "metadata": {
+      "sloc": 62,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_MyToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "MyToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_MyToken.json",
+    "metadata": {
+      "sloc": 32,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_ReturnValue",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ReturnValue.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ReturnValue.json",
+    "metadata": {
+      "sloc": 23,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_OpenAddressLottery",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "OpenAddressLottery.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_OpenAddressLottery.json",
+    "metadata": {
+      "sloc": 108,
+      "num_functions": 6
+    }
+  },
+  {
+    "contract_id": "smartbugs_BecToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "BecToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_BecToken.json",
+    "metadata": {
+      "sloc": 306,
+      "num_functions": 23
+    }
+  },
+  {
+    "contract_id": "smartbugs_ERC20",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ERC20.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ERC20.json",
+    "metadata": {
+      "sloc": 132,
+      "num_functions": 10
+    }
+  },
+  {
+    "contract_id": "smartbugs_SimpleDAO",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SimpleDAO.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SimpleDAO.json",
+    "metadata": {
+      "sloc": 30,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_Government",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Government.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Government.json",
+    "metadata": {
+      "sloc": 126,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "smartbugs_Rubixi",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Rubixi.json",
+    "metadata": {
+      "sloc": 165,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "smartbugs_SmartBillions",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SmartBillions.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SmartBillions.json",
+    "metadata": {
+      "sloc": 771,
+      "num_functions": 48
+    }
+  },
+  {
+    "contract_id": "smartbugs_EtherLotto",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "EtherLotto.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_EtherLotto.json",
+    "metadata": {
+      "sloc": 62,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_MyToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "MyToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_MyToken.json",
+    "metadata": {
+      "sloc": 32,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_ReturnValue",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ReturnValue.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ReturnValue.json",
+    "metadata": {
+      "sloc": 23,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_OpenAddressLottery",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "OpenAddressLottery.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_OpenAddressLottery.json",
+    "metadata": {
+      "sloc": 108,
+      "num_functions": 6
+    }
+  },
+  {
+    "contract_id": "smartbugs_BecToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "BecToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_BecToken.json",
+    "metadata": {
+      "sloc": 304,
+      "num_functions": 23
+    }
+  },
+  {
+    "contract_id": "smartbugs_ERC20",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ERC20.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ERC20.json",
+    "metadata": {
+      "sloc": 132,
+      "num_functions": 10
+    }
+  },
+  {
+    "contract_id": "smartbugs_SimpleDAO",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SimpleDAO.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SimpleDAO.json",
+    "metadata": {
+      "sloc": 30,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_Government",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Government.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Government.json",
+    "metadata": {
+      "sloc": 126,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "smartbugs_Rubixi",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Rubixi.json",
+    "metadata": {
+      "sloc": 165,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "smartbugs_SmartBillions",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SmartBillions.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SmartBillions.json",
+    "metadata": {
+      "sloc": 773,
+      "num_functions": 48
+    }
+  },
+  {
+    "contract_id": "smartbugs_EtherLotto",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "EtherLotto.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_EtherLotto.json",
+    "metadata": {
+      "sloc": 62,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_MyToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "MyToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_MyToken.json",
+    "metadata": {
+      "sloc": 32,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_ReturnValue",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ReturnValue.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ReturnValue.json",
+    "metadata": {
+      "sloc": 23,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_OpenAddressLottery",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "OpenAddressLottery.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_OpenAddressLottery.json",
+    "metadata": {
+      "sloc": 108,
+      "num_functions": 6
+    }
+  },
+  {
+    "contract_id": "smartbugs_BecToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "BecToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_BecToken.json",
+    "metadata": {
+      "sloc": 306,
+      "num_functions": 23
+    }
+  },
+  {
+    "contract_id": "smartbugs_ERC20",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ERC20.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ERC20.json",
+    "metadata": {
+      "sloc": 132,
+      "num_functions": 10
+    }
+  },
+  {
+    "contract_id": "smartbugs_SimpleDAO",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SimpleDAO.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SimpleDAO.json",
+    "metadata": {
+      "sloc": 30,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_Government",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Government.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Government.json",
+    "metadata": {
+      "sloc": 126,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "smartbugs_Rubixi",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Rubixi.json",
+    "metadata": {
+      "sloc": 164,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "smartbugs_SmartBillions",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SmartBillions.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SmartBillions.json",
+    "metadata": {
+      "sloc": 773,
+      "num_functions": 48
+    }
+  },
+  {
+    "contract_id": "smartbugs_EtherLotto",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "EtherLotto.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_EtherLotto.json",
+    "metadata": {
+      "sloc": 61,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_MyToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "MyToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_MyToken.json",
+    "metadata": {
+      "sloc": 31,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_ReturnValue",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ReturnValue.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ReturnValue.json",
+    "metadata": {
+      "sloc": 22,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_OpenAddressLottery",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "OpenAddressLottery.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_OpenAddressLottery.json",
+    "metadata": {
+      "sloc": 107,
+      "num_functions": 6
+    }
+  },
+  {
+    "contract_id": "smartbugs_BecToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "BecToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_BecToken.json",
+    "metadata": {
+      "sloc": 308,
+      "num_functions": 23
+    }
+  },
+  {
+    "contract_id": "smartbugs_ERC20",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ERC20.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ERC20.json",
+    "metadata": {
+      "sloc": 131,
+      "num_functions": 10
+    }
+  },
+  {
+    "contract_id": "smartbugs_SimpleDAO",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SimpleDAO.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SimpleDAO.json",
+    "metadata": {
+      "sloc": 29,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_Government",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Government.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Government.json",
+    "metadata": {
+      "sloc": 126,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "smartbugs_Rubixi",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Rubixi.json",
+    "metadata": {
+      "sloc": 163,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "smartbugs_SmartBillions",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SmartBillions.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SmartBillions.json",
+    "metadata": {
+      "sloc": 772,
+      "num_functions": 49
+    }
+  },
+  {
+    "contract_id": "smartbugs_EtherLotto",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "EtherLotto.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_EtherLotto.json",
+    "metadata": {
+      "sloc": 60,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_MyToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "MyToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_MyToken.json",
+    "metadata": {
+      "sloc": 30,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_ReturnValue",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ReturnValue.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ReturnValue.json",
+    "metadata": {
+      "sloc": 20,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "smartbugs_OpenAddressLottery",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "OpenAddressLottery.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_OpenAddressLottery.json",
+    "metadata": {
+      "sloc": 105,
+      "num_functions": 7
+    }
+  },
+  {
+    "contract_id": "smartbugs_BecToken",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "BecToken.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_BecToken.json",
+    "metadata": {
+      "sloc": 307,
+      "num_functions": 25
+    }
+  },
+  {
+    "contract_id": "smartbugs_ERC20",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "ERC20.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_ERC20.json",
+    "metadata": {
+      "sloc": 129,
+      "num_functions": 10
+    }
+  },
+  {
+    "contract_id": "smartbugs_SimpleDAO",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "SimpleDAO.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_SimpleDAO.json",
+    "metadata": {
+      "sloc": 28,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "smartbugs_Government",
+    "vulnerability_type": "unknown",
+    "source": "smartbugs",
+    "filename": "Government.sol",
+    "graph_path": "data/graphs/main_dataset/smartbugs_Government.json",
+    "metadata": {
+      "sloc": 125,
+      "num_functions": 9
+    }
+  },
+  {
+    "contract_id": "solidifi_Counter",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "Counter.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_Counter.json",
+    "metadata": {
+      "sloc": 15,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_PRC20",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "PRC20.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_PRC20.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_input_file",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "input_file.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_input_file.json",
+    "metadata": {
+      "sloc": 61,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_input_file_args",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "input_file_args.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_input_file_args.json",
+    "metadata": {
+      "sloc": 14,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_large",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "large.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_large.json",
+    "metadata": {
+      "sloc": 15,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_version_patch",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_patch.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_patch.json",
+    "metadata": {
+      "sloc": 22,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_version_contract_0.7.0",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_contract_0.7.0.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_contract_0.7.0.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_unexpected_ether_pos",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "unexpected_ether_pos.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_unexpected_ether_pos.json",
+    "metadata": {
+      "sloc": 16,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_SecureVault",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "SecureVault.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_SecureVault.json",
+    "metadata": {
+      "sloc": 120,
+      "num_functions": 11
+    }
+  },
+  {
+    "contract_id": "solidifi_requirements_violation_neg",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "requirements_violation_neg.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_requirements_violation_neg.json",
+    "metadata": {
+      "sloc": 15,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_flag_array",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "flag_array.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_flag_array.json",
+    "metadata": {
+      "sloc": 17,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_calls",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "calls.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_calls.json",
+    "metadata": {
+      "sloc": 38,
+      "num_functions": 5
+    }
+  },
+  {
+    "contract_id": "solidifi_safe_funcs",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "safe_funcs.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_safe_funcs.json",
+    "metadata": {
+      "sloc": 22,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_version_4",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_4.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_4.json",
+    "metadata": {
+      "sloc": 12,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_SimpleModifier",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "SimpleModifier.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_SimpleModifier.json",
+    "metadata": {
+      "sloc": 20,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_integer_edge_case",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "integer_edge_case.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_integer_edge_case.json",
+    "metadata": {
+      "sloc": 13,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_theft",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "theft.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_theft.json",
+    "metadata": {
+      "sloc": 26,
+      "num_functions": 4
+    }
+  },
+  {
+    "contract_id": "solidifi_multi_contracts",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "multi_contracts.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_multi_contracts.json",
+    "metadata": {
+      "sloc": 17,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_old_origin",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "old_origin.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_old_origin.json",
+    "metadata": {
+      "sloc": 37,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_old_version",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "old_version.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_old_version.json",
+    "metadata": {
+      "sloc": 3,
+      "num_functions": 0
+    }
+  },
+  {
+    "contract_id": "solidifi_transient",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "transient.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_transient.json",
+    "metadata": {
+      "sloc": 43,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_WalletLibrary",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "WalletLibrary.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_WalletLibrary.json",
+    "metadata": {
+      "sloc": 399,
+      "num_functions": 35
+    }
+  },
+  {
+    "contract_id": "solidifi_version_chaos",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_chaos.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_chaos.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_version_contract_0.8.0",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_contract_0.8.0.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_contract_0.8.0.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_exceptions_0.8.0",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "exceptions_0.8.0.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_exceptions_0.8.0.json",
+    "metadata": {
+      "sloc": 22,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_suicide",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "suicide.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_suicide.json",
+    "metadata": {
+      "sloc": 11,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_constructor_assert",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "constructor_assert.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_constructor_assert.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 0
+    }
+  },
+  {
+    "contract_id": "solidifi_complex",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "complex.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_complex.json",
+    "metadata": {
+      "sloc": 89,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_overflow",
+    "vulnerability_type": "overflow",
+    "source": "solidifi",
+    "filename": "overflow.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_overflow.json",
+    "metadata": {
+      "sloc": 24,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_rubixi",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_rubixi.json",
+    "metadata": {
+      "sloc": 153,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "solidifi_version_2",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_2.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_2.json",
+    "metadata": {
+      "sloc": 10,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_underflow",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "underflow.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_underflow.json",
+    "metadata": {
+      "sloc": 24,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_simple_theft",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "simple_theft.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_simple_theft.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_extcall",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "extcall.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_extcall.json",
+    "metadata": {
+      "sloc": 16,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_version_3",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_3.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_3.json",
+    "metadata": {
+      "sloc": 10,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_transient_bug_2",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "transient_bug_2.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_transient_bug_2.json",
+    "metadata": {
+      "sloc": 41,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_destruct_crlf",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "destruct_crlf.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_destruct_crlf.json",
+    "metadata": {
+      "sloc": 11,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_regression_1",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "regression_1.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_regression_1.json",
+    "metadata": {
+      "sloc": 53,
+      "num_functions": 5
+    }
+  },
+  {
+    "contract_id": "solidifi_version_contract",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "version_contract.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_version_contract.json",
+    "metadata": {
+      "sloc": 7,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_exceptions",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "exceptions.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_exceptions.json",
+    "metadata": {
+      "sloc": 49,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "solidifi_destruct",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "destruct.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_destruct.json",
+    "metadata": {
+      "sloc": 89,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_hash_test",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "hash_test.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_hash_test.json",
+    "metadata": {
+      "sloc": 16,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_base_case",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "base_case.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_base_case.json",
+    "metadata": {
+      "sloc": 22,
+      "num_functions": 4
+    }
+  },
+  {
+    "contract_id": "solidifi_origin",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "origin.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_origin.json",
+    "metadata": {
+      "sloc": 37,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_requirements_violation_pos",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "requirements_violation_pos.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_requirements_violation_pos.json",
+    "metadata": {
+      "sloc": 15,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_weak_random",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "weak_random.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_weak_random.json",
+    "metadata": {
+      "sloc": 51,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_metacoin",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "metacoin.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_metacoin.json",
+    "metadata": {
+      "sloc": 17,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_ether_send",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "ether_send.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_ether_send.json",
+    "metadata": {
+      "sloc": 36,
+      "num_functions": 4
+    }
+  },
+  {
+    "contract_id": "solidifi_unexpected_ether_neg",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "unexpected_ether_neg.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_unexpected_ether_neg.json",
+    "metadata": {
+      "sloc": 16,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_kcalls",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "kcalls.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_kcalls.json",
+    "metadata": {
+      "sloc": 20,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_returnvalue",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "returnvalue.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_returnvalue.json",
+    "metadata": {
+      "sloc": 18,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_transient_bug",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "transient_bug.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_transient_bug.json",
+    "metadata": {
+      "sloc": 41,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_nonascii",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "nonascii.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_nonascii.json",
+    "metadata": {
+      "sloc": 9,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_symbolic_exec_bytecode",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "symbolic_exec_bytecode.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_symbolic_exec_bytecode.json",
+    "metadata": {
+      "sloc": 24,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_environments",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "environments.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_environments.json",
+    "metadata": {
+      "sloc": 20,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_transient_recursive",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "transient_recursive.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_transient_recursive.json",
+    "metadata": {
+      "sloc": 58,
+      "num_functions": 4
+    }
+  },
+  {
+    "contract_id": "solidifi_tx",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "tx.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_tx.json",
+    "metadata": {
+      "sloc": 28,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_two_contract",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "two_contract.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_two_contract.json",
+    "metadata": {
+      "sloc": 43,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_multiple_example",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "multiple_example.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_multiple_example.json",
+    "metadata": {
+      "sloc": 26,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_simple_example",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "simple_example.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_simple_example.json",
+    "metadata": {
+      "sloc": 20,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_multi_contract_example",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "multi_contract_example.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_multi_contract_example.json",
+    "metadata": {
+      "sloc": 55,
+      "num_functions": 5
+    }
+  },
+  {
+    "contract_id": "solidifi_token",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "token.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_token.json",
+    "metadata": {
+      "sloc": 23,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_calls",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "calls.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_calls.json",
+    "metadata": {
+      "sloc": 36,
+      "num_functions": 5
+    }
+  },
+  {
+    "contract_id": "solidifi_killbilly",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "killbilly.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_killbilly.json",
+    "metadata": {
+      "sloc": 24,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_WalletLibrary",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "WalletLibrary.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_WalletLibrary.json",
+    "metadata": {
+      "sloc": 399,
+      "num_functions": 35
+    }
+  },
+  {
+    "contract_id": "solidifi_BECToken",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "BECToken.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_BECToken.json",
+    "metadata": {
+      "sloc": 299,
+      "num_functions": 23
+    }
+  },
+  {
+    "contract_id": "solidifi_suicide",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "suicide.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_suicide.json",
+    "metadata": {
+      "sloc": 12,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_timelock",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "timelock.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_timelock.json",
+    "metadata": {
+      "sloc": 24,
+      "num_functions": 3
+    }
+  },
+  {
+    "contract_id": "solidifi_rubixi",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "rubixi.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_rubixi.json",
+    "metadata": {
+      "sloc": 153,
+      "num_functions": 19
+    }
+  },
+  {
+    "contract_id": "solidifi_exceptions",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "exceptions.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_exceptions.json",
+    "metadata": {
+      "sloc": 46,
+      "num_functions": 8
+    }
+  },
+  {
+    "contract_id": "solidifi_origin",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "origin.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_origin.json",
+    "metadata": {
+      "sloc": 37,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_weak_random",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "weak_random.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_weak_random.json",
+    "metadata": {
+      "sloc": 51,
+      "num_functions": 1
+    }
+  },
+  {
+    "contract_id": "solidifi_returnvalue",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "returnvalue.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_returnvalue.json",
+    "metadata": {
+      "sloc": 17,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_hashforether",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "hashforether.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_hashforether.json",
+    "metadata": {
+      "sloc": 16,
+      "num_functions": 2
+    }
+  },
+  {
+    "contract_id": "solidifi_etherstore",
+    "vulnerability_type": "unknown",
+    "source": "solidifi",
+    "filename": "etherstore.sol",
+    "graph_path": "data/graphs/main_dataset/solidifi_etherstore.json",
+    "metadata": {
+      "sloc": 25,
+      "num_functions": 2
+    }
+  }
+]

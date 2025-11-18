@@ -1,0 +1,242 @@
+{
+  "contract_id": "solidifi_integer_edge_case",
+  "metadata": {
+    "sloc": 13,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "B",
+        "id": "solidifi_integer_edge_case_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "res",
+        "var_type": "uint",
+        "id": "solidifi_integer_edge_case_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "f",
+        "visibility": "public",
+        "id": "solidifi_integer_edge_case_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 res;",
+        "id": "solidifi_integer_edge_case_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "unchecked{",
+        "id": "solidifi_integer_edge_case_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "res = 10_000_000_000 * arg; // undetected overflow",
+        "id": "solidifi_integer_edge_case_stmt_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_integer_edge_case_contract_0",
+        "target": "solidifi_integer_edge_case_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_integer_edge_case_contract_0",
+        "target": "solidifi_integer_edge_case_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_integer_edge_case_func_2",
+        "target": "solidifi_integer_edge_case_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_integer_edge_case_func_2",
+        "target": "solidifi_integer_edge_case_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_integer_edge_case_func_2",
+        "target": "solidifi_integer_edge_case_stmt_5"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "f",
+        "id": "solidifi_integer_edge_case_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 res;",
+        "id": "solidifi_integer_edge_case_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "unchecked{",
+        "id": "solidifi_integer_edge_case_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "res = 10_000_000_000 * arg; // undetected overflow",
+        "id": "solidifi_integer_edge_case_cfg_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_entry_0",
+        "target": "solidifi_integer_edge_case_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_1",
+        "target": "solidifi_integer_edge_case_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_2",
+        "target": "solidifi_integer_edge_case_cfg_3"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "res",
+        "var_type": "uint",
+        "id": "solidifi_integer_edge_case_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_write_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_var_0",
+        "target": "solidifi_integer_edge_case_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_var_0",
+        "target": "solidifi_integer_edge_case_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_write_3",
+        "target": "solidifi_integer_edge_case_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "f",
+        "id": "solidifi_integer_edge_case_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 res;",
+        "id": "solidifi_integer_edge_case_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "unchecked{",
+        "id": "solidifi_integer_edge_case_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "res = 10_000_000_000 * arg; // undetected overflow",
+        "id": "solidifi_integer_edge_case_cfg_3"
+      },
+      {
+        "node_type": "variable",
+        "name": "res",
+        "var_type": "uint",
+        "id": "solidifi_integer_edge_case_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_read_1"
+      },
+      {
+        "node_type": "read",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_read_2"
+      },
+      {
+        "node_type": "write",
+        "var": "res",
+        "id": "solidifi_integer_edge_case_dfg_write_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_entry_0",
+        "target": "solidifi_integer_edge_case_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_1",
+        "target": "solidifi_integer_edge_case_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_integer_edge_case_cfg_2",
+        "target": "solidifi_integer_edge_case_cfg_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_var_0",
+        "target": "solidifi_integer_edge_case_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_var_0",
+        "target": "solidifi_integer_edge_case_dfg_read_2"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_integer_edge_case_dfg_write_3",
+        "target": "solidifi_integer_edge_case_dfg_var_0"
+      }
+    ]
+  }
+}

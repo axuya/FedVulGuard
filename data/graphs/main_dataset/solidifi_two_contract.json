@@ -1,0 +1,440 @@
+{
+  "contract_id": "solidifi_two_contract",
+  "metadata": {
+    "sloc": 43,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "D1",
+        "id": "solidifi_two_contract_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "number",
+        "var_type": "uint",
+        "id": "solidifi_two_contract_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "store",
+        "visibility": "public",
+        "id": "solidifi_two_contract_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(num < 5);",
+        "id": "solidifi_two_contract_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "number =num;",
+        "id": "solidifi_two_contract_stmt_4"
+      },
+      {
+        "node_type": "function",
+        "name": "retval",
+        "visibility": "public",
+        "id": "solidifi_two_contract_func_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "return number;",
+        "id": "solidifi_two_contract_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "test",
+        "visibility": "public",
+        "id": "solidifi_two_contract_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 sum = d1.retval() + num;",
+        "id": "solidifi_two_contract_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (sum == 10) {",
+        "id": "solidifi_two_contract_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "return sum + 10;",
+        "id": "solidifi_two_contract_stmt_10"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_contract_0",
+        "target": "solidifi_two_contract_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_contract_0",
+        "target": "solidifi_two_contract_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_contract_0",
+        "target": "solidifi_two_contract_func_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_contract_0",
+        "target": "solidifi_two_contract_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_2",
+        "target": "solidifi_two_contract_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_2",
+        "target": "solidifi_two_contract_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_5",
+        "target": "solidifi_two_contract_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_7",
+        "target": "solidifi_two_contract_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_7",
+        "target": "solidifi_two_contract_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_two_contract_func_7",
+        "target": "solidifi_two_contract_stmt_10"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "store",
+        "id": "solidifi_two_contract_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(num < 5);",
+        "id": "solidifi_two_contract_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "number =num;",
+        "id": "solidifi_two_contract_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "retval",
+        "id": "solidifi_two_contract_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_two_contract_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_two_contract_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "test",
+        "id": "solidifi_two_contract_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 sum = d1.retval() + num;",
+        "id": "solidifi_two_contract_cfg_7"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_two_contract_cfg_8"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_two_contract_cfg_9"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_two_contract_cfg_10"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_two_contract_cfg_11"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_two_contract_cfg_exit_12"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_0",
+        "target": "solidifi_two_contract_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_1",
+        "target": "solidifi_two_contract_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_3",
+        "target": "solidifi_two_contract_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_4",
+        "target": "solidifi_two_contract_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_6",
+        "target": "solidifi_two_contract_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_7",
+        "target": "solidifi_two_contract_cfg_8"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_two_contract_cfg_8",
+        "target": "solidifi_two_contract_cfg_9"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_two_contract_cfg_8",
+        "target": "solidifi_two_contract_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_9",
+        "target": "solidifi_two_contract_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_11",
+        "target": "solidifi_two_contract_cfg_exit_12"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "number",
+        "var_type": "uint",
+        "id": "solidifi_two_contract_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_read_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_var_0",
+        "target": "solidifi_two_contract_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_var_0",
+        "target": "solidifi_two_contract_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_write_2",
+        "target": "solidifi_two_contract_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "store",
+        "id": "solidifi_two_contract_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "assert(num < 5);",
+        "id": "solidifi_two_contract_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "number =num;",
+        "id": "solidifi_two_contract_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "retval",
+        "id": "solidifi_two_contract_cfg_entry_3"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_two_contract_cfg_4"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_two_contract_cfg_exit_5"
+      },
+      {
+        "node_type": "entry",
+        "function": "test",
+        "id": "solidifi_two_contract_cfg_entry_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 sum = d1.retval() + num;",
+        "id": "solidifi_two_contract_cfg_7"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_two_contract_cfg_8"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_two_contract_cfg_9"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_two_contract_cfg_10"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_two_contract_cfg_11"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_two_contract_cfg_exit_12"
+      },
+      {
+        "node_type": "variable",
+        "name": "number",
+        "var_type": "uint",
+        "id": "solidifi_two_contract_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "number",
+        "id": "solidifi_two_contract_dfg_read_3"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_0",
+        "target": "solidifi_two_contract_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_1",
+        "target": "solidifi_two_contract_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_3",
+        "target": "solidifi_two_contract_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_4",
+        "target": "solidifi_two_contract_cfg_exit_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_entry_6",
+        "target": "solidifi_two_contract_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_7",
+        "target": "solidifi_two_contract_cfg_8"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_two_contract_cfg_8",
+        "target": "solidifi_two_contract_cfg_9"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_two_contract_cfg_8",
+        "target": "solidifi_two_contract_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_9",
+        "target": "solidifi_two_contract_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_two_contract_cfg_11",
+        "target": "solidifi_two_contract_cfg_exit_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_var_0",
+        "target": "solidifi_two_contract_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_var_0",
+        "target": "solidifi_two_contract_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_two_contract_dfg_write_2",
+        "target": "solidifi_two_contract_dfg_var_0"
+      }
+    ]
+  }
+}

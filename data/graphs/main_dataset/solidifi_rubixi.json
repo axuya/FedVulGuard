@@ -1,0 +1,2203 @@
+{
+  "contract_id": "solidifi_rubixi",
+  "metadata": {
+    "sloc": 153,
+    "num_functions": 19
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Rubixi",
+        "id": "solidifi_rubixi_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "payout",
+        "var_type": "uint",
+        "id": "solidifi_rubixi_var_1"
+      },
+      {
+        "node_type": "function",
+        "name": "function",
+        "visibility": "external",
+        "id": "solidifi_rubixi_func_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "init();",
+        "id": "solidifi_rubixi_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "dynamicPyramid",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = msg.sender;",
+        "id": "solidifi_rubixi_stmt_5"
+      },
+      {
+        "node_type": "function",
+        "name": "collectAllFees",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(collectedFees);",
+        "id": "solidifi_rubixi_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees = 0;",
+        "id": "solidifi_rubixi_stmt_9"
+      },
+      {
+        "node_type": "function",
+        "name": "collectFeesInEther",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "_amt *= 1 ether;",
+        "id": "solidifi_rubixi_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (_amt > collectedFees) collectAllFees();",
+        "id": "solidifi_rubixi_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(_amt);",
+        "id": "solidifi_rubixi_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= _amt;",
+        "id": "solidifi_rubixi_stmt_15"
+      },
+      {
+        "node_type": "function",
+        "name": "collectPercentOfFees",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0 && _pcent <= 100);",
+        "id": "solidifi_rubixi_stmt_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint feesToCollect = collectedFees / 100 * _pcent;",
+        "id": "solidifi_rubixi_stmt_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(feesToCollect);",
+        "id": "solidifi_rubixi_stmt_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= feesToCollect;",
+        "id": "solidifi_rubixi_stmt_20"
+      },
+      {
+        "node_type": "function",
+        "name": "changeOwner",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = _owner;",
+        "id": "solidifi_rubixi_stmt_22"
+      },
+      {
+        "node_type": "function",
+        "name": "changeMultiplier",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_mult <= 300 &&  _mult >= 120);",
+        "id": "solidifi_rubixi_stmt_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidMultiplier = _mult;",
+        "id": "solidifi_rubixi_stmt_25"
+      },
+      {
+        "node_type": "function",
+        "name": "changeFeePercentage",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_fee <= 10);",
+        "id": "solidifi_rubixi_stmt_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "feePercent = _fee;",
+        "id": "solidifi_rubixi_stmt_28"
+      },
+      {
+        "node_type": "function",
+        "name": "currentMultiplier",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "multiplier = pyramidMultiplier;",
+        "id": "solidifi_rubixi_stmt_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"This multiplier applies to you as soon as transaction is received, may be lowered to hasten ",
+        "id": "solidifi_rubixi_stmt_31"
+      },
+      {
+        "node_type": "function",
+        "name": "currentFeePercentage",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "fee = feePercent;",
+        "id": "solidifi_rubixi_stmt_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"Shown in % form. Fee is halved(50%) for amounts equal or greater than 50 ethers. (Fee may ch",
+        "id": "solidifi_rubixi_stmt_34"
+      },
+      {
+        "node_type": "function",
+        "name": "currentPyramidBalanceApproximately",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidBalance = balance / 1 ether;",
+        "id": "solidifi_rubixi_stmt_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"All balance values are measured in Ethers, note that due to no decimal placing, these values",
+        "id": "solidifi_rubixi_stmt_37"
+      },
+      {
+        "node_type": "function",
+        "name": "nextPayoutWhenPyramidBalanceTotalsApproximately",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "balancePayout = participants[payoutOrder].payout / 1 ether;",
+        "id": "solidifi_rubixi_stmt_39"
+      },
+      {
+        "node_type": "function",
+        "name": "feesSeperateFromBalanceApproximately",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "fees = collectedFees / 1 ether;",
+        "id": "solidifi_rubixi_stmt_41"
+      },
+      {
+        "node_type": "function",
+        "name": "totalParticipants",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length;",
+        "id": "solidifi_rubixi_stmt_43"
+      },
+      {
+        "node_type": "function",
+        "name": "numberOfParticipantsWaitingForPayout",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length - payoutOrder;",
+        "id": "solidifi_rubixi_stmt_45"
+      },
+      {
+        "node_type": "function",
+        "name": "participantDetails",
+        "visibility": "public",
+        "id": "solidifi_rubixi_func_46"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (orderInPyramid <= participants.length) {",
+        "id": "solidifi_rubixi_stmt_47"
+      },
+      {
+        "node_type": "statement",
+        "content": "addr = participants[orderInPyramid].etherAddress;",
+        "id": "solidifi_rubixi_stmt_48"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout = participants[orderInPyramid].payout / 1 ether;",
+        "id": "solidifi_rubixi_stmt_49"
+      },
+      {
+        "node_type": "function",
+        "name": "init",
+        "visibility": "private",
+        "id": "solidifi_rubixi_func_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Ensures only tx with value of 1 ether or greater are processed and added to pyramid",
+        "id": "solidifi_rubixi_stmt_51"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (msg.value < 1 ether) {",
+        "id": "solidifi_rubixi_stmt_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += msg.value;",
+        "id": "solidifi_rubixi_stmt_53"
+      },
+      {
+        "node_type": "statement",
+        "content": "return;",
+        "id": "solidifi_rubixi_stmt_54"
+      },
+      {
+        "node_type": "function",
+        "name": "addPayout",
+        "visibility": "private",
+        "id": "solidifi_rubixi_func_55"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Adds new address to participant array",
+        "id": "solidifi_rubixi_stmt_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "participants.push(Participant(msg.sender, (msg.value * pyramidMultiplier) / 100));",
+        "id": "solidifi_rubixi_stmt_57"
+      },
+      {
+        "node_type": "statement",
+        "content": "// These statements ensure a quicker payout system to",
+        "id": "solidifi_rubixi_stmt_58"
+      },
+      {
+        "node_type": "statement",
+        "content": "// later pyramid entrants, so the pyramid has a longer lifespan",
+        "id": "solidifi_rubixi_stmt_59"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (participants.length == 10) pyramidMultiplier = 200;",
+        "id": "solidifi_rubixi_stmt_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "else if (participants.length == 25) pyramidMultiplier = 150;",
+        "id": "solidifi_rubixi_stmt_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "// collect fees and update contract balance",
+        "id": "solidifi_rubixi_stmt_62"
+      },
+      {
+        "node_type": "statement",
+        "content": "balance += (msg.value * (100 - _fee)) / 100;",
+        "id": "solidifi_rubixi_stmt_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += (msg.value * _fee) / 100;",
+        "id": "solidifi_rubixi_stmt_64"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Pays earlier participants if balance sufficient",
+        "id": "solidifi_rubixi_stmt_65"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_29"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_32"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_35"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_38"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_40"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_42"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_44"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_46"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_50"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_contract_0",
+        "target": "solidifi_rubixi_func_55"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_2",
+        "target": "solidifi_rubixi_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_4",
+        "target": "solidifi_rubixi_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_6",
+        "target": "solidifi_rubixi_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_6",
+        "target": "solidifi_rubixi_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_6",
+        "target": "solidifi_rubixi_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_10",
+        "target": "solidifi_rubixi_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_10",
+        "target": "solidifi_rubixi_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_10",
+        "target": "solidifi_rubixi_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_10",
+        "target": "solidifi_rubixi_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_10",
+        "target": "solidifi_rubixi_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_16",
+        "target": "solidifi_rubixi_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_16",
+        "target": "solidifi_rubixi_stmt_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_16",
+        "target": "solidifi_rubixi_stmt_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_16",
+        "target": "solidifi_rubixi_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_21",
+        "target": "solidifi_rubixi_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_23",
+        "target": "solidifi_rubixi_stmt_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_23",
+        "target": "solidifi_rubixi_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_26",
+        "target": "solidifi_rubixi_stmt_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_26",
+        "target": "solidifi_rubixi_stmt_28"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_29",
+        "target": "solidifi_rubixi_stmt_30"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_29",
+        "target": "solidifi_rubixi_stmt_31"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_32",
+        "target": "solidifi_rubixi_stmt_33"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_32",
+        "target": "solidifi_rubixi_stmt_34"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_35",
+        "target": "solidifi_rubixi_stmt_36"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_35",
+        "target": "solidifi_rubixi_stmt_37"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_38",
+        "target": "solidifi_rubixi_stmt_39"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_40",
+        "target": "solidifi_rubixi_stmt_41"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_42",
+        "target": "solidifi_rubixi_stmt_43"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_44",
+        "target": "solidifi_rubixi_stmt_45"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_46",
+        "target": "solidifi_rubixi_stmt_47"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_46",
+        "target": "solidifi_rubixi_stmt_48"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_46",
+        "target": "solidifi_rubixi_stmt_49"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_50",
+        "target": "solidifi_rubixi_stmt_51"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_50",
+        "target": "solidifi_rubixi_stmt_52"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_50",
+        "target": "solidifi_rubixi_stmt_53"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_50",
+        "target": "solidifi_rubixi_stmt_54"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_56"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_57"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_58"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_59"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_60"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_61"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_62"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_63"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_64"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_rubixi_func_55",
+        "target": "solidifi_rubixi_stmt_65"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "function",
+        "id": "solidifi_rubixi_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "init();",
+        "id": "solidifi_rubixi_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "dynamicPyramid",
+        "id": "solidifi_rubixi_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = msg.sender;",
+        "id": "solidifi_rubixi_cfg_3"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectAllFees",
+        "id": "solidifi_rubixi_cfg_entry_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(collectedFees);",
+        "id": "solidifi_rubixi_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees = 0;",
+        "id": "solidifi_rubixi_cfg_7"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectFeesInEther",
+        "id": "solidifi_rubixi_cfg_entry_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "_amt *= 1 ether;",
+        "id": "solidifi_rubixi_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(_amt);",
+        "id": "solidifi_rubixi_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= _amt;",
+        "id": "solidifi_rubixi_cfg_15"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectPercentOfFees",
+        "id": "solidifi_rubixi_cfg_entry_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0 && _pcent <= 100);",
+        "id": "solidifi_rubixi_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint feesToCollect = collectedFees / 100 * _pcent;",
+        "id": "solidifi_rubixi_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(feesToCollect);",
+        "id": "solidifi_rubixi_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= feesToCollect;",
+        "id": "solidifi_rubixi_cfg_20"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeOwner",
+        "id": "solidifi_rubixi_cfg_entry_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = _owner;",
+        "id": "solidifi_rubixi_cfg_22"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeMultiplier",
+        "id": "solidifi_rubixi_cfg_entry_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_mult <= 300 &&  _mult >= 120);",
+        "id": "solidifi_rubixi_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidMultiplier = _mult;",
+        "id": "solidifi_rubixi_cfg_25"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeFeePercentage",
+        "id": "solidifi_rubixi_cfg_entry_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_fee <= 10);",
+        "id": "solidifi_rubixi_cfg_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "feePercent = _fee;",
+        "id": "solidifi_rubixi_cfg_28"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentMultiplier",
+        "id": "solidifi_rubixi_cfg_entry_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "multiplier = pyramidMultiplier;",
+        "id": "solidifi_rubixi_cfg_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"This multiplier applies to you as soon as ",
+        "id": "solidifi_rubixi_cfg_31"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentFeePercentage",
+        "id": "solidifi_rubixi_cfg_entry_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "fee = feePercent;",
+        "id": "solidifi_rubixi_cfg_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"Shown in % form. Fee is halved(50%) for am",
+        "id": "solidifi_rubixi_cfg_34"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentPyramidBalanceApproximately",
+        "id": "solidifi_rubixi_cfg_entry_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidBalance = balance / 1 ether;",
+        "id": "solidifi_rubixi_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"All balance values are measured in Ethers,",
+        "id": "solidifi_rubixi_cfg_37"
+      },
+      {
+        "node_type": "entry",
+        "function": "nextPayoutWhenPyramidBalanceTotalsApproximately",
+        "id": "solidifi_rubixi_cfg_entry_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "balancePayout = participants[payoutOrder].payout /",
+        "id": "solidifi_rubixi_cfg_39"
+      },
+      {
+        "node_type": "entry",
+        "function": "feesSeperateFromBalanceApproximately",
+        "id": "solidifi_rubixi_cfg_entry_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "fees = collectedFees / 1 ether;",
+        "id": "solidifi_rubixi_cfg_41"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalParticipants",
+        "id": "solidifi_rubixi_cfg_entry_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length;",
+        "id": "solidifi_rubixi_cfg_43"
+      },
+      {
+        "node_type": "entry",
+        "function": "numberOfParticipantsWaitingForPayout",
+        "id": "solidifi_rubixi_cfg_entry_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length - payoutOrder;",
+        "id": "solidifi_rubixi_cfg_45"
+      },
+      {
+        "node_type": "entry",
+        "function": "participantDetails",
+        "id": "solidifi_rubixi_cfg_entry_46"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_47"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_48"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_49"
+      },
+      {
+        "node_type": "statement",
+        "content": "addr = participants[orderInPyramid].etherAddress;",
+        "id": "solidifi_rubixi_cfg_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout = participants[orderInPyramid].payout / 1 e",
+        "id": "solidifi_rubixi_cfg_51"
+      },
+      {
+        "node_type": "entry",
+        "function": "init",
+        "id": "solidifi_rubixi_cfg_entry_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Ensures only tx with value of 1 ether or greater",
+        "id": "solidifi_rubixi_cfg_53"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_54"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_55"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += msg.value;",
+        "id": "solidifi_rubixi_cfg_57"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_rubixi_cfg_58"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_rubixi_cfg_exit_59"
+      },
+      {
+        "node_type": "entry",
+        "function": "addPayout",
+        "id": "solidifi_rubixi_cfg_entry_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Adds new address to participant array",
+        "id": "solidifi_rubixi_cfg_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "participants.push(Participant(msg.sender, (msg.val",
+        "id": "solidifi_rubixi_cfg_62"
+      },
+      {
+        "node_type": "statement",
+        "content": "// These statements ensure a quicker payout system",
+        "id": "solidifi_rubixi_cfg_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "// later pyramid entrants, so the pyramid has a lo",
+        "id": "solidifi_rubixi_cfg_64"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_65"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_66"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_67"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_68"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_69"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_70"
+      },
+      {
+        "node_type": "statement",
+        "content": "// collect fees and update contract balance",
+        "id": "solidifi_rubixi_cfg_71"
+      },
+      {
+        "node_type": "statement",
+        "content": "balance += (msg.value * (100 - _fee)) / 100;",
+        "id": "solidifi_rubixi_cfg_72"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += (msg.value * _fee) / 100;",
+        "id": "solidifi_rubixi_cfg_73"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Pays earlier participants if balance sufficient",
+        "id": "solidifi_rubixi_cfg_74"
+      },
+      {
+        "node_type": "loop",
+        "id": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint payoutToSend = participants[payoutOrder].payo",
+        "id": "solidifi_rubixi_cfg_76"
+      },
+      {
+        "node_type": "statement",
+        "content": "participants[payoutOrder].etherAddress.transfer(pa",
+        "id": "solidifi_rubixi_cfg_77"
+      },
+      {
+        "node_type": "statement",
+        "content": "balance -= participants[payoutOrder].payout;",
+        "id": "solidifi_rubixi_cfg_78"
+      },
+      {
+        "node_type": "statement",
+        "content": "payoutOrder += 1;",
+        "id": "solidifi_rubixi_cfg_79"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_0",
+        "target": "solidifi_rubixi_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_2",
+        "target": "solidifi_rubixi_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_4",
+        "target": "solidifi_rubixi_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_5",
+        "target": "solidifi_rubixi_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_6",
+        "target": "solidifi_rubixi_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_8",
+        "target": "solidifi_rubixi_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_9",
+        "target": "solidifi_rubixi_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_10",
+        "target": "solidifi_rubixi_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_10",
+        "target": "solidifi_rubixi_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_11",
+        "target": "solidifi_rubixi_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_13",
+        "target": "solidifi_rubixi_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_14",
+        "target": "solidifi_rubixi_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_16",
+        "target": "solidifi_rubixi_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_17",
+        "target": "solidifi_rubixi_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_18",
+        "target": "solidifi_rubixi_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_19",
+        "target": "solidifi_rubixi_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_21",
+        "target": "solidifi_rubixi_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_23",
+        "target": "solidifi_rubixi_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_24",
+        "target": "solidifi_rubixi_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_26",
+        "target": "solidifi_rubixi_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_27",
+        "target": "solidifi_rubixi_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_29",
+        "target": "solidifi_rubixi_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_30",
+        "target": "solidifi_rubixi_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_32",
+        "target": "solidifi_rubixi_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_33",
+        "target": "solidifi_rubixi_cfg_34"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_35",
+        "target": "solidifi_rubixi_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_36",
+        "target": "solidifi_rubixi_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_38",
+        "target": "solidifi_rubixi_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_40",
+        "target": "solidifi_rubixi_cfg_41"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_42",
+        "target": "solidifi_rubixi_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_44",
+        "target": "solidifi_rubixi_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_46",
+        "target": "solidifi_rubixi_cfg_47"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_47",
+        "target": "solidifi_rubixi_cfg_48"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_47",
+        "target": "solidifi_rubixi_cfg_49"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_48",
+        "target": "solidifi_rubixi_cfg_50"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_50",
+        "target": "solidifi_rubixi_cfg_51"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_52",
+        "target": "solidifi_rubixi_cfg_53"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_53",
+        "target": "solidifi_rubixi_cfg_54"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_54",
+        "target": "solidifi_rubixi_cfg_55"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_54",
+        "target": "solidifi_rubixi_cfg_56"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_55",
+        "target": "solidifi_rubixi_cfg_57"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_57",
+        "target": "solidifi_rubixi_cfg_58"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_58",
+        "target": "solidifi_rubixi_cfg_exit_59"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_60",
+        "target": "solidifi_rubixi_cfg_61"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_61",
+        "target": "solidifi_rubixi_cfg_62"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_62",
+        "target": "solidifi_rubixi_cfg_63"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_63",
+        "target": "solidifi_rubixi_cfg_64"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_64",
+        "target": "solidifi_rubixi_cfg_65"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_65",
+        "target": "solidifi_rubixi_cfg_66"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_65",
+        "target": "solidifi_rubixi_cfg_67"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_66",
+        "target": "solidifi_rubixi_cfg_68"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_68",
+        "target": "solidifi_rubixi_cfg_69"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_68",
+        "target": "solidifi_rubixi_cfg_70"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_69",
+        "target": "solidifi_rubixi_cfg_71"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_71",
+        "target": "solidifi_rubixi_cfg_72"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_72",
+        "target": "solidifi_rubixi_cfg_73"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_73",
+        "target": "solidifi_rubixi_cfg_74"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_74",
+        "target": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "solidifi_rubixi_cfg_75",
+        "target": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_75",
+        "target": "solidifi_rubixi_cfg_76"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_76",
+        "target": "solidifi_rubixi_cfg_77"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_77",
+        "target": "solidifi_rubixi_cfg_78"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_78",
+        "target": "solidifi_rubixi_cfg_79"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "payout",
+        "var_type": "uint",
+        "id": "solidifi_rubixi_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_3"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_write_2",
+        "target": "solidifi_rubixi_dfg_var_0"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "function",
+        "id": "solidifi_rubixi_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "init();",
+        "id": "solidifi_rubixi_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "dynamicPyramid",
+        "id": "solidifi_rubixi_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = msg.sender;",
+        "id": "solidifi_rubixi_cfg_3"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectAllFees",
+        "id": "solidifi_rubixi_cfg_entry_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(collectedFees);",
+        "id": "solidifi_rubixi_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees = 0;",
+        "id": "solidifi_rubixi_cfg_7"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectFeesInEther",
+        "id": "solidifi_rubixi_cfg_entry_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "_amt *= 1 ether;",
+        "id": "solidifi_rubixi_cfg_9"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_10"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_11"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0);",
+        "id": "solidifi_rubixi_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(_amt);",
+        "id": "solidifi_rubixi_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= _amt;",
+        "id": "solidifi_rubixi_cfg_15"
+      },
+      {
+        "node_type": "entry",
+        "function": "collectPercentOfFees",
+        "id": "solidifi_rubixi_cfg_entry_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(collectedFees > 0 && _pcent <= 100);",
+        "id": "solidifi_rubixi_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint feesToCollect = collectedFees / 100 * _pcent;",
+        "id": "solidifi_rubixi_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator.transfer(feesToCollect);",
+        "id": "solidifi_rubixi_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees -= feesToCollect;",
+        "id": "solidifi_rubixi_cfg_20"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeOwner",
+        "id": "solidifi_rubixi_cfg_entry_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "creator = _owner;",
+        "id": "solidifi_rubixi_cfg_22"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeMultiplier",
+        "id": "solidifi_rubixi_cfg_entry_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_mult <= 300 &&  _mult >= 120);",
+        "id": "solidifi_rubixi_cfg_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidMultiplier = _mult;",
+        "id": "solidifi_rubixi_cfg_25"
+      },
+      {
+        "node_type": "entry",
+        "function": "changeFeePercentage",
+        "id": "solidifi_rubixi_cfg_entry_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(_fee <= 10);",
+        "id": "solidifi_rubixi_cfg_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "feePercent = _fee;",
+        "id": "solidifi_rubixi_cfg_28"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentMultiplier",
+        "id": "solidifi_rubixi_cfg_entry_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "multiplier = pyramidMultiplier;",
+        "id": "solidifi_rubixi_cfg_30"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"This multiplier applies to you as soon as ",
+        "id": "solidifi_rubixi_cfg_31"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentFeePercentage",
+        "id": "solidifi_rubixi_cfg_entry_32"
+      },
+      {
+        "node_type": "statement",
+        "content": "fee = feePercent;",
+        "id": "solidifi_rubixi_cfg_33"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"Shown in % form. Fee is halved(50%) for am",
+        "id": "solidifi_rubixi_cfg_34"
+      },
+      {
+        "node_type": "entry",
+        "function": "currentPyramidBalanceApproximately",
+        "id": "solidifi_rubixi_cfg_entry_35"
+      },
+      {
+        "node_type": "statement",
+        "content": "pyramidBalance = balance / 1 ether;",
+        "id": "solidifi_rubixi_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "info = \"All balance values are measured in Ethers,",
+        "id": "solidifi_rubixi_cfg_37"
+      },
+      {
+        "node_type": "entry",
+        "function": "nextPayoutWhenPyramidBalanceTotalsApproximately",
+        "id": "solidifi_rubixi_cfg_entry_38"
+      },
+      {
+        "node_type": "statement",
+        "content": "balancePayout = participants[payoutOrder].payout /",
+        "id": "solidifi_rubixi_cfg_39"
+      },
+      {
+        "node_type": "entry",
+        "function": "feesSeperateFromBalanceApproximately",
+        "id": "solidifi_rubixi_cfg_entry_40"
+      },
+      {
+        "node_type": "statement",
+        "content": "fees = collectedFees / 1 ether;",
+        "id": "solidifi_rubixi_cfg_41"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalParticipants",
+        "id": "solidifi_rubixi_cfg_entry_42"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length;",
+        "id": "solidifi_rubixi_cfg_43"
+      },
+      {
+        "node_type": "entry",
+        "function": "numberOfParticipantsWaitingForPayout",
+        "id": "solidifi_rubixi_cfg_entry_44"
+      },
+      {
+        "node_type": "statement",
+        "content": "count = participants.length - payoutOrder;",
+        "id": "solidifi_rubixi_cfg_45"
+      },
+      {
+        "node_type": "entry",
+        "function": "participantDetails",
+        "id": "solidifi_rubixi_cfg_entry_46"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_47"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_48"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_49"
+      },
+      {
+        "node_type": "statement",
+        "content": "addr = participants[orderInPyramid].etherAddress;",
+        "id": "solidifi_rubixi_cfg_50"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout = participants[orderInPyramid].payout / 1 e",
+        "id": "solidifi_rubixi_cfg_51"
+      },
+      {
+        "node_type": "entry",
+        "function": "init",
+        "id": "solidifi_rubixi_cfg_entry_52"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Ensures only tx with value of 1 ether or greater",
+        "id": "solidifi_rubixi_cfg_53"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_54"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_55"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_56"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += msg.value;",
+        "id": "solidifi_rubixi_cfg_57"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_rubixi_cfg_58"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_rubixi_cfg_exit_59"
+      },
+      {
+        "node_type": "entry",
+        "function": "addPayout",
+        "id": "solidifi_rubixi_cfg_entry_60"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Adds new address to participant array",
+        "id": "solidifi_rubixi_cfg_61"
+      },
+      {
+        "node_type": "statement",
+        "content": "participants.push(Participant(msg.sender, (msg.val",
+        "id": "solidifi_rubixi_cfg_62"
+      },
+      {
+        "node_type": "statement",
+        "content": "// These statements ensure a quicker payout system",
+        "id": "solidifi_rubixi_cfg_63"
+      },
+      {
+        "node_type": "statement",
+        "content": "// later pyramid entrants, so the pyramid has a lo",
+        "id": "solidifi_rubixi_cfg_64"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_65"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_66"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_67"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "solidifi_rubixi_cfg_68"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "solidifi_rubixi_cfg_69"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "solidifi_rubixi_cfg_70"
+      },
+      {
+        "node_type": "statement",
+        "content": "// collect fees and update contract balance",
+        "id": "solidifi_rubixi_cfg_71"
+      },
+      {
+        "node_type": "statement",
+        "content": "balance += (msg.value * (100 - _fee)) / 100;",
+        "id": "solidifi_rubixi_cfg_72"
+      },
+      {
+        "node_type": "statement",
+        "content": "collectedFees += (msg.value * _fee) / 100;",
+        "id": "solidifi_rubixi_cfg_73"
+      },
+      {
+        "node_type": "statement",
+        "content": "//Pays earlier participants if balance sufficient",
+        "id": "solidifi_rubixi_cfg_74"
+      },
+      {
+        "node_type": "loop",
+        "id": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint payoutToSend = participants[payoutOrder].payo",
+        "id": "solidifi_rubixi_cfg_76"
+      },
+      {
+        "node_type": "statement",
+        "content": "participants[payoutOrder].etherAddress.transfer(pa",
+        "id": "solidifi_rubixi_cfg_77"
+      },
+      {
+        "node_type": "statement",
+        "content": "balance -= participants[payoutOrder].payout;",
+        "id": "solidifi_rubixi_cfg_78"
+      },
+      {
+        "node_type": "statement",
+        "content": "payoutOrder += 1;",
+        "id": "solidifi_rubixi_cfg_79"
+      },
+      {
+        "node_type": "variable",
+        "name": "payout",
+        "var_type": "uint",
+        "id": "solidifi_rubixi_dfg_var_0"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_1"
+      },
+      {
+        "node_type": "write",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_write_2"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_3"
+      },
+      {
+        "node_type": "read",
+        "var": "payout",
+        "id": "solidifi_rubixi_dfg_read_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_0",
+        "target": "solidifi_rubixi_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_2",
+        "target": "solidifi_rubixi_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_4",
+        "target": "solidifi_rubixi_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_5",
+        "target": "solidifi_rubixi_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_6",
+        "target": "solidifi_rubixi_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_8",
+        "target": "solidifi_rubixi_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_9",
+        "target": "solidifi_rubixi_cfg_10"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_10",
+        "target": "solidifi_rubixi_cfg_11"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_10",
+        "target": "solidifi_rubixi_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_11",
+        "target": "solidifi_rubixi_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_13",
+        "target": "solidifi_rubixi_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_14",
+        "target": "solidifi_rubixi_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_16",
+        "target": "solidifi_rubixi_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_17",
+        "target": "solidifi_rubixi_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_18",
+        "target": "solidifi_rubixi_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_19",
+        "target": "solidifi_rubixi_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_21",
+        "target": "solidifi_rubixi_cfg_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_23",
+        "target": "solidifi_rubixi_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_24",
+        "target": "solidifi_rubixi_cfg_25"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_26",
+        "target": "solidifi_rubixi_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_27",
+        "target": "solidifi_rubixi_cfg_28"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_29",
+        "target": "solidifi_rubixi_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_30",
+        "target": "solidifi_rubixi_cfg_31"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_32",
+        "target": "solidifi_rubixi_cfg_33"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_33",
+        "target": "solidifi_rubixi_cfg_34"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_35",
+        "target": "solidifi_rubixi_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_36",
+        "target": "solidifi_rubixi_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_38",
+        "target": "solidifi_rubixi_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_40",
+        "target": "solidifi_rubixi_cfg_41"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_42",
+        "target": "solidifi_rubixi_cfg_43"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_44",
+        "target": "solidifi_rubixi_cfg_45"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_46",
+        "target": "solidifi_rubixi_cfg_47"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_47",
+        "target": "solidifi_rubixi_cfg_48"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_47",
+        "target": "solidifi_rubixi_cfg_49"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_48",
+        "target": "solidifi_rubixi_cfg_50"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_50",
+        "target": "solidifi_rubixi_cfg_51"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_52",
+        "target": "solidifi_rubixi_cfg_53"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_53",
+        "target": "solidifi_rubixi_cfg_54"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_54",
+        "target": "solidifi_rubixi_cfg_55"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_54",
+        "target": "solidifi_rubixi_cfg_56"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_55",
+        "target": "solidifi_rubixi_cfg_57"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_57",
+        "target": "solidifi_rubixi_cfg_58"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_58",
+        "target": "solidifi_rubixi_cfg_exit_59"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_entry_60",
+        "target": "solidifi_rubixi_cfg_61"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_61",
+        "target": "solidifi_rubixi_cfg_62"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_62",
+        "target": "solidifi_rubixi_cfg_63"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_63",
+        "target": "solidifi_rubixi_cfg_64"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_64",
+        "target": "solidifi_rubixi_cfg_65"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_65",
+        "target": "solidifi_rubixi_cfg_66"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_65",
+        "target": "solidifi_rubixi_cfg_67"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_66",
+        "target": "solidifi_rubixi_cfg_68"
+      },
+      {
+        "edge_type": "true",
+        "source": "solidifi_rubixi_cfg_68",
+        "target": "solidifi_rubixi_cfg_69"
+      },
+      {
+        "edge_type": "false",
+        "source": "solidifi_rubixi_cfg_68",
+        "target": "solidifi_rubixi_cfg_70"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_69",
+        "target": "solidifi_rubixi_cfg_71"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_71",
+        "target": "solidifi_rubixi_cfg_72"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_72",
+        "target": "solidifi_rubixi_cfg_73"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_73",
+        "target": "solidifi_rubixi_cfg_74"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_74",
+        "target": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "solidifi_rubixi_cfg_75",
+        "target": "solidifi_rubixi_cfg_75"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_75",
+        "target": "solidifi_rubixi_cfg_76"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_76",
+        "target": "solidifi_rubixi_cfg_77"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_77",
+        "target": "solidifi_rubixi_cfg_78"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_rubixi_cfg_78",
+        "target": "solidifi_rubixi_cfg_79"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_3"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_var_0",
+        "target": "solidifi_rubixi_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "solidifi_rubixi_dfg_write_2",
+        "target": "solidifi_rubixi_dfg_var_0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "contract_id": "solidifi_hash_test",
+  "metadata": {
+    "sloc": 16,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "StorageTest",
+        "id": "solidifi_hash_test_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "confirmAndCheck",
+        "visibility": "public",
+        "id": "solidifi_hash_test_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "data[keccak256(abi.encodePacked(x))] = msg.sender;",
+        "id": "solidifi_hash_test_stmt_2"
+      },
+      {
+        "node_type": "function",
+        "name": "destruct",
+        "visibility": "public",
+        "id": "solidifi_hash_test_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(data[x] == msg.sender);",
+        "id": "solidifi_hash_test_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(data[x]);",
+        "id": "solidifi_hash_test_stmt_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hash_test_contract_0",
+        "target": "solidifi_hash_test_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hash_test_contract_0",
+        "target": "solidifi_hash_test_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hash_test_func_1",
+        "target": "solidifi_hash_test_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hash_test_func_3",
+        "target": "solidifi_hash_test_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_hash_test_func_3",
+        "target": "solidifi_hash_test_stmt_5"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "confirmAndCheck",
+        "id": "solidifi_hash_test_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "data[keccak256(abi.encodePacked(x))] = msg.sender;",
+        "id": "solidifi_hash_test_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "destruct",
+        "id": "solidifi_hash_test_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(data[x] == msg.sender);",
+        "id": "solidifi_hash_test_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(data[x]);",
+        "id": "solidifi_hash_test_cfg_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_entry_0",
+        "target": "solidifi_hash_test_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_entry_2",
+        "target": "solidifi_hash_test_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_3",
+        "target": "solidifi_hash_test_cfg_4"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "confirmAndCheck",
+        "id": "solidifi_hash_test_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "data[keccak256(abi.encodePacked(x))] = msg.sender;",
+        "id": "solidifi_hash_test_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "destruct",
+        "id": "solidifi_hash_test_cfg_entry_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(data[x] == msg.sender);",
+        "id": "solidifi_hash_test_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "selfdestruct(data[x]);",
+        "id": "solidifi_hash_test_cfg_4"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_entry_0",
+        "target": "solidifi_hash_test_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_entry_2",
+        "target": "solidifi_hash_test_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_hash_test_cfg_3",
+        "target": "solidifi_hash_test_cfg_4"
+      }
+    ]
+  }
+}

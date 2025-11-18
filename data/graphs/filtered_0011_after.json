@@ -1,0 +1,1420 @@
+{
+  "contract_id": "filtered_0011_after",
+  "metadata": {
+    "sloc": 126,
+    "num_functions": 8
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "Government",
+        "id": "filtered_0011_after_contract_0"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "filtered_0011_after_var_1"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "filtered_0011_after_var_2"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "filtered_0011_after_var_3"
+      },
+      {
+        "node_type": "state_variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "filtered_0011_after_var_4"
+      },
+      {
+        "node_type": "function",
+        "name": "lendGovernmentMoney",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "filtered_0011_after_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for 12h no new creditor gives new credit to the system",
+        "id": "filtered_0011_after_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "filtered_0011_after_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp) {",
+        "id": "filtered_0011_after_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "filtered_0011_after_stmt_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "filtered_0011_after_stmt_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "filtered_0011_after_stmt_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash);",
+        "id": "filtered_0011_after_stmt_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(address(this).balance);",
+        "id": "filtered_0011_after_stmt_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "filtered_0011_after_stmt_15"
+      },
+      {
+        "node_type": "function",
+        "name": "fallback",
+        "visibility": "external",
+        "id": "filtered_0011_after_func_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(address(0x0));",
+        "id": "filtered_0011_after_stmt_17"
+      },
+      {
+        "node_type": "function",
+        "name": "totalDebt",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "for(uint i=lastCreditorPayedOut; i<creditorAmounts.length; i++){",
+        "id": "filtered_0011_after_stmt_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "filtered_0011_after_stmt_20"
+      },
+      {
+        "node_type": "function",
+        "name": "totalPayedOut",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_21"
+      },
+      {
+        "node_type": "statement",
+        "content": "for(uint i=0; i<lastCreditorPayedOut; i++){",
+        "id": "filtered_0011_after_stmt_22"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "filtered_0011_after_stmt_23"
+      },
+      {
+        "node_type": "function",
+        "name": "investInTheSystem",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_24"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "filtered_0011_after_stmt_25"
+      },
+      {
+        "node_type": "function",
+        "name": "inheritToNextGeneration",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (msg.sender == corruptElite) {",
+        "id": "filtered_0011_after_stmt_27"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "filtered_0011_after_stmt_28"
+      },
+      {
+        "node_type": "function",
+        "name": "getCreditorAddresses",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "return creditorAddresses;",
+        "id": "filtered_0011_after_stmt_30"
+      },
+      {
+        "node_type": "function",
+        "name": "getCreditorAmounts",
+        "visibility": "public",
+        "id": "filtered_0011_after_func_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "return creditorAmounts;",
+        "id": "filtered_0011_after_stmt_32"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_var_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_var_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_var_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_var_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_16"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_18"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_21"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_24"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_26"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_29"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_contract_0",
+        "target": "filtered_0011_after_func_31"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_10"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_11"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_12"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_13"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_14"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_5",
+        "target": "filtered_0011_after_stmt_15"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_16",
+        "target": "filtered_0011_after_stmt_17"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_18",
+        "target": "filtered_0011_after_stmt_19"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_18",
+        "target": "filtered_0011_after_stmt_20"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_21",
+        "target": "filtered_0011_after_stmt_22"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_21",
+        "target": "filtered_0011_after_stmt_23"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_24",
+        "target": "filtered_0011_after_stmt_25"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_26",
+        "target": "filtered_0011_after_stmt_27"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_26",
+        "target": "filtered_0011_after_stmt_28"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_29",
+        "target": "filtered_0011_after_stmt_30"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0011_after_func_31",
+        "target": "filtered_0011_after_stmt_32"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "lendGovernmentMoney",
+        "id": "filtered_0011_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "filtered_0011_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for ",
+        "id": "filtered_0011_after_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "filtered_0011_after_cfg_3"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0011_after_cfg_4"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0011_after_cfg_5"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0011_after_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "filtered_0011_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "filtered_0011_after_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "filtered_0011_after_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].se",
+        "id": "filtered_0011_after_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(address(this).balance);",
+        "id": "filtered_0011_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "filtered_0011_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastCreditorPayedOut = 0;",
+        "id": "filtered_0011_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "filtered_0011_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = 0;",
+        "id": "filtered_0011_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "filtered_0011_after_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses = new address payable[](0);",
+        "id": "filtered_0011_after_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "filtered_0011_after_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAmounts = new uint[](0);",
+        "id": "filtered_0011_after_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "round += 1;",
+        "id": "filtered_0011_after_cfg_20"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_21"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_22"
+      },
+      {
+        "node_type": "entry",
+        "function": "fallback",
+        "id": "filtered_0011_after_cfg_entry_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(address(0x0));",
+        "id": "filtered_0011_after_cfg_24"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalDebt",
+        "id": "filtered_0011_after_cfg_entry_25"
+      },
+      {
+        "node_type": "loop",
+        "id": "filtered_0011_after_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "filtered_0011_after_cfg_27"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalPayedOut",
+        "id": "filtered_0011_after_cfg_entry_28"
+      },
+      {
+        "node_type": "loop",
+        "id": "filtered_0011_after_cfg_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "filtered_0011_after_cfg_30"
+      },
+      {
+        "node_type": "entry",
+        "function": "investInTheSystem",
+        "id": "filtered_0011_after_cfg_entry_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "filtered_0011_after_cfg_32"
+      },
+      {
+        "node_type": "entry",
+        "function": "inheritToNextGeneration",
+        "id": "filtered_0011_after_cfg_entry_33"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0011_after_cfg_34"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0011_after_cfg_35"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0011_after_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "filtered_0011_after_cfg_37"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAddresses",
+        "id": "filtered_0011_after_cfg_entry_38"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_39"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_40"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAmounts",
+        "id": "filtered_0011_after_cfg_entry_41"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_42"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_43"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_0",
+        "target": "filtered_0011_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_1",
+        "target": "filtered_0011_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_2",
+        "target": "filtered_0011_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_3",
+        "target": "filtered_0011_after_cfg_4"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0011_after_cfg_4",
+        "target": "filtered_0011_after_cfg_5"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0011_after_cfg_4",
+        "target": "filtered_0011_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_5",
+        "target": "filtered_0011_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_7",
+        "target": "filtered_0011_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_8",
+        "target": "filtered_0011_after_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_9",
+        "target": "filtered_0011_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_10",
+        "target": "filtered_0011_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_11",
+        "target": "filtered_0011_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_12",
+        "target": "filtered_0011_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_13",
+        "target": "filtered_0011_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_14",
+        "target": "filtered_0011_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_15",
+        "target": "filtered_0011_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_16",
+        "target": "filtered_0011_after_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_17",
+        "target": "filtered_0011_after_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_18",
+        "target": "filtered_0011_after_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_19",
+        "target": "filtered_0011_after_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_20",
+        "target": "filtered_0011_after_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_21",
+        "target": "filtered_0011_after_cfg_exit_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_23",
+        "target": "filtered_0011_after_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_25",
+        "target": "filtered_0011_after_cfg_26"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "filtered_0011_after_cfg_26",
+        "target": "filtered_0011_after_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_26",
+        "target": "filtered_0011_after_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_28",
+        "target": "filtered_0011_after_cfg_29"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "filtered_0011_after_cfg_29",
+        "target": "filtered_0011_after_cfg_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_29",
+        "target": "filtered_0011_after_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_31",
+        "target": "filtered_0011_after_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_33",
+        "target": "filtered_0011_after_cfg_34"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0011_after_cfg_34",
+        "target": "filtered_0011_after_cfg_35"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0011_after_cfg_34",
+        "target": "filtered_0011_after_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_35",
+        "target": "filtered_0011_after_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_38",
+        "target": "filtered_0011_after_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_39",
+        "target": "filtered_0011_after_cfg_exit_40"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_41",
+        "target": "filtered_0011_after_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_42",
+        "target": "filtered_0011_after_cfg_exit_43"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_3"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_read_4"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_5"
+      },
+      {
+        "node_type": "read",
+        "var": "lastCreditorPayedOut",
+        "id": "filtered_0011_after_dfg_read_6"
+      },
+      {
+        "node_type": "write",
+        "var": "lastCreditorPayedOut",
+        "id": "filtered_0011_after_dfg_write_7"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_read_8"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_write_9"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_10"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_write_11"
+      },
+      {
+        "node_type": "read",
+        "var": "round",
+        "id": "filtered_0011_after_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_13"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_0",
+        "target": "filtered_0011_after_dfg_read_6"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_1",
+        "target": "filtered_0011_after_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_1",
+        "target": "filtered_0011_after_dfg_read_8"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_3",
+        "target": "filtered_0011_after_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_7",
+        "target": "filtered_0011_after_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_9",
+        "target": "filtered_0011_after_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_11",
+        "target": "filtered_0011_after_dfg_var_2"
+      }
+    ]
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "lendGovernmentMoney",
+        "id": "filtered_0011_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint amount = msg.value;",
+        "id": "filtered_0011_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "// check if the system already broke down. If for ",
+        "id": "filtered_0011_after_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "// 12h are on average = 60*60*12/12.5 = 3456",
+        "id": "filtered_0011_after_cfg_3"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0011_after_cfg_4"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0011_after_cfg_5"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0011_after_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Return money to sender",
+        "id": "filtered_0011_after_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.send(amount);",
+        "id": "filtered_0011_after_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Sends all contract money to the last creditor",
+        "id": "filtered_0011_after_cfg_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses[creditorAddresses.length - 1].se",
+        "id": "filtered_0011_after_cfg_10"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite.send(address(this).balance);",
+        "id": "filtered_0011_after_cfg_11"
+      },
+      {
+        "node_type": "statement",
+        "content": "// Reset contract state",
+        "id": "filtered_0011_after_cfg_12"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastCreditorPayedOut = 0;",
+        "id": "filtered_0011_after_cfg_13"
+      },
+      {
+        "node_type": "statement",
+        "content": "lastTimeOfNewCredit = block.timestamp;",
+        "id": "filtered_0011_after_cfg_14"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash = 0;",
+        "id": "filtered_0011_after_cfg_15"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "filtered_0011_after_cfg_16"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAddresses = new address payable[](0);",
+        "id": "filtered_0011_after_cfg_17"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> DENIAL_OF_SERVICE",
+        "id": "filtered_0011_after_cfg_18"
+      },
+      {
+        "node_type": "statement",
+        "content": "creditorAmounts = new uint[](0);",
+        "id": "filtered_0011_after_cfg_19"
+      },
+      {
+        "node_type": "statement",
+        "content": "round += 1;",
+        "id": "filtered_0011_after_cfg_20"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_21"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_22"
+      },
+      {
+        "node_type": "entry",
+        "function": "fallback",
+        "id": "filtered_0011_after_cfg_entry_23"
+      },
+      {
+        "node_type": "statement",
+        "content": "lendGovernmentMoney(address(0x0));",
+        "id": "filtered_0011_after_cfg_24"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalDebt",
+        "id": "filtered_0011_after_cfg_entry_25"
+      },
+      {
+        "node_type": "loop",
+        "id": "filtered_0011_after_cfg_26"
+      },
+      {
+        "node_type": "statement",
+        "content": "debt += creditorAmounts[i];",
+        "id": "filtered_0011_after_cfg_27"
+      },
+      {
+        "node_type": "entry",
+        "function": "totalPayedOut",
+        "id": "filtered_0011_after_cfg_entry_28"
+      },
+      {
+        "node_type": "loop",
+        "id": "filtered_0011_after_cfg_29"
+      },
+      {
+        "node_type": "statement",
+        "content": "payout += creditorAmounts[i];",
+        "id": "filtered_0011_after_cfg_30"
+      },
+      {
+        "node_type": "entry",
+        "function": "investInTheSystem",
+        "id": "filtered_0011_after_cfg_entry_31"
+      },
+      {
+        "node_type": "statement",
+        "content": "profitFromCrash += msg.value;",
+        "id": "filtered_0011_after_cfg_32"
+      },
+      {
+        "node_type": "entry",
+        "function": "inheritToNextGeneration",
+        "id": "filtered_0011_after_cfg_entry_33"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0011_after_cfg_34"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0011_after_cfg_35"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0011_after_cfg_36"
+      },
+      {
+        "node_type": "statement",
+        "content": "corruptElite = nextGeneration;",
+        "id": "filtered_0011_after_cfg_37"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAddresses",
+        "id": "filtered_0011_after_cfg_entry_38"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_39"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_40"
+      },
+      {
+        "node_type": "entry",
+        "function": "getCreditorAmounts",
+        "id": "filtered_0011_after_cfg_entry_41"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0011_after_cfg_42"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0011_after_cfg_exit_43"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastCreditorPayedOut",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_0"
+      },
+      {
+        "node_type": "variable",
+        "name": "lastTimeOfNewCredit",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_1"
+      },
+      {
+        "node_type": "variable",
+        "name": "profitFromCrash",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_2"
+      },
+      {
+        "node_type": "variable",
+        "name": "round",
+        "var_type": "uint",
+        "id": "filtered_0011_after_dfg_var_3"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_read_4"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_5"
+      },
+      {
+        "node_type": "read",
+        "var": "lastCreditorPayedOut",
+        "id": "filtered_0011_after_dfg_read_6"
+      },
+      {
+        "node_type": "write",
+        "var": "lastCreditorPayedOut",
+        "id": "filtered_0011_after_dfg_write_7"
+      },
+      {
+        "node_type": "read",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_read_8"
+      },
+      {
+        "node_type": "write",
+        "var": "lastTimeOfNewCredit",
+        "id": "filtered_0011_after_dfg_write_9"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_10"
+      },
+      {
+        "node_type": "write",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_write_11"
+      },
+      {
+        "node_type": "read",
+        "var": "round",
+        "id": "filtered_0011_after_dfg_read_12"
+      },
+      {
+        "node_type": "read",
+        "var": "profitFromCrash",
+        "id": "filtered_0011_after_dfg_read_13"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_0",
+        "target": "filtered_0011_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_1",
+        "target": "filtered_0011_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_2",
+        "target": "filtered_0011_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_3",
+        "target": "filtered_0011_after_cfg_4"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0011_after_cfg_4",
+        "target": "filtered_0011_after_cfg_5"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0011_after_cfg_4",
+        "target": "filtered_0011_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_5",
+        "target": "filtered_0011_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_7",
+        "target": "filtered_0011_after_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_8",
+        "target": "filtered_0011_after_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_9",
+        "target": "filtered_0011_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_10",
+        "target": "filtered_0011_after_cfg_11"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_11",
+        "target": "filtered_0011_after_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_12",
+        "target": "filtered_0011_after_cfg_13"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_13",
+        "target": "filtered_0011_after_cfg_14"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_14",
+        "target": "filtered_0011_after_cfg_15"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_15",
+        "target": "filtered_0011_after_cfg_16"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_16",
+        "target": "filtered_0011_after_cfg_17"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_17",
+        "target": "filtered_0011_after_cfg_18"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_18",
+        "target": "filtered_0011_after_cfg_19"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_19",
+        "target": "filtered_0011_after_cfg_20"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_20",
+        "target": "filtered_0011_after_cfg_21"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_21",
+        "target": "filtered_0011_after_cfg_exit_22"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_23",
+        "target": "filtered_0011_after_cfg_24"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_25",
+        "target": "filtered_0011_after_cfg_26"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "filtered_0011_after_cfg_26",
+        "target": "filtered_0011_after_cfg_26"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_26",
+        "target": "filtered_0011_after_cfg_27"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_28",
+        "target": "filtered_0011_after_cfg_29"
+      },
+      {
+        "edge_type": "loop_back",
+        "source": "filtered_0011_after_cfg_29",
+        "target": "filtered_0011_after_cfg_29"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_29",
+        "target": "filtered_0011_after_cfg_30"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_31",
+        "target": "filtered_0011_after_cfg_32"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_33",
+        "target": "filtered_0011_after_cfg_34"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0011_after_cfg_34",
+        "target": "filtered_0011_after_cfg_35"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0011_after_cfg_34",
+        "target": "filtered_0011_after_cfg_36"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_35",
+        "target": "filtered_0011_after_cfg_37"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_38",
+        "target": "filtered_0011_after_cfg_39"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_39",
+        "target": "filtered_0011_after_cfg_exit_40"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_entry_41",
+        "target": "filtered_0011_after_cfg_42"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0011_after_cfg_42",
+        "target": "filtered_0011_after_cfg_exit_43"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_0",
+        "target": "filtered_0011_after_dfg_read_6"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_1",
+        "target": "filtered_0011_after_dfg_read_4"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_1",
+        "target": "filtered_0011_after_dfg_read_8"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_5"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_10"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_2",
+        "target": "filtered_0011_after_dfg_read_13"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_var_3",
+        "target": "filtered_0011_after_dfg_read_12"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_7",
+        "target": "filtered_0011_after_dfg_var_0"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_9",
+        "target": "filtered_0011_after_dfg_var_1"
+      },
+      {
+        "edge_type": "data_flow",
+        "source": "filtered_0011_after_dfg_write_11",
+        "target": "filtered_0011_after_dfg_var_2"
+      }
+    ]
+  }
+}

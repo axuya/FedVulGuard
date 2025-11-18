@@ -1,0 +1,319 @@
+{
+  "contract_id": "solidifi_timelock",
+  "metadata": {
+    "sloc": 24,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "TimeLock",
+        "id": "solidifi_timelock_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "deposit",
+        "visibility": "public",
+        "id": "solidifi_timelock_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_timelock_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] = now + 1 weeks;",
+        "id": "solidifi_timelock_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "increaseLockTime",
+        "visibility": "public",
+        "id": "solidifi_timelock_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] += _secondsToIncrease;",
+        "id": "solidifi_timelock_stmt_5"
+      },
+      {
+        "node_type": "function",
+        "name": "withdraw",
+        "visibility": "public",
+        "id": "solidifi_timelock_func_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] > 0);",
+        "id": "solidifi_timelock_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now > lockTime[msg.sender]);",
+        "id": "solidifi_timelock_stmt_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = 0;",
+        "id": "solidifi_timelock_stmt_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(balances[msg.sender]);",
+        "id": "solidifi_timelock_stmt_10"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_contract_0",
+        "target": "solidifi_timelock_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_contract_0",
+        "target": "solidifi_timelock_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_contract_0",
+        "target": "solidifi_timelock_func_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_1",
+        "target": "solidifi_timelock_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_1",
+        "target": "solidifi_timelock_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_4",
+        "target": "solidifi_timelock_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_6",
+        "target": "solidifi_timelock_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_6",
+        "target": "solidifi_timelock_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_6",
+        "target": "solidifi_timelock_stmt_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_timelock_func_6",
+        "target": "solidifi_timelock_stmt_10"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "deposit",
+        "id": "solidifi_timelock_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_timelock_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] = now + 1 weeks;",
+        "id": "solidifi_timelock_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "increaseLockTime",
+        "id": "solidifi_timelock_cfg_entry_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] += _secondsToIncrease;",
+        "id": "solidifi_timelock_cfg_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_timelock_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] > 0);",
+        "id": "solidifi_timelock_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now > lockTime[msg.sender]);",
+        "id": "solidifi_timelock_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = 0;",
+        "id": "solidifi_timelock_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(balances[msg.sender]);",
+        "id": "solidifi_timelock_cfg_9"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_0",
+        "target": "solidifi_timelock_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_1",
+        "target": "solidifi_timelock_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_3",
+        "target": "solidifi_timelock_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_5",
+        "target": "solidifi_timelock_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_6",
+        "target": "solidifi_timelock_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_7",
+        "target": "solidifi_timelock_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_8",
+        "target": "solidifi_timelock_cfg_9"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "deposit",
+        "id": "solidifi_timelock_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] += msg.value;",
+        "id": "solidifi_timelock_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] = now + 1 weeks;",
+        "id": "solidifi_timelock_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "increaseLockTime",
+        "id": "solidifi_timelock_cfg_entry_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "lockTime[msg.sender] += _secondsToIncrease;",
+        "id": "solidifi_timelock_cfg_4"
+      },
+      {
+        "node_type": "entry",
+        "function": "withdraw",
+        "id": "solidifi_timelock_cfg_entry_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(balances[msg.sender] > 0);",
+        "id": "solidifi_timelock_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(now > lockTime[msg.sender]);",
+        "id": "solidifi_timelock_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] = 0;",
+        "id": "solidifi_timelock_cfg_8"
+      },
+      {
+        "node_type": "statement",
+        "content": "msg.sender.transfer(balances[msg.sender]);",
+        "id": "solidifi_timelock_cfg_9"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_0",
+        "target": "solidifi_timelock_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_1",
+        "target": "solidifi_timelock_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_3",
+        "target": "solidifi_timelock_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_entry_5",
+        "target": "solidifi_timelock_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_6",
+        "target": "solidifi_timelock_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_7",
+        "target": "solidifi_timelock_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_timelock_cfg_8",
+        "target": "solidifi_timelock_cfg_9"
+      }
+    ]
+  }
+}

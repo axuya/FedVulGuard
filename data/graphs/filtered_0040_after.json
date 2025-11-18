@@ -1,0 +1,334 @@
+{
+  "contract_id": "filtered_0040_after",
+  "metadata": {
+    "sloc": 34,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "MyToken",
+        "id": "filtered_0040_after_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "sendCoin",
+        "visibility": "public",
+        "id": "filtered_0040_after_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (balances[msg.sender] < amount) return false;",
+        "id": "filtered_0040_after_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "filtered_0040_after_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "filtered_0040_after_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Transfer(msg.sender, to, amount);",
+        "id": "filtered_0040_after_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "return true;",
+        "id": "filtered_0040_after_stmt_6"
+      },
+      {
+        "node_type": "function",
+        "name": "getBalance",
+        "visibility": "public",
+        "id": "filtered_0040_after_func_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "return balances[addr];",
+        "id": "filtered_0040_after_stmt_8"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_contract_0",
+        "target": "filtered_0040_after_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_contract_0",
+        "target": "filtered_0040_after_func_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_1",
+        "target": "filtered_0040_after_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_1",
+        "target": "filtered_0040_after_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_1",
+        "target": "filtered_0040_after_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_1",
+        "target": "filtered_0040_after_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_1",
+        "target": "filtered_0040_after_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0040_after_func_7",
+        "target": "filtered_0040_after_stmt_8"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "sendCoin",
+        "id": "filtered_0040_after_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0040_after_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0040_after_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0040_after_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "filtered_0040_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "filtered_0040_after_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Transfer(msg.sender, to, amount);",
+        "id": "filtered_0040_after_cfg_6"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0040_after_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0040_after_cfg_exit_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "filtered_0040_after_cfg_entry_9"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0040_after_cfg_10"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0040_after_cfg_exit_11"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_entry_0",
+        "target": "filtered_0040_after_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0040_after_cfg_1",
+        "target": "filtered_0040_after_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0040_after_cfg_1",
+        "target": "filtered_0040_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_2",
+        "target": "filtered_0040_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_4",
+        "target": "filtered_0040_after_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_5",
+        "target": "filtered_0040_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_6",
+        "target": "filtered_0040_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_7",
+        "target": "filtered_0040_after_cfg_exit_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_entry_9",
+        "target": "filtered_0040_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_10",
+        "target": "filtered_0040_after_cfg_exit_11"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "sendCoin",
+        "id": "filtered_0040_after_cfg_entry_0"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "filtered_0040_after_cfg_1"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "filtered_0040_after_cfg_2"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "filtered_0040_after_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "filtered_0040_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "filtered_0040_after_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "emit Transfer(msg.sender, to, amount);",
+        "id": "filtered_0040_after_cfg_6"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0040_after_cfg_7"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0040_after_cfg_exit_8"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "filtered_0040_after_cfg_entry_9"
+      },
+      {
+        "node_type": "return",
+        "id": "filtered_0040_after_cfg_10"
+      },
+      {
+        "node_type": "exit",
+        "id": "filtered_0040_after_cfg_exit_11"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_entry_0",
+        "target": "filtered_0040_after_cfg_1"
+      },
+      {
+        "edge_type": "true",
+        "source": "filtered_0040_after_cfg_1",
+        "target": "filtered_0040_after_cfg_2"
+      },
+      {
+        "edge_type": "false",
+        "source": "filtered_0040_after_cfg_1",
+        "target": "filtered_0040_after_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_2",
+        "target": "filtered_0040_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_4",
+        "target": "filtered_0040_after_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_5",
+        "target": "filtered_0040_after_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_6",
+        "target": "filtered_0040_after_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_7",
+        "target": "filtered_0040_after_cfg_exit_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_entry_9",
+        "target": "filtered_0040_after_cfg_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0040_after_cfg_10",
+        "target": "filtered_0040_after_cfg_exit_11"
+      }
+    ]
+  }
+}

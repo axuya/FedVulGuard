@@ -1,0 +1,233 @@
+{
+  "contract_id": "solidifi_environments",
+  "metadata": {
+    "sloc": 20,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "IntegerOverflow2",
+        "id": "solidifi_environments_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "batchTransfer",
+        "visibility": "public",
+        "id": "solidifi_environments_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "solidifi_environments_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "solidifi_environments_stmt_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "solidifi_environments_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -=amount;",
+        "id": "solidifi_environments_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "return true;",
+        "id": "solidifi_environments_stmt_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_contract_0",
+        "target": "solidifi_environments_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_func_1",
+        "target": "solidifi_environments_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_func_1",
+        "target": "solidifi_environments_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_func_1",
+        "target": "solidifi_environments_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_func_1",
+        "target": "solidifi_environments_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_environments_func_1",
+        "target": "solidifi_environments_stmt_6"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "batchTransfer",
+        "id": "solidifi_environments_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "solidifi_environments_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "solidifi_environments_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "solidifi_environments_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -=amount;",
+        "id": "solidifi_environments_cfg_4"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_environments_cfg_5"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_environments_cfg_exit_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_entry_0",
+        "target": "solidifi_environments_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_1",
+        "target": "solidifi_environments_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_2",
+        "target": "solidifi_environments_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_3",
+        "target": "solidifi_environments_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_4",
+        "target": "solidifi_environments_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_5",
+        "target": "solidifi_environments_cfg_exit_6"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "batchTransfer",
+        "id": "solidifi_environments_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint cnt = _receivers.length;",
+        "id": "solidifi_environments_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "uint256 amount = uint256(cnt) * _value;",
+        "id": "solidifi_environments_cfg_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(cnt > 0 && cnt <= 20);",
+        "id": "solidifi_environments_cfg_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -=amount;",
+        "id": "solidifi_environments_cfg_4"
+      },
+      {
+        "node_type": "return",
+        "id": "solidifi_environments_cfg_5"
+      },
+      {
+        "node_type": "exit",
+        "id": "solidifi_environments_cfg_exit_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_entry_0",
+        "target": "solidifi_environments_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_1",
+        "target": "solidifi_environments_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_2",
+        "target": "solidifi_environments_cfg_3"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_3",
+        "target": "solidifi_environments_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_4",
+        "target": "solidifi_environments_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_environments_cfg_5",
+        "target": "solidifi_environments_cfg_exit_6"
+      }
+    ]
+  }
+}

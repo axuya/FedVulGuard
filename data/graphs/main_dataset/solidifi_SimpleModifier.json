@@ -1,0 +1,97 @@
+{
+  "contract_id": "solidifi_SimpleModifier",
+  "metadata": {
+    "sloc": 20,
+    "num_functions": 1
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "SimpleModifier",
+        "id": "solidifi_SimpleModifier_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "withdrawfunds",
+        "visibility": "public",
+        "id": "solidifi_SimpleModifier_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner.send(address(this).balance);",
+        "id": "solidifi_SimpleModifier_stmt_2"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SimpleModifier_contract_0",
+        "target": "solidifi_SimpleModifier_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "solidifi_SimpleModifier_func_1",
+        "target": "solidifi_SimpleModifier_stmt_2"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdrawfunds",
+        "id": "solidifi_SimpleModifier_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner.send(address(this).balance);",
+        "id": "solidifi_SimpleModifier_cfg_1"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SimpleModifier_cfg_entry_0",
+        "target": "solidifi_SimpleModifier_cfg_1"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "withdrawfunds",
+        "id": "solidifi_SimpleModifier_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "owner.send(address(this).balance);",
+        "id": "solidifi_SimpleModifier_cfg_1"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "solidifi_SimpleModifier_cfg_entry_0",
+        "target": "solidifi_SimpleModifier_cfg_1"
+      }
+    ]
+  }
+}

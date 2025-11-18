@@ -1,0 +1,208 @@
+{
+  "contract_id": "filtered_0017_after",
+  "metadata": {
+    "sloc": 24,
+    "num_functions": 2
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "ReturnValue",
+        "id": "filtered_0017_after_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "callchecked",
+        "visibility": "public",
+        "id": "filtered_0017_after_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success,) = callee.call(\"\");",
+        "id": "filtered_0017_after_stmt_2"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "filtered_0017_after_stmt_3"
+      },
+      {
+        "node_type": "function",
+        "name": "callnotchecked",
+        "visibility": "public",
+        "id": "filtered_0017_after_func_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> UNCHECKED_LL_CALLS",
+        "id": "filtered_0017_after_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "callee.call(\"\");",
+        "id": "filtered_0017_after_stmt_6"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_contract_0",
+        "target": "filtered_0017_after_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_contract_0",
+        "target": "filtered_0017_after_func_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_func_1",
+        "target": "filtered_0017_after_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_func_1",
+        "target": "filtered_0017_after_stmt_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_func_4",
+        "target": "filtered_0017_after_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "filtered_0017_after_func_4",
+        "target": "filtered_0017_after_stmt_6"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "callchecked",
+        "id": "filtered_0017_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success,) = callee.call(\"\");",
+        "id": "filtered_0017_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "filtered_0017_after_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "callnotchecked",
+        "id": "filtered_0017_after_cfg_entry_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> UNCHECKED_LL_CALLS",
+        "id": "filtered_0017_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "callee.call(\"\");",
+        "id": "filtered_0017_after_cfg_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_entry_0",
+        "target": "filtered_0017_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_1",
+        "target": "filtered_0017_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_entry_3",
+        "target": "filtered_0017_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_4",
+        "target": "filtered_0017_after_cfg_5"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "callchecked",
+        "id": "filtered_0017_after_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "(bool success,) = callee.call(\"\");",
+        "id": "filtered_0017_after_cfg_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "require(success);",
+        "id": "filtered_0017_after_cfg_2"
+      },
+      {
+        "node_type": "entry",
+        "function": "callnotchecked",
+        "id": "filtered_0017_after_cfg_entry_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "// <yes> <report> UNCHECKED_LL_CALLS",
+        "id": "filtered_0017_after_cfg_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "callee.call(\"\");",
+        "id": "filtered_0017_after_cfg_5"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_entry_0",
+        "target": "filtered_0017_after_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_1",
+        "target": "filtered_0017_after_cfg_2"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_entry_3",
+        "target": "filtered_0017_after_cfg_4"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "filtered_0017_after_cfg_4",
+        "target": "filtered_0017_after_cfg_5"
+      }
+    ]
+  }
+}

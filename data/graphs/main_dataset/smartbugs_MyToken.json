@@ -1,0 +1,385 @@
+{
+  "contract_id": "smartbugs_MyToken",
+  "metadata": {
+    "sloc": 30,
+    "num_functions": 3
+  },
+  "ast": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "contract",
+        "name": "MyToken",
+        "id": "smartbugs_MyToken_contract_0"
+      },
+      {
+        "node_type": "function",
+        "name": "MyToken",
+        "visibility": "public",
+        "id": "smartbugs_MyToken_func_1"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[tx.origin] = 10000;",
+        "id": "smartbugs_MyToken_stmt_2"
+      },
+      {
+        "node_type": "function",
+        "name": "sendCoin",
+        "visibility": "public",
+        "id": "smartbugs_MyToken_func_3"
+      },
+      {
+        "node_type": "statement",
+        "content": "if (balances[msg.sender] < amount) return false;",
+        "id": "smartbugs_MyToken_stmt_4"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "smartbugs_MyToken_stmt_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "smartbugs_MyToken_stmt_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, to, amount);",
+        "id": "smartbugs_MyToken_stmt_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "return true;",
+        "id": "smartbugs_MyToken_stmt_8"
+      },
+      {
+        "node_type": "function",
+        "name": "getBalance",
+        "visibility": "public",
+        "id": "smartbugs_MyToken_func_9"
+      },
+      {
+        "node_type": "statement",
+        "content": "return balances[addr];",
+        "id": "smartbugs_MyToken_stmt_10"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_contract_0",
+        "target": "smartbugs_MyToken_func_1"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_contract_0",
+        "target": "smartbugs_MyToken_func_3"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_contract_0",
+        "target": "smartbugs_MyToken_func_9"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_1",
+        "target": "smartbugs_MyToken_stmt_2"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_3",
+        "target": "smartbugs_MyToken_stmt_4"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_3",
+        "target": "smartbugs_MyToken_stmt_5"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_3",
+        "target": "smartbugs_MyToken_stmt_6"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_3",
+        "target": "smartbugs_MyToken_stmt_7"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_3",
+        "target": "smartbugs_MyToken_stmt_8"
+      },
+      {
+        "edge_type": "contains",
+        "source": "smartbugs_MyToken_func_9",
+        "target": "smartbugs_MyToken_stmt_10"
+      }
+    ]
+  },
+  "cfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "MyToken",
+        "id": "smartbugs_MyToken_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[tx.origin] = 10000;",
+        "id": "smartbugs_MyToken_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "sendCoin",
+        "id": "smartbugs_MyToken_cfg_entry_2"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_MyToken_cfg_3"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_MyToken_cfg_4"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_MyToken_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "smartbugs_MyToken_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "smartbugs_MyToken_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, to, amount);",
+        "id": "smartbugs_MyToken_cfg_8"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_MyToken_cfg_9"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_MyToken_cfg_exit_10"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "smartbugs_MyToken_cfg_entry_11"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_MyToken_cfg_12"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_MyToken_cfg_exit_13"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_0",
+        "target": "smartbugs_MyToken_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_2",
+        "target": "smartbugs_MyToken_cfg_3"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_MyToken_cfg_3",
+        "target": "smartbugs_MyToken_cfg_4"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_MyToken_cfg_3",
+        "target": "smartbugs_MyToken_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_4",
+        "target": "smartbugs_MyToken_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_6",
+        "target": "smartbugs_MyToken_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_7",
+        "target": "smartbugs_MyToken_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_8",
+        "target": "smartbugs_MyToken_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_9",
+        "target": "smartbugs_MyToken_cfg_exit_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_11",
+        "target": "smartbugs_MyToken_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_12",
+        "target": "smartbugs_MyToken_cfg_exit_13"
+      }
+    ]
+  },
+  "dfg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [],
+    "links": []
+  },
+  "pdg": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "node_type": "entry",
+        "function": "MyToken",
+        "id": "smartbugs_MyToken_cfg_entry_0"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[tx.origin] = 10000;",
+        "id": "smartbugs_MyToken_cfg_1"
+      },
+      {
+        "node_type": "entry",
+        "function": "sendCoin",
+        "id": "smartbugs_MyToken_cfg_entry_2"
+      },
+      {
+        "node_type": "if_statement",
+        "id": "smartbugs_MyToken_cfg_3"
+      },
+      {
+        "node_type": "true_branch",
+        "id": "smartbugs_MyToken_cfg_4"
+      },
+      {
+        "node_type": "false_branch",
+        "id": "smartbugs_MyToken_cfg_5"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[msg.sender] -= amount;",
+        "id": "smartbugs_MyToken_cfg_6"
+      },
+      {
+        "node_type": "statement",
+        "content": "balances[to] += amount;",
+        "id": "smartbugs_MyToken_cfg_7"
+      },
+      {
+        "node_type": "statement",
+        "content": "Transfer(msg.sender, to, amount);",
+        "id": "smartbugs_MyToken_cfg_8"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_MyToken_cfg_9"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_MyToken_cfg_exit_10"
+      },
+      {
+        "node_type": "entry",
+        "function": "getBalance",
+        "id": "smartbugs_MyToken_cfg_entry_11"
+      },
+      {
+        "node_type": "return",
+        "id": "smartbugs_MyToken_cfg_12"
+      },
+      {
+        "node_type": "exit",
+        "id": "smartbugs_MyToken_cfg_exit_13"
+      }
+    ],
+    "links": [
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_0",
+        "target": "smartbugs_MyToken_cfg_1"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_2",
+        "target": "smartbugs_MyToken_cfg_3"
+      },
+      {
+        "edge_type": "true",
+        "source": "smartbugs_MyToken_cfg_3",
+        "target": "smartbugs_MyToken_cfg_4"
+      },
+      {
+        "edge_type": "false",
+        "source": "smartbugs_MyToken_cfg_3",
+        "target": "smartbugs_MyToken_cfg_5"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_4",
+        "target": "smartbugs_MyToken_cfg_6"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_6",
+        "target": "smartbugs_MyToken_cfg_7"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_7",
+        "target": "smartbugs_MyToken_cfg_8"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_8",
+        "target": "smartbugs_MyToken_cfg_9"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_9",
+        "target": "smartbugs_MyToken_cfg_exit_10"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_entry_11",
+        "target": "smartbugs_MyToken_cfg_12"
+      },
+      {
+        "edge_type": "control_flow",
+        "source": "smartbugs_MyToken_cfg_12",
+        "target": "smartbugs_MyToken_cfg_exit_13"
+      }
+    ]
+  }
+}

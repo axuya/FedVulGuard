@@ -3,6 +3,8 @@ configs/data_collection.yaml          # 含 API Key
 *.key
 *.env
 .env
+# 忽略 data/graphs 目录下所有 filtered_xxxx.json 文件
+data/graphs/filtered_*.json
 
 # === 不用的缓存 ===
 __pycache__/

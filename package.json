@@ -1,0 +1,28 @@
+{
+  "name": "fedvulguard",
+  "version": "1.0.0",
+  "description": "Web3 vulnerability detection via FL + MGVD + LLM semantic enhancement",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axuya/FedVulGuard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axuya/FedVulGuard/issues"
+  },
+  "homepage": "https://github.com/axuya/FedVulGuard#readme",
+  "dependencies": {
+    "solidity-parser-antlr": "^0.4.11",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-solidity": "^1.2.13"
+  }
+}

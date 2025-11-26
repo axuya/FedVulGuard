@@ -16,3 +16,42 @@ venv/
 # === 大日志（可选）===
 logs/
 *.log*.json
+
+
+# Ignore raw & processed data
+data/
+datasets/
+logs/
+outputs/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Large files
+*.jsonl
+*.log
+*.csv
+*.parquet
+
+# Environment / venv
+.env
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Node modules
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Slither / solc cache
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/

@@ -7,25 +7,25 @@ scan_config:
   chains:
     ethereum:
       api_url: "https://api.etherscan.io/v2/api"
-      api_key: "key1,key2,key3"  # 从 https://etherscan.io/myapikey 获取
+      api_key: "GCMUJ3I33VQDNSGXYD85XJY84U545QPWS5,C5TYC9P25VCDRJUDTG8XKS6KUH4KVE8GKK,HPXKUXU7B9KEAQ1UI34VZ6A97RFASH3ID4"  # 从 https://etherscan.io/myapikey 获取
       explorer_url: "https://etherscan.io"
       note: "Free: 5 req/sec, 100k req/day"
     
     bsc:
       api_url: "https://api.bscscan.com/api"
-      api_key: "key1,key2,key3" 
+      api_key: "GCMUJ3I33VQDNSGXYD85XJY84U545QPWS5,C5TYC9P25VCDRJUDTG8XKS6KUH4KVE8GKK,HPXKUXU7B9KEAQ1UI34VZ6A97RFASH3ID4"
       explorer_url: "https://bscscan.com"
       note: "Free: 5 req/sec, 100k req/day | Same key as Etherscan"
     
     polygon:
       api_url: "https://api.polygonscan.com/api"
-      api_key: "key1,key2,key3"  
+      api_key: "GCMUJ3I33VQDNSGXYD85XJY84U545QPWS5,C5TYC9P25VCDRJUDTG8XKS6KUH4KVE8GKK,HPXKUXU7B9KEAQ1UI34VZ6A97RFASH3ID4"
       explorer_url: "https://polygonscan.com"
       note: "Free: 5 req/sec, 100k req/day | Same key as Etherscan"
     
     avalanche:
       api_url: "https://api.snowtrace.io/api"
-      api_key: "key1,key2,key3"  
+      api_key: "rs_d5a04a3bb6b42d63cf24641c,rs_fff0ed0c4bb42f074b6401ac,rs_c23b94a209071c5dac074214"  
       explorer_url: "https://snowtrace.io"
       note: "Free: 5 req/sec | May need separate key"
 

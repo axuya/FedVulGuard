@@ -1,0 +1,2 @@
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+nohup python src/data_collection/etherscan_crawler.py     --chain ethereum     --scan     --start 16000000     --end 17000000     --limit 10000     --batch 1000 > eth10k_resume.log 2>&1 &

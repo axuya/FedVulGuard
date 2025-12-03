@@ -7,8 +7,8 @@ RAW_DIR = Path("data/raw")
 OUT_DIR = Path("data/graphs_cfg")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-CHAINS = ["Arbitrum"]
-
+#CHAINS = ["Arbitrum"]
+CHAINS = ["BSC", "Ethereum", "Polygon", "Avalanche", "Fantom", "Arbitrum"]
 
 def safe_str(obj):
     """Convert any Slither object into JSON-safe string."""

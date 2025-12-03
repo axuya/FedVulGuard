@@ -6,8 +6,8 @@ ROOT = "data/raw"
 OUT = "data/graphs_ast"
 os.makedirs(OUT, exist_ok=True)
 
-CHAINS = ["BSC","Ethereum"]
-#CHAINS = ["BSC", "Ethereum", "Polygon", "Avalanche", "Fantom", "Arbitrum"]
+#CHAINS = ["BSC","Ethereum"]
+CHAINS = ["BSC", "Ethereum", "Polygon", "Avalanche", "Fantom", "Arbitrum"]
 
 JS_AST = "scripts/parse_ast_node.js"
 

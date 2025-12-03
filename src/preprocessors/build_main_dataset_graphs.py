@@ -1,181 +1,85 @@
-#!/usr/bin/env python3
-"""
-为主数据集（SmartBugs + SolidiFI）构建图
-用于 Phase 3-5 的主模型训练
-"""
-
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-from src.preprocessing.simple_graph_builder import SimpleGraphBuilder
+import os
 import json
 from tqdm import tqdm
 
-def collect_main_dataset():
-    """收集所有主数据集合约"""
-    
-    contracts = []
-    
-    # 从 SmartBugs 收集
-    smartbugs_dir = Path("/home/xu/FedVulGuard/data/raw/smartbugs/smartbugs")
-    if smartbugs_dir.exists():
-        print(f"📂 Scanning SmartBugs: {smartbugs_dir}")
-        for sol_file in smartbugs_dir.rglob("*.sol"):
-            try:
-                with open(sol_file, 'r', encoding='utf-8', errors='ignore') as f:
-                    code = f.read()
-                
-                # 推断漏洞类型（从路径）
-                vuln_type = 'unknown'
-                path_str = str(sol_file).lower()
-                if 'reentrancy' in path_str:
-                    vuln_type = 'reentrancy'
-                elif 'overflow' in path_str or 'arithmetic' in path_str:
-                    vuln_type = 'overflow'
-                elif 'access' in path_str:
-                    vuln_type = 'access_control'
-                elif 'unchecked' in path_str:
-                    vuln_type = 'unchecked_call'
-                elif 'timestamp' in path_str or 'time' in path_str:
-                    vuln_type = 'timestamp'
-                elif 'tx_origin' in path_str or 'txorigin' in path_str:
-                    vuln_type = 'tx_origin'
-                
-                contracts.append({
-                    'contract_id': f"smartbugs_{sol_file.stem}",
-                    'code': code,
-                    'vulnerability_type': vuln_type,
-                    'source': 'smartbugs',
-                    'filename': sol_file.name
-                })
-                
-            except Exception as e:
-                print(f"⚠️  Error reading {sol_file}: {e}")
-    
-    # 从 SolidiFI 收集
-    solidifi_dir = Path("/home/xu/FedVulGuard/data/raw/solidifi")
-    if solidifi_dir.exists():
-        print(f"📂 Scanning SolidiFI: {solidifi_dir}")
-        for sol_file in solidifi_dir.rglob("*.sol"):
-            try:
-                with open(sol_file, 'r', encoding='utf-8', errors='ignore') as f:
-                    code = f.read()
-                
-                vuln_type = 'unknown'
-                path_str = str(sol_file).lower()
-                if 'reentrancy' in path_str:
-                    vuln_type = 'reentrancy'
-                elif 'overflow' in path_str:
-                    vuln_type = 'overflow'
-                elif 'access' in path_str:
-                    vuln_type = 'access_control'
-                
-                contracts.append({
-                    'contract_id': f"solidifi_{sol_file.stem}",
-                    'code': code,
-                    'vulnerability_type': vuln_type,
-                    'source': 'solidifi',
-                    'filename': sol_file.name
-                })
-                
-            except Exception as e:
-                print(f"⚠️  Error reading {sol_file}: {e}")
-    
-    print(f"\n✅ Collected {len(contracts)} contracts")
-    return contracts
+AST_DIR = "data/graphs_ast"
+CFG_DIR = "data/graphs_cfg"
+DFG_DIR = "data/graphs_dfg"
+OUT_DIR = "data/graphs_raw"
 
 
-def build_main_dataset_graphs():
-    """构建主数据集的图"""
-    
-    print("="*70)
-    print("🔧 Building Graphs for Main Dataset")
-    print("="*70)
-    
-    # 收集合约
-    contracts = collect_main_dataset()
-    
-    if not contracts:
-        print("\n❌ No contracts found!")
-        print("💡 Please check:")
-        print("   - data/smartbugs/ exists and contains .sol files")
-        print("   - data/solidifi/ exists and contains .sol files")
+def stream_jsonl(path):
+    """流式读取 jsonl"""
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                yield json.loads(line)
+
+
+def ensure_dirs():
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+
+def merge_records(ast_item, cfg_item, dfg_item):
+    """
+    合并一条记录成为 MGVD 结构
+    """
+
+    # 校验 ID 是否一致（如不一致，至少检查 chain）
+    chain = ast_item.get("chain") or cfg_item.get("chain") or dfg_item.get("chain")
+
+    return {
+        "id": ast_item.get("id"),
+        "chain": chain,
+
+        # AST 整体结构
+        "ast": ast_item.get("ast", {}),
+
+        # CFG 边
+        "cfg_edges": cfg_item.get("cfg_edges", []),
+        "functions": cfg_item.get("functions", []),
+
+        # DFG 边
+        "dfg_edges": dfg_item.get("dfg_edges", []),
+        "variables": dfg_item.get("variables", []),
+    }
+
+
+def process_chain(chain):
+    print(f"[START MGVD MERGE] {chain}")
+
+    ast_path = f"{AST_DIR}/{chain}.jsonl"
+    cfg_path = f"{CFG_DIR}/{chain}.jsonl"
+    dfg_path = f"{DFG_DIR}/{chain}.jsonl"
+    out_path = f"{OUT_DIR}/{chain}.jsonl"
+
+    # 如果某链没有某个文件则跳过
+    if not (os.path.exists(ast_path) and os.path.exists(cfg_path) and os.path.exists(dfg_path)):
+        print(f"[SKIP] Missing files for {chain}")
         return
-    
-    # 初始化图构建器（输出到不同目录）
-    builder = SimpleGraphBuilder(output_dir="data/graphs/main_dataset")
-    
-    # 构建图
-    results = []
-    success_count = 0
-    
-    for contract in tqdm(contracts, desc="Building graphs"):
-        contract_id = contract['contract_id']
-        
-        try:
-            graphs = builder.build_all_graphs(contract['code'], contract_id)
-            
-            # 保存
-            output_path = builder.output_dir / f"{contract_id}.json"
-            builder.save_graphs(graphs, output_path)
-            
-            results.append({
-                'contract_id': contract_id,
-                'vulnerability_type': contract['vulnerability_type'],
-                'source': contract['source'],
-                'filename': contract['filename'],
-                'graph_path': str(output_path),
-                'metadata': graphs['metadata']
-            })
-            
-            success_count += 1
-            
-        except Exception as e:
-            print(f"\n⚠️  Error processing {contract_id}: {e}")
-    
-    # 保存索引
-    index_path = builder.output_dir / 'main_dataset_index.json'
-    with open(index_path, 'w') as f:
-        json.dump(results, f, indent=2)
-    
-    # 统计
-    print("\n" + "="*70)
-    print("📊 Main Dataset Graph Building Results")
-    print("="*70)
-    print(f"Total contracts: {len(contracts)}")
-    print(f"Successfully built: {success_count}")
-    print(f"Failed: {len(contracts) - success_count}")
-    print(f"Success rate: {success_count/len(contracts)*100:.1f}%")
-    
-    # 漏洞类型分布
-    from collections import Counter
-    vuln_dist = Counter(r['vulnerability_type'] for r in results)
-    print(f"\n🔖 Vulnerability Distribution:")
-    for vtype, count in vuln_dist.most_common():
-        print(f"   {vtype:20s}: {count:3d}")
-    
-    print(f"\n✅ Graphs saved to: {builder.output_dir}")
-    print(f"📋 Index saved to: {index_path}")
-    
-    return results
+
+    with open(out_path, "w", encoding="utf-8") as fout:
+        for ast_item, cfg_item, dfg_item in tqdm(
+            zip(stream_jsonl(ast_path), stream_jsonl(cfg_path), stream_jsonl(dfg_path)),
+            desc=f"Merging {chain}"
+        ):
+            merged = merge_records(ast_item, cfg_item, dfg_item)
+            fout.write(json.dumps(merged) + "\n")
+
+    print(f"[OK] MGVD Built → {out_path}")
 
 
 def main():
-    print("""
-    ╔══════════════════════════════════════════════════════════╗
-    ║    Main Dataset Graph Builder (SmartBugs + SolidiFI)    ║
-    ╚══════════════════════════════════════════════════════════╝
-    """)
-    
-    results = build_main_dataset_graphs()
-    
-    if results:
-        print("\n💡 Next Steps:")
-        print("   1. 使用 SPC 检测器清洗数据")
-        print("   2. 提取图特征")
-        print("   3. 划分训练/验证/测试集")
-        print("   4. 开始训练 MGVD 模型 (Phase 3)")
+    ensure_dirs()
+
+    chains = [
+        f.split(".")[0]
+        for f in os.listdir(AST_DIR)
+        if f.endswith(".jsonl")
+    ]
+
+    for chain in chains:
+        process_chain(chain)
 
 
 if __name__ == "__main__":

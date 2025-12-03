@@ -1,48 +1,120 @@
-# src/preprocessing/build_graphs.py
-
+import os
 import json
-import sys
-from pathlib import Path
+from tqdm import tqdm
+from collections import defaultdict
 
-# 添加项目根目录到 Python 模块搜索路径
-project_root = Path(__file__).resolve().parent.parent.parent
-sys.path.insert(0, str(project_root))
+AST_DIR = "data/graphs_ast"
+CFG_DIR = "data/graphs_cfg"
+OUT_DIR = "data/graphs_dfg"
+RAW_DIR = "data/raw"
 
-from src.core.statement_graph import StatementGraphExtractor
 
-def build_statement_graphs(graphs_dir: Path, output_dir: Path):
+def stream_jsonl(path):
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                yield json.loads(line)
+
+
+def extract_identifier_tokens(ast_node, source, results, node_counter):
     """
-    从 SmartBugs 图文件中提取 statement graphs
+    从 AST 节点中识别 identifier，并根据 start/end 位置从源码中切片。
     """
-    extractor = StatementGraphExtractor(context_length=2)
-    graph_files = list(graphs_dir.glob("*.json"))
-    output_dir.mkdir(parents=True, exist_ok=True)
+    if not isinstance(ast_node, dict):
+        return node_counter
 
-    for graph_file in graph_files:
-        with open(graph_file, 'r') as f:
-            data = json.load(f)
-        
-        # 检查数据格式
-        if "graphs" not in data:
-            print(f"Warning: {graph_file.name} does not contain 'graphs' key. Skipping...")
-            continue
-        
-        pdg = data["graphs"].get("pdg", {})
-        ast = data["graphs"].get("ast", {})
-        
-        if not pdg or not ast:
-            print(f"Warning: {graph_file.name} does not contain valid PDG or AST. Skipping...")
-            continue
-        
-        statement_graphs = extractor.extract_from_function(pdg, ast)
-        
-        output_file = output_dir / f"{data['contract_id']}_statement_graphs.json"
-        with open(output_file, 'w') as f:
-            json.dump(statement_graphs, f, indent=2)
-        
-        print(f"Processed {graph_file.name} -> {output_file.name}")
+    # 检测 identifier 节点
+    if ast_node.get("type") == "identifier":
+        start = ast_node["startPosition"]
+        end = ast_node["endPosition"]
+
+        # 切出变量名：使用行列信息
+        try:
+            # 按行拆分源代码
+            lines = source.split("\n")
+            line = lines[start["row"]]
+            name = line[start["column"]:end["column"]]
+        except Exception:
+            name = None
+
+        if name and name.isidentifier():
+            results[name].append(node_counter)
+            node_counter += 1
+
+    # 递归遍历
+    for v in ast_node.values():
+        if isinstance(v, dict):
+            node_counter = extract_identifier_tokens(v, source, results, node_counter)
+        elif isinstance(v, list):
+            for item in v:
+                if isinstance(item, dict):
+                    node_counter = extract_identifier_tokens(item, source, results, node_counter)
+
+    return node_counter
+
+
+def build_dfg(identifier_map):
+    """
+    def-use edges based on order of appearance
+    """
+    edges = []
+    for var, nodes in identifier_map.items():
+        if len(nodes) > 1:
+            for i in range(len(nodes) - 1):
+                edges.append({"src": nodes[i], "dst": nodes[i+1], "var": var})
+    return edges
+
+
+def load_source(path):
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        return f.read()
+
+
+def process_record(ast_item, cfg_item):
+    """
+    处理单条记录：使用 AST + 源代码 提取变量引用
+    """
+    src_path = ast_item["id"]
+    source = load_source(src_path)
+
+    identifier_map = defaultdict(list)
+    node_counter = 0
+
+    # 提取变量引用
+    node_counter = extract_identifier_tokens(
+        ast_item["ast"], source, identifier_map, node_counter
+    )
+
+    # 构建 DFG
+    dfg_edges = build_dfg(identifier_map)
+
+    return {
+        "id": ast_item["id"],
+        "chain": ast_item.get("chain"),
+        "variables": list(identifier_map.keys()),
+        "dfg_edges": dfg_edges
+    }
+
+
+def main():
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    chains = [f.split(".")[0] for f in os.listdir(AST_DIR) if f.endswith(".jsonl")]
+
+    for chain in chains:
+        ast_path = f"{AST_DIR}/{chain}.jsonl"
+        cfg_path = f"{CFG_DIR}/{chain}.jsonl"
+        out_path = f"{OUT_DIR}/{chain}.jsonl"
+
+        print(f"[START DFG] {chain}")
+
+        with open(out_path, "w", encoding="utf-8") as fout:
+            for ast_item, cfg_item in tqdm(zip(stream_jsonl(ast_path), stream_jsonl(cfg_path))):
+                result = process_record(ast_item, cfg_item)
+                fout.write(json.dumps(result) + "\n")
+
+        print(f"[OK] DFG Built → {out_path}")
+
 
 if __name__ == "__main__":
-    graphs_dir = Path("data/graphs/smartbugs")
-    output_dir = Path("data/graphs/statement_graphs")
-    build_statement_graphs(graphs_dir, output_dir)
+    main()

@@ -15,7 +15,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 CHAINS = ["BSC","Ethereum"]
 #CHAINS = ["BSC", "Ethereum", "Polygon", "Avalanche", "Fantom", "Arbitrum"]
-#重新跑BSC和ETH，Arbitrum都MV到graphs_ast_raw去了
+#重新跑BSC和ETH，Arbitrum都MV到graphs_ast_raw去了 这个不对 用ast_node来跑
 def build_graph(node, node_list, edge_list, parent_id=None):
     node_id = len(node_list)
     node_list.append({

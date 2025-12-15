@@ -55,3 +55,18 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+
+data/
+node_modules/
+models/
+results/
+logs/
+*.pt
+*.pth
+*.ckpt
+*.png
+*.zip
+*.parquet
+__pycache__/
+.ipynb_checkpoints/

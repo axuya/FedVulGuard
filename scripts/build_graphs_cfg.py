@@ -7,11 +7,10 @@ RAW_DIR = Path("data/raw")
 OUT_DIR = Path("data/graphs_cfg")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-#CHAINS = ["Arbitrum"]
 CHAINS = ["BSC", "Ethereum", "Polygon", "Avalanche", "Fantom", "Arbitrum"]
 
+
 def safe_str(obj):
-    """Convert any Slither object into JSON-safe string."""
     try:
         return str(obj)
     except:
@@ -22,11 +21,10 @@ def safe_str(obj):
 
 
 def safe_filename(f):
-    """Convert Filename object to string path."""
     try:
-        if hasattr(f,"used"):
+        if hasattr(f, "used"):
             return f.used
-        if hasattr(f,"ralative"):
+        if hasattr(f, "ralative"):
             return f.ralative
         return str(f)
     except:
@@ -34,76 +32,82 @@ def safe_filename(f):
 
 
 def build_cfg_for_file(sol_path: str):
+    """Build a single unified CFG for the whole file (multi-contract, multi-function)."""
+
     try:
         sl = Slither(sol_path)
     except Exception:
-        return []
+        return None
 
-    graphs = []
+    all_nodes = []
+    all_edges = []
 
+    # global id counter across all functions
+    gid = 0
+
+    # Loop contracts
     for c in sl.contracts:
+        # Loop functions
         for f in c.functions_declared:
-            nodes = []
-            edges = []
+            local_to_global = {}
 
-            # build nodes
+            # Build nodes
             for bb in f.nodes:
-                node_id = len(nodes)
+                global_id = gid
+                gid += 1
 
-                # Safe source mapping
                 sm = bb.source_mapping
                 source_mapping = {
                     "filename": safe_filename(sm.filename),
                     "lines": sm.lines if isinstance(sm.lines, list) else []
                 }
 
-                nodes.append({
-                    "id": node_id,
+                all_nodes.append({
+                    "id": global_id,
+                    "contract": c.name,
+                    "function": f.full_name,
                     "type": safe_str(bb.type),
                     "expression": safe_str(bb.expression),
                     "source_mapping": source_mapping
                 })
 
-                # tag temporary ID
-                bb._tmp_id = node_id
+                local_to_global[bb] = global_id
 
-            # build edges
+            # Build edges
             for bb in f.nodes:
                 for succ in bb.sons:
-                    edges.append({
-                        "src": bb._tmp_id,
-                        "dst": succ._tmp_id,
+                    all_edges.append({
+                        "src": local_to_global[bb],
+                        "dst": local_to_global[succ],
                         "type": "CFG_EDGE"
                     })
 
-            graphs.append({
-                "contract": c.name,
-                "function": f.full_name,
-                "nodes": nodes,
-                "edges": edges
-            })
+    # If empty, return None
+    if len(all_nodes) == 0:
+        return None
 
-    return graphs
+    return {
+        "nodes": all_nodes,
+        "edges": all_edges
+    }
 
 
+# Main executor
 for chain in CHAINS:
     out_file = OUT_DIR / f"{chain}.jsonl"
     chain_dir = RAW_DIR / chain
 
     with out_file.open("w", encoding="utf8") as fout:
-
-        # iterate .sol files
-        for sol_file in tqdm(chain_dir.glob("*.sol")):
-            graphs = build_cfg_for_file(str(sol_file))
-            if not graphs:
+        for sol_file in tqdm(chain_dir.glob("*.sol"), desc=f"Building CFG {chain}"):
+            cfg_graph = build_cfg_for_file(str(sol_file))
+            if cfg_graph is None:
                 continue
 
-            for g in graphs:
-                item = {
-                    "id": str(sol_file),
-                    "chain": chain,
-                    "cfg": g
-                }
-                fout.write(json.dumps(item) + "\n")
+            item = {
+                "id": sol_file.stem,  # match AST/DFG id
+                "chain": chain,
+                "graph": cfg_graph
+            }
+            fout.write(json.dumps(item) + "\n")
 
-    print(f"[OK] CFG Built: {out_file}")
+    print(f"[OK] CFG Built → {out_file}")

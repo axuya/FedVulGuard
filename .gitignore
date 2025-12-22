@@ -1,72 +1,45 @@
-# === 不能传的 ===
-configs/data_collection.yaml          # 含 API Key
+# ========== 机密 & 凭证 ==========
+configs/data_collection.yaml   # 含 API Key
 *.key
 *.env
 .env
-# 忽略 data/graphs 目录下所有 filtered_xxxx.json 文件
-data/graphs/filtered_*.json
 
-# === 不用的缓存 ===
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
-venv/
-.venv/
-
-# === 大日志（可选）===
-logs/
-*.log*.json
-
-
-# Ignore raw & processed data
+# ========== 整个目录直接忽略 ==========
+config/               # 根目录下的 config 文件夹（含子目录）
 data/
 datasets/
 logs/
 outputs/
+models/
+results/
+node_modules/
+CodeBert/
+tree-sitter-solidity/
+.cache/
+.ipynb_checkpoints/
 
-# Python caches
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Large files
+# ========== 通配大文件 ==========
 *.jsonl
 *.log
 *.csv
 *.parquet
-
-# Environment / venv
-.env
-.venv/
-env/
-venv/
-*.egg-info/
-
-# Node modules
-node_modules/
-
-# OS junk
-.DS_Store
-Thumbs.db
-
-# Slither / solc cache
-.cache/
-
-# Jupyter
-.ipynb_checkpoints/
-
-
-data/
-node_modules/
-models/
-results/
-logs/
 *.pt
 *.pth
 *.ckpt
 *.png
 *.zip
-*.parquet
+
+# ========== Python 缓存 ==========
 __pycache__/
-.ipynb_checkpoints/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# ========== OS 垃圾 ==========
+.DS_Store
+Thumbs.db
+
+# ========== 其他 ==========
+data/graphs/filtered_*.jsonCodebert/
+CodeBert/

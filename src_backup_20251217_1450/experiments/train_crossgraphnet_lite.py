@@ -17,7 +17,6 @@ from torch_geometric.data import Data, Batch
 
 from src.crossgraphnet.models.crossgraphnet_lite import CrossGraphNetLite
 
-
 # -------------------------
 # Utility: metrics
 # -------------------------
@@ -254,7 +253,8 @@ def main():
     # Recommended: use your aligned multigraph output jsonl(s)
     # -------------------------
     DATA_PATHS = [
-        Path("data/train/crossgraphnet_lite/Ethereum.jsonl"),
+        Path("data/train/crossgraphnet_lite_labeled/Ethereum.jsonl"),
+        #Path("data/train/crossgraphnet_lite_labeled/BSC.jsonl"),
         # Path("data/graphs_multigraph_uid/BSC.jsonl"),
         # Path("data/graphs_multigraph_uid/Polygon.jsonl"),
     ]
@@ -265,7 +265,7 @@ def main():
 
     # Example split:
     # Train/Val on Ethereum, Test on other chains: build separate datasets/loaders
-    train_ds = MultiGraphJsonlDataset(DATA_PATHS, chains_keep={"Ethereum"})
+    train_ds = MultiGraphJsonlDataset(DATA_PATHS, chains_keep=None)
     
     train_ds.items = train_ds.items[:1000]#限制样本数为1000，用于pipeline的验证
     
@@ -298,16 +298,17 @@ def main():
     else:
         criterion = nn.CrossEntropyLoss()
 
-    model = CrossGraphNetLite(
-        num_ast_types=len(ast_vocab),
-        num_cfg_types=len(cfg_vocab),
-        emb_dim=cfg.emb_dim,
-        hidden_dim=cfg.hidden_dim,
-        gnn_layers=cfg.gnn_layers,
-        dropout=cfg.dropout,
-        num_classes=cfg.num_classes,
-        use_gated_fusion=cfg.use_gated_fusion,
-    ).to(device)
+    model_cfg = CrossGraphNetLiteConfig(
+    num_node_types_ast=len(ast_vocab),
+    num_node_types_cfg=len(cfg_vocab),
+    emb_dim=cfg.emb_dim,
+    hidden_dim=cfg.hidden_dim,
+    num_layers=cfg.gnn_layers,
+    dropout=cfg.dropout,
+    num_classes=cfg.num_classes,
+    )
+
+    model = CrossGraphNetLite(model_cfg).to(device)
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
     scaler = GradScaler(enabled=(device.type == "cuda"))

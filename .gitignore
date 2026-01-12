@@ -43,3 +43,15 @@ Thumbs.db
 # ========== 其他 ==========
 data/graphs/filtered_*.jsonCodebert/
 CodeBert/
+
+# data & logs
+data/
+logs/
+*.jsonl
+*.csv
+figs*/
+*.png
+*.pdf
+*.pt
+*.pth
+*.ckpt

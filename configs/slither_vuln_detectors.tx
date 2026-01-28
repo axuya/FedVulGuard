@@ -1,0 +1,16 @@
+# === Reentrancy & ETH transfer ===
+reentrancy-eth
+unchecked-transfer
+arbitrary-send-eth
+locked-ether
+return-bomb
+
+# === Low-level call risks ===
+
+
+# === Initialization / state ===
+uninitialized-state
+uninitialized-local
+
+# === Other security-critical ===
+weak-prng

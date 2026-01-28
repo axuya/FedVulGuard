@@ -65,8 +65,8 @@ def prepare_federated_context(
 ) -> None:
     global _CTX
 
-    if semantic_mode not in ("stats", "codebert_frozen"):
-        raise ValueError(f"semantic_mode must be stats|codebert_frozen, got {semantic_mode}")
+    if semantic_mode not in ("none","stats", "llm"):
+        raise ValueError(f"semantic_mode must be none|stats|llm, got {semantic_mode}")
 
     data_root_p = Path(data_root)
     emb_root_p = Path(emb_root)
@@ -101,9 +101,11 @@ def build_model(semantic_mode: str, **kwargs) -> Any:
     if _CTX is None:
         raise RuntimeError("Call prepare_federated_context(...) before build_model().")
 
-    if semantic_mode == "stats":
+    if semantic_mode == "none":
+        sem_dim = 0
+    elif semantic_mode == "stats":
         sem_dim = 8
-    elif semantic_mode == "codebert_frozen":
+    elif semantic_mode == "llm":
         sem_dim = 768
     else:
         raise ValueError(f"Unknown semantic_mode={semantic_mode}")
@@ -138,10 +140,13 @@ def build_loaders(chain: str, semantic_mode: str, **kwargs) -> Tuple[Any, Any, i
     g = torch.Generator().manual_seed(_CTX.seed)
     train_ds, test_ds = random_split(full_ds, [n_train, n_test], generator=g)
 
-    if semantic_mode == "stats":
+    if semantic_mode == "none":
+        sem_mode = "none"
+        emb_dir = None
+    elif semantic_mode == "stats":
         sem_mode = "stats"
         emb_dir = None
-    elif semantic_mode == "codebert_frozen":
+    elif semantic_mode == "llm":
         sem_mode = "llm"
         emb_dir = str(_resolve_emb_dir(_CTX.emb_root, chain))
     else:
